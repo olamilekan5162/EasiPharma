@@ -1,6 +1,3 @@
-Can you check this file tree if it is something that looks like what we discussed yesterday night 
-
-```/pharmacy-inventory
 │── /src
 │   ├── /components
 │   │   ├── AdminDashboard.jsx
