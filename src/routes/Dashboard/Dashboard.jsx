@@ -9,6 +9,7 @@ import {
   CiCircleList as Stafficon,
   CiSettings as Settingicon,
 } from "react-icons/ci";
+import Button from "../../components/UI/Button";
 
 const Dashboard = () => {
   return (
@@ -50,7 +51,9 @@ const Dashboard = () => {
 
         <div className="D_btn">
           <a href="#">
-            <button>Sign Out</button>
+          <Button variant="primary" onClick={() => alert("Clicked!")}>
+        Sign Out 
+      </Button>
           </a>
         </div>
       </div>
