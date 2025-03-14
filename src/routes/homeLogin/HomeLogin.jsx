@@ -1,6 +1,10 @@
 import "./homeLogin.css";
+import { FaPrescriptionBottleMedical, FaArrowRightToBracket } from "react-icons/fa6";
 import { useState } from "react"
-import { Spinner } from "../components/UI/Spinner"
+import { auth } from "../../utils/firebaseConfig.js"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { useNavigate } from 'react-router-dom'
+import  Spinner  from "../../components/UI/Spinner"
 
 const HomeLogin = () => {
   const [loading, setLoading] = useState(false)
@@ -14,13 +18,13 @@ const  handleLogin = () => {
     <section className="login_container">
       <div className="login_hero">
         <h2>EasiPharma</h2>
-        <FontAwesomeIcon icon={faPrescriptionBottleMedical} />
+        <FaPrescriptionBottleMedical />
       </div>
       <div className="login_wrapper">
         <div className="login_card">
           <div>
             <div className="icon">
-              <FontAwesomeIcon icon={faRightToBracket} />
+              <FaArrowRightToBracket />
             </div>
 
             <p>Sign in with your User ID and password</p>

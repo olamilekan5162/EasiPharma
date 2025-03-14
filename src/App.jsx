@@ -7,15 +7,15 @@ function App() {
   
   const router = createBrowserRouter([
     {
-      path: "HomeLogin",
+      path: "/",
       element: <HomeLogin />,
     },
     {
-      path: "/",
+      path: "dashboard",
       element: <Dashboard />
     },
     {
-      path: "Stocks",
+      path: "stocks",
       element: <Stocks />
     }
     ])
