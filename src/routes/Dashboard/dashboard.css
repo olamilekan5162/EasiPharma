@@ -1,6 +1,6 @@
 .dashboard{
     display: grid;
-    grid-template-columns: minmax(200px, 25%) 1fr;
+    grid-template-columns: minmax(200px, 20%) 1fr;
     min-height: 100vh;
 }
 
@@ -8,6 +8,85 @@
     background-color: var(--alt-color);
 }
 
+.dashboard_hero{
+    border-bottom: 2px solid rgb(117, 116, 116);
+}
+
+.D_hero_text{
+    padding: 2rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    font-size: clamp(1rem, 2vw, 3.5rem);
+}
+
+.boxes{
+    padding: 0 1.5rem;
+}
+
+.sidebox{
+    padding: .75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin: .75rem 0;
+    border-radius: .75rem;
+    color: rgba(0, 0, 0, 0.911);
+    cursor: pointer;
+}
+
+.sidetext{
+    font-weight: 800;
+}
+
+.sidebox .icon{
+    font-size: 1.5rem;
+}
+
+.sidebox:hover, .sidebox:focus{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+} 
+
+.sidebox.active{
+    background-color: var(--primary-color);
+}
+
+.icon.active, .sidetext.active{
+    color: var(--secondary-color);
+}
+
+.setbox{
+    border-top: 2px solid rgb(117, 116, 116);
+    padding: .5rem 1.5rem;
+}
+
+.D_btn{
+    margin: 0 .5rem;
+}
+
+button{
+    width: 100%;
+    font-size: 1.5rem;
+    margin: .5rem 0;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: .75rem;
+    padding: .5rem 0;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+button:hover, button:focus{
+    background-color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+
+
+
+
 .mainbar{
-    background-color: green;
+    background-color: white;
 }
