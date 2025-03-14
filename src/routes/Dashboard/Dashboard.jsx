@@ -1,5 +1,5 @@
 import "./dashboard.css";
-import { useNavigate } from 'react-router-dom'
+import { outlet, Link, useNavigate } from 'react-router-dom'
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
