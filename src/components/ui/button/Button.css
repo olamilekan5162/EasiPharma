@@ -26,12 +26,21 @@
 }
 
 .btn.secondary {
-  background-color: var(--secondary-color);
-  color: white;
+   width: 100%;
+    font-size: 1.5rem;
+    margin: .5rem 0;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: .75rem;
+    padding: .5rem 0;
+    color: var(--primary-color);
+    cursor: pointer;
 }
 
-.btn.secondary:hover {
-  background-color: var(--secondary-color);
+.btn.secondary:hover, .btn.secondary:focus {
+  background-color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .btn.disabled {
