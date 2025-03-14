@@ -3,6 +3,13 @@ import { useState } from "react"
 import { Spinner } from "../components/UI/Spinner"
 
 const HomeLogin = () => {
+  const [loading, setLoading] = useState(false)
+const  handleLogin = () => {
+  setLoading(true)
+  setTimeout( () => {
+    setLoading(false)
+  }, 5000)
+}
   return (
     <section className="login_container">
       <div className="login_hero">
@@ -50,7 +57,7 @@ const HomeLogin = () => {
                   </select>
                 </div>
 
-              <div className="btn"><button type="submit" on> Sign In</button></div>
+              <div className="btn"><button type="submit" onClick={handleLogin}>{loading ? <Spinner loading={loading}/> : "Sign In"}</button></div>
               </fieldset>
             </form>
           </div>
