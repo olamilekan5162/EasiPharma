@@ -10,7 +10,7 @@ import {
   CiCircleList as Stafficon,
   CiSettings as Settingicon,
 } from "react-icons/ci";
-import Button from "../../components/UI/Button";
+import Button from "../../components/ui/button/Button";
 
 const Dashboard = () => {
   const navigate = useNavigate()
