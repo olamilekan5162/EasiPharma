@@ -14,18 +14,18 @@
   align-items: center;
 }
 
-.login_hero svg{
+.login_icon{
+  position: absolute;
+  bottom: 10px;
+  right: 0;
   color: var(--primary-color);
   font-size: 2rem;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 2rem;
-  animation: moveSVG 1s linear 10ms infinite forwards;
+  margin: 2rem;
+  animation: moveSVG 1s linear 10ms infinite forwards; 
 }
 
 .login_hero h2 {
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: 0;
   color: var(--alt-color);
@@ -44,10 +44,15 @@
   padding: 2rem;
 }
 
-.login_card svg{
+.login_card_icon{
   font-size: 2rem;
+  color: var(--alt-color-2);
+}
+
+.login_card span{
   background-color: var(--primary-color);
   padding: 1rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
 }
 
@@ -61,6 +66,7 @@
   font-weight: 700;
   color: black;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .login_card fieldset{
@@ -118,25 +124,6 @@
 .login_card .btn{
     display: flex;
   justify-content: center;
-}
-
-.login_card button{
-  width: 50%;
-  background-color: var(--primary-color);
-  border: 2px solid var(--secondary-color);
-  color: var(--secondary-color);
-  border-radius: 10px;
-  padding: .75rem;
-  margin: 1rem 0;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.login_card button:hover{
-  background-color: var(--secondary-color);
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
 }
 
 @keyframes moveSVG {
