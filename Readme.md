@@ -7,7 +7,7 @@
 │   │   ├── StockTable.jsx
 │   │   ├── AIRecommendations.jsx
 │   │   ├── ExpiryAlerts.jsx
-│   │   ├── UserManagement.jsx
+│   │   
 │   ├── /contexts
 │   │   ├── InventoryContext.jsx
 │   │   ├── AuthContext.jsx

@@ -1,4 +1,5 @@
 import "./dashboard.css";
+import { useNavigate } from 'react-router-dom'
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
@@ -9,8 +10,13 @@ import {
   CiCircleList as Stafficon,
   CiSettings as Settingicon,
 } from "react-icons/ci";
+import Button from "../../components/UI/Button";
 
 const Dashboard = () => {
+  const navigate = useNavigate()
+  const handleSignOut = () => {
+    navigate('/')
+  }
   return (
     <section className="dashboard">
       <div className="sidebar">
@@ -49,9 +55,9 @@ const Dashboard = () => {
         </div>
 
         <div className="D_btn">
-          <a href="#">
-            <button>Sign Out</button>
-          </a>
+          <Button variant="primary" onClick={handleSignOut}>
+        Sign Out 
+      </Button>
         </div>
       </div>
 
