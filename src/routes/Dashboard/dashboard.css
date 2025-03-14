@@ -1,0 +1,13 @@
+.dashboard{
+    display: grid;
+    grid-template-columns: minmax(200px, 25%) 1fr;
+    min-height: 100vh;
+}
+
+.sidebar{
+    background-color: var(--alt-color);
+}
+
+.mainbar{
+    background-color: green;
+}

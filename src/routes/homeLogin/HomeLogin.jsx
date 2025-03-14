@@ -1,6 +1,4 @@
 import "./homeLogin.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPrescriptionBottleMedical, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 
 const HomeLogin = () => {

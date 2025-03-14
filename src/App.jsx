@@ -1,22 +1,22 @@
 import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
-import Inventory from "../src/routes/inventory/Inventory"
-import AdminBoard from "../src/routes/adminBoard/AdminBoard"
+import Stocks from "./routes/Stocks/Stocks"
+import Dashboard from "./routes/Dashboard/Dashboard"
 import HomeLogin from "../src/routes/homeLogin/HomeLogin"
 
 function App() {
   
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "HomeLogin",
       element: <HomeLogin />,
     },
     {
-      path: "dashboard/:role",
-      element: <AdminBoard />
+      path: "/",
+      element: <Dashboard />
     },
     {
-      path: "inventory",
-      element: <Inventory />
+      path: "Stocks",
+      element: <Stocks />
     }
     ])
     
