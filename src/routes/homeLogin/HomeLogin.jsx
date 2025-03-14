@@ -25,13 +25,15 @@ const  handleLogin = () => {
     <section className="login_container">
       <div className="login_hero">
         <h2>EasiPharma</h2>
-        <FaPrescriptionBottleMedical />
+        <FaPrescriptionBottleMedical className="login_icon" />
       </div>
       <div className="login_wrapper">
         <div className="login_card">
           <div>
             <div className="icon">
-              <FaArrowRightToBracket />
+              <span>
+                <FaArrowRightToBracket className="login_card_icon"/>
+              </span>
             </div>
 
             <p>Sign in with your User ID and password</p>
