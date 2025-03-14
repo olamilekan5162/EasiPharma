@@ -1,7 +1,7 @@
 import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
-import Dashboard from "./routes/Dashboard/Dashboard"
 import HomeLogin from "./routes/homeLogin/HomeLogin"
-import Home from "./components/ui/home/Home"
+import Homepage from "./routes/homepage/Homepage"
+import Dashboard from "./components/ui/dashboard/Dashboard"
 import Distribution from "./components/ui/distribution/Distribution"
 import StaffList from "./components/ui/staffList/StaffList"
 import Stocks from "./components/ui/stocks/Stocks"
@@ -15,31 +15,31 @@ function App() {
       element: <HomeLogin />,
     },
     {
-      path: "dashboard",
-      element: <Dashboard />,
+      path: "homepage",
+      element: <Homepage />,
       children: [
         {
           index: true,
-          element: <Home />
+          element: <Dashboard />
         },
         {
-          path: "home"
-          element: <Home />
+          path: "dashboard",
+          element: <Dashboard />
         },
         {
-          path: "distribution"
+          path: "distribution",
           element: <Distribution />
         },
         {
-          path: "stafflist"
+          path: "stafflist",
           element: <StaffList />
         },
         {
-          path: "stocks"
+          path: "stocks",
           element: <Stocks />
         },
         {
-          path: "suppliers"
+          path: "suppliers",
           element: <Suppliers />
         }
         ]
