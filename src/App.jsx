@@ -14,10 +14,6 @@ function App() {
       path: "dashboard",
       element: <Dashboard />
     },
-    {
-      path: "stocks",
-      element: <Stocks />
-    }
     ])
     
   return (
