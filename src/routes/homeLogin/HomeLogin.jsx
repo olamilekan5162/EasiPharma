@@ -1,5 +1,6 @@
 import "./homeLogin.css";
-
+import { useState } from "react"
+import { Spinner } from "../components/UI/Spinner"
 
 const HomeLogin = () => {
   return (
@@ -49,7 +50,7 @@ const HomeLogin = () => {
                   </select>
                 </div>
 
-              <div className="btn"><button type="submit"> Sign In</button></div>
+              <div className="btn"><button type="submit" on> Sign In</button></div>
               </fieldset>
             </form>
           </div>
