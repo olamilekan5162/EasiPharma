@@ -7,11 +7,11 @@ function App() {
   
   const router = createBrowserRouter([
     {
-      path: "HomeLogin",
+      path: "/",
       element: <HomeLogin />,
     },
     {
-      path: "/",
+      path: "Dashboard",
       element: <Dashboard />
     },
     {

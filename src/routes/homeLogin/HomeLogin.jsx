@@ -1,18 +1,23 @@
 import "./homeLogin.css";
-
+import { BiHealth } from "react-icons/bi";
+import { GiHealthNormal } from "react-icons/gi";
 
 const HomeLogin = () => {
   return (
     <section className="login_container">
       <div className="login_hero">
         <h2>EasiPharma</h2>
-        <FontAwesomeIcon icon={faPrescriptionBottleMedical} />
+        <div className="login_icon">
+          <BiHealth className="healthicon" />
+        </div>
+        <GiHealthNormal />
       </div>
       <div className="login_wrapper">
         <div className="login_card">
           <div>
             <div className="icon">
-              <FontAwesomeIcon icon={faRightToBracket} />
+              <BiHealth className="iconic" />
+              <GiHealthNormal />
             </div>
 
             <p>Sign in with your User ID and password</p>
@@ -49,7 +54,9 @@ const HomeLogin = () => {
                   </select>
                 </div>
 
-              <div className="btn"><button type="submit"> Sign In</button></div>
+                <div className="btn">
+                  <button type="submit"> Sign In</button>
+                </div>
               </fieldset>
             </form>
           </div>
