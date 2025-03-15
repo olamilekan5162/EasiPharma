@@ -53,7 +53,7 @@ function App() {
               element: <Inventory />
             },
             {
-              path: "orderStock",
+              path: "orderstock",
               element: <OrderStock />
             }
             ]

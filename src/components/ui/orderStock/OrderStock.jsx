@@ -1,6 +1,6 @@
 const OrderStock = () => {
   return (
-    <h1>Distribution</h1>
+    <h1>Order Stock</h1>
     )
 }
 export default OrderStock;

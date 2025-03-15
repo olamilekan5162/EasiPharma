@@ -5,6 +5,7 @@ import "./stocks.css"
 import { MdOutlineNumbers as Hashicon } from "react-icons/md";
 import { BiSolidAnalyse as Analyicon } from "react-icons/bi";
 import { WiMoonFull as Doticon } from "react-icons/wi";
+import { NavLink, Outlet } from 'react-router-dom'
 
 const suppliers = ["Supplier A", "Supplier B", "Supplier C"];
 const Stocks = () => {
@@ -65,18 +66,18 @@ const Stocks = () => {
 
         <div className="stock_lowbar">
           <div className="stock_lowbar_link right_margin">
-            <a href="#">
+            <NavLink to="inventory">
               Inventory
-            </a>
+            </NavLink>
           </div>
 
           <div className="stock_lowbar_link">
-            <a href="">Order Stock</a>
+            <NavLink to="orderstock">Order Stock</NavLink>
           </div>
         </div>
       </div>
-
-      <Button onClick={() => setIsModalOpen(true)}>Add Stock</Button>
+      <Outlet />
+      {/*<Button onClick={() => setIsModalOpen(true)}>Add Stock</Button>*/}
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}></Modal>
     </section>
