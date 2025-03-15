@@ -5,7 +5,7 @@ import { auth } from "../../utils/firebaseConfig.js"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
 import  Spinner  from "../../components/spinner/Spinner"
-import Button from "../../components/ui/button/Button";
+import Button from "../../components/UI/button/Button.jsx";
 
 const HomeLogin = () => {
   const [loading, setLoading] = useState(false)
