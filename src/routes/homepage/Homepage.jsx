@@ -1,5 +1,5 @@
 import "./homepage.css";
-import { useNavigate } from 'react-router-dom'
+import { Outlet, Link, useNavigate } from 'react-router-dom'
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
@@ -37,31 +37,31 @@ const Homepage = () => {
 
         <div className="boxes">
           <div className="sidebox active">
-            <Dashboardicon className="icon active" />
-            <h1 className="sidetext active">Dashboard</h1>
+            <Dashboardicon className="icon" />
+            <Link to="dashboard" className="sidetext">Dashboard</Link>
           </div>
           <div className="sidebox">
             <Stockicon className="icon" />
-            <h1 className="sidetext">Stocks</h1>
+            <Link to="stocks" className="sidetext">Stocks</Link>
           </div>
           <div className="sidebox">
             <Distribeicon className="icon" />
-            <h1 className="sidetext">Distribution</h1>
+            <Link to="distribution" className="sidetext">Distribution</Link>
           </div>
           <div className="sidebox">
             <Suppliericon className="icon" />
-            <h1 className="sidetext">Suppliers</h1>
+            <Link to="suppliers" className="sidetext">Suppliers</Link>
           </div>
           <div className="sidebox">
             <Stafficon className="icon" />
-            <h1 className="sidetext">Staff list</h1>
+            <Link to="stafflist" className="sidetext">Staff list</Link>
           </div>
         </div>
 
         <div className="setbox">
           <div className="sidebox">
             <Settingicon className="icon" />
-            <h1 className="sidetext">Settings</h1>
+            <Link to="/homepage" className="sidetext">Settings</Link>
           </div>
         </div>
 
@@ -94,73 +94,7 @@ const Homepage = () => {
             <p>warning</p>
           </div>
         </div>
-
-        {/* Dashboard component, copy from here */}
-        <div className="H_mainbar">
-          <div className="H_mainbar_card">
-            <span>
-              <Storeicon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Total Stocks</p>
-            <p>100</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Checkouticon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Last Order</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Pendingicon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Pending Oder</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Warehouseicon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Check Stocks</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Inventoryicon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Check Inventory</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Stafficon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Staff list</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Suppliericon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Add Supplier</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Distribeicon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Distribution Records</p>
-          </div>
-
-          <div className="H_mainbar_card">
-            <span>
-              <Drugicon className="H_mainbar_icon" />
-            </span>
-            <p className="H_mainbar_text">Order Stocks</p>
-          </div>
-        </div>
+        <Outlet />
       </div>
     </section>
   );
