@@ -3,7 +3,7 @@ import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
 } from "react-icons/ai";
-import ManageStockModal from "../AddStock/AddStockModal";
+import ManageStockModal from "../addStock/AddStockModal";
 import { FaShareSquare as Distribeicon } from "react-icons/fa";
 import {
   MdOutlineSupportAgent as Suppliericon,
