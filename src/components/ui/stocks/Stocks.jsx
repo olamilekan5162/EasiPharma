@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../Modal/StockModal"; // Correct import name
+import Modal from "../Modal/StockModal"; 
 import Button from "../button/Button";
 
 const suppliers = ["Supplier A", "Supplier B", "Supplier C"];
@@ -36,30 +36,7 @@ const Stocks = () => {
 
       
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-      <h2>Order Stocks</h2>
-
-<label>Supplier:</label>
-<select value={selectedSupplier} onChange={(e) => setSelectedSupplier(e.target.value)}>
-  {suppliers.map((supplier, index) => (
-    <option key={index} value={supplier}>
-      {supplier}
-    </option>
-  ))}
-</select>
-
-<label>Stock Name:</label>
-<input type="text" value={stockName} onChange={(e) => setStockName(e.target.value)} />
-
-<label>Quantity:</label>
-<input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-
-<label>Delivery Date:</label>
-<input type="date" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
-
-<label>Price:</label>
-<input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
-
-< Button onClick={handleSubmit}>Confirm Order</Button>
+      
       </Modal>
     </div>
   );
