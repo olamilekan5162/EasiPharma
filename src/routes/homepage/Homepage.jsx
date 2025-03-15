@@ -1,5 +1,5 @@
 import "./homepage.css";
-import { Outlet, NavLink, Link,  useNavigate } from 'react-router-dom'
+import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,

@@ -6,6 +6,8 @@ import Distribution from "./components/ui/distribution/Distribution"
 import StaffList from "./components/ui/staffList/StaffList"
 import Stocks from "./components/ui/stocks/Stocks"
 import Suppliers from "./components/ui/suppliers/Suppliers"
+import Inventory from "./components/ui/inventory/Inventory"
+import OrderStock from "./components/ui/orderStock/OrderStock"
 
 function App() {
   
@@ -35,12 +37,26 @@ function App() {
           element: <StaffList />
         },
         {
-          path: "stocks",
-          element: <Stocks />
-        },
-        {
           path: "suppliers",
           element: <Suppliers />
+        },
+        {
+          path: "stocks",
+          element: <Stocks />,
+          children: [
+            {
+              index: true,
+              element: <Inventory />
+            },
+            {
+              path: "inventory",
+              element: <Inventory />
+            },
+            {
+              path: "orderStock",
+              element: <OrderStock />
+            }
+            ]
         }
         ]
     },
