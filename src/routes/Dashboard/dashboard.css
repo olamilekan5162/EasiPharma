@@ -108,11 +108,13 @@
     padding: 1.4rem;
     border: 2px solid var(--secondary-color);
     text-align: center;
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
 }
 
+/* Dashboard component styling starts from here, copy from here */
+
 .D_mainbar{
-    margin: 0 4rem;
+    margin: 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
