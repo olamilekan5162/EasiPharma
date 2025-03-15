@@ -38,7 +38,7 @@ const Modal = ({ isOpen, onClose }) => {
           &times;
         </button>
 
-        <h2>Order Stocks</h2>
+        <h2 className="order_text">Order Stocks</h2>
 
         <label>Supplier:</label>
         <select value={selectedSupplier} onChange={(e) => setSelectedSupplier(e.target.value)}>
