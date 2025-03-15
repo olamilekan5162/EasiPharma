@@ -36,33 +36,39 @@ const Homepage = () => {
         </div>
 
         <div className="boxes">
-          <div className="sidebox active">
+          <Link to="dashboard" className="sidelink active">
             <Dashboardicon className="icon" />
-            <Link to="dashboard" className="sidetext">Dashboard</Link>
-          </div>
-          <div className="sidebox">
+            <span className="sidetext">Dashboard</span>
+          </Link>
+
+          <Link to="stocks" className="sidelink">
             <Stockicon className="icon" />
-            <Link to="stocks" className="sidetext">Stocks</Link>
-          </div>
-          <div className="sidebox">
+            <span className="sidetext">Stocks</span>
+          </Link>
+
+          <Link to="distribution" className="sidelink">
             <Distribeicon className="icon" />
-            <Link to="distribution" className="sidetext">Distribution</Link>
-          </div>
-          <div className="sidebox">
+            <span className="sidetext">Distribution</span>
+          </Link>
+
+          <Link to="suppliers" className="sidelink">
             <Suppliericon className="icon" />
-            <Link to="suppliers" className="sidetext">Suppliers</Link>
-          </div>
-          <div className="sidebox">
+            <span className="sidetext">Suppliers</span>
+          </Link>
+
+          <Link to="stafflist" className="sidelink">
             <Stafficon className="icon" />
-            <Link to="stafflist" className="sidetext">Staff list</Link>
-          </div>
+            <span className="sidetext">Staff list</span>
+          </Link>
         </div>
 
         <div className="setbox">
-          <div className="sidebox">
-            <Settingicon className="icon" />
-            <Link to="/homepage" className="sidetext">Settings</Link>
-          </div>
+          
+            <Link to="/homepage" className="sidelink">
+              <Settingicon className="icon" />
+              <span className="sidetext">Settings</span>
+            </Link>
+        
         </div>
 
         <div className="H_btn">
