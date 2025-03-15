@@ -1,5 +1,5 @@
 import "./homepage.css";
-import { Outlet, Link, useNavigate } from 'react-router-dom'
+import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
@@ -36,30 +36,30 @@ const Homepage = () => {
         </div>
 
         <div className="boxes">
-          <Link to="dashboard" className="sidelink active">
+          <NavLink to="dashboard" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Dashboardicon className="icon" />
             <span className="sidetext">Dashboard</span>
-          </Link>
+          </NavLink>
 
-          <Link to="stocks" className="sidelink">
+          <NavLink to="stocks" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Stockicon className="icon" />
             <span className="sidetext">Stocks</span>
-          </Link>
+          </NavLink>
 
-          <Link to="distribution" className="sidelink">
+          <NavLink to="distribution" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Distribeicon className="icon" />
             <span className="sidetext">Distribution</span>
-          </Link>
+          </NavLink>
 
-          <Link to="suppliers" className="sidelink">
+          <NavLink to="suppliers" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Suppliericon className="icon" />
             <span className="sidetext">Suppliers</span>
-          </Link>
+          </NavLink>
 
-          <Link to="stafflist" className="sidelink">
+          <NavLink to="stafflist" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Stafficon className="icon" />
             <span className="sidetext">Staff list</span>
-          </Link>
+          </NavLink>
         </div>
 
         <div className="setbox">
