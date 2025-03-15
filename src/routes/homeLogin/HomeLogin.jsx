@@ -4,22 +4,37 @@ import { useState } from "react"
 import { auth } from "../../utils/firebaseConfig.js"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
-import  Spinner  from "../../components/ui/Spinner"
-import Button from "../../components/ui/button/Button";
+import  Spinner  from "../../components/spinner/Spinner"
+import Button from "../../components/UI/button/Button.jsx";
 
 const HomeLogin = () => {
   const [loading, setLoading] = useState(false)
   const [userId, setUserId] = useState("")
   const [password, setPassword] = useState("")
+  const [level, setLevel] = useState("")
+  const [sucess, setSuccess] = useState("")
+  const [error, setError] = useState("")
   
-  const isFormValid = userId !== "" && password !== ""
+  const isFormValid = userId !== "" && password !== "" && level !== ""
   
-const  handleLogin = () => {
-
+const  handleLogin = (e) => {
   setLoading(true)
-  setTimeout( () => {
+  signInWithEmailAndPassword(auth, userId, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user)
+    // setSuccess("Login successful")
     setLoading(false)
-  }, 5000)
+    setTimeout(() =>{
+      // return navigate('/homepage')
+    }, 2000)
+  })
+  .catch((error) => {
+      const errorCode = error.code;
+      setLoading(false)
+      console.log(errorCode)
+      // setError(`Login attempt failed, ${errorCode}`)
+    });
 }
   return (
     <section className="login_container">
@@ -66,11 +81,11 @@ const  handleLogin = () => {
 
                 <div className="drop_down">
                   <label htmlFor="options"> Level:</label>
-                  <select name="level" id="options">
-                    <option value="option1">Admin Manager</option>
-                    <option value="option2">Store Keeper</option>
+                  <select name="level" id="options" value={level} onChange = {(e) => setLevel(e.target.value)}>
+                    <option value="manager">Admin Manager</option>
+                    <option value="keeper">Store Keeper</option>
 
-                    <option value="option3">Staff</option>
+                    <option value="staff">Staff</option>
                   </select>
                 </div>
 
