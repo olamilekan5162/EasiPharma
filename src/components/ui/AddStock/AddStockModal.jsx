@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import Button from "../button/Button";
 import "./ManageStockModal.css"; 
 
+
+
+const suppliers = ["Supplier A", "Supplier B", "Supplier C"];
 const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
   const [stockName, setStockName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
-  const [supplier, setSupplier] = useState("");
+const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
   
 
   const handleSubmit = (e) => {
@@ -16,7 +19,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
       stockName,
       quantity: parseInt(quantity, 10),
       expiryDate,
-      supplier,
+      selectedSupplier,
      
     };
 
@@ -26,7 +29,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
     setStockName("");
     setQuantity("");
     setExpiryDate("");
-    setSupplier("");
+    setSelectedSupplier("");
     onClose(); // Close modal
   };
 
@@ -58,12 +61,14 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
           onChange={(e) => setExpiryDate(e.target.value)}
         />
 
-        <label>Supplier Name:</label>
-        <input 
-          type="text" 
-          value={supplier} 
-          onChange={(e) => setSupplier(e.target.value)}
-        />
+<label>Supplier Name</label>
+        <select value={selectedSupplier} onChange={(e) => setSelectedSupplier(e.target.value)}>
+          {suppliers.map((supplier, index) => (
+            <option key={index} value={supplier}>
+              {supplier}
+            </option>
+          ))}
+        </select>
 
         {/* <label>Action:</label>
         <select value={action} onChange={(e) => setAction(e.target.value)}>

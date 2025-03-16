@@ -24,8 +24,7 @@ const Modal = ({ isOpen, onClose }) => {
     setStockName("");
     setQuantity("");
     setOrderDate("");
-   
-
+  
     // Close modal
     onClose();
   };
@@ -57,7 +56,7 @@ const Modal = ({ isOpen, onClose }) => {
         <label>Order Date:</label>
         <input type="date" value={orderDate} onChange={(e) => setOrderDate(e.target.value)} />
 
-        <Button onClick={handleSubmit}>Confirm Order</Button>
+        <Button onClick={handleSubmit}>Place Order</Button>
       </div>
     </div>
   );
