@@ -71,7 +71,7 @@ const Stocks = () => {
           </div>
 
           <div className="stock_lowbar_link">
-            <NavLink to="orderstock active">Order Stock</NavLink>
+            <NavLink to="orderstock">Order Stock</NavLink>
           </div>
         </div>
       </div>

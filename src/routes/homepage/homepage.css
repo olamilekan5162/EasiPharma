@@ -71,6 +71,7 @@
 .H_main{
     background-color: #f6f8fa;
     height: 100vh;
+    position: relative;
     overflow-y: auto;
 }
 
@@ -110,7 +111,6 @@
 }
 
 .H_main_content {
-  overflow-y: auto;
   height: calc(100vh - 64px);
 }
 

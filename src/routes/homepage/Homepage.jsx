@@ -87,7 +87,7 @@ const Homepage = () => {
       </div>
 
       <div className="H_main">
-        <div>
+        
           <div className="H_navbar">
             <div className="H_navbar_card">
               <Profileicon className="H_navbar_icon" />
@@ -104,12 +104,12 @@ const Homepage = () => {
             </div>
           </div>
           
-          <div className="warning_container">
+
           <div className="warning_box">
             <p>warning</p>
           </div>
-          </div>
-        </div>
+
+
         <div className="H_main_content">
         <Outlet />
         </div>

@@ -71,11 +71,6 @@
     cursor: pointer;
 }
 
-.stock_lowbar_link:hover{
-    background-color: var(--primary-color);
-    padding: .5rem;
-}
-
 .stock_lowbar a:hover{
     color: var(--secondary-color);
     font-weight: 700;

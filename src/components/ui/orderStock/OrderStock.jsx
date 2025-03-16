@@ -1,11 +1,12 @@
 import Button from "../button/Button";
-import "./orderstock.css"
-import { RiFilter3Fill as Filtericon} from "react-icons/ri";
-import { FaPlus as Plusicon } from "react-icons/fa";
+import "./orderstock.css";
+import { RiFilter3Fill as Filtericon } from "react-icons/ri";
+import { FaPlus as Plusicon, FaRegSquare as Squareicon } from "react-icons/fa";
+import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 
 const OrderStock = () => {
   return (
-    <section>
+    <section className="orderstock">
       <div className="orderstock_topbar">
         <div className="orderstock_rightbar">
           <div className="filter">
@@ -22,6 +23,80 @@ const OrderStock = () => {
             </Button>
           </div>
         </div>
+      </div>
+
+      <div className="orderstock_details">
+        <table className="orderstock_table">
+          <tr>
+            <th>
+              <Squareicon />
+            </th>
+
+            <th>Order No.</th>
+
+            <th>Created</th>
+
+            <th>From Supplier</th>
+
+            <th>nil</th>
+          </tr>
+
+          <tr>
+            <td>
+              <Squareicon />
+            </td>
+
+            <td>No.001</td>
+
+            <td>date</td>
+
+            <td>Femi Pharma</td>
+
+            <td>nil</td>
+          </tr>
+
+          <tr>
+            <td>
+              <Squareicon />
+            </td>
+
+            <td>No.001</td>
+
+            <td>date</td>
+
+            <td>Femi Pharma</td>
+
+            <td>nil</td>
+          </tr>
+
+          <tr>
+            <td>
+              <Squareicon />
+            </td>
+
+            <td>No.001</td>
+
+            <td>date</td>
+
+            <td>Femi Pharma</td>
+
+            <td>nil</td>
+          </tr>
+
+          <tr>
+            <td>
+              <Squareicon />
+            </td>
+
+            <td>No.001</td>
+
+            <td>date</td>
+
+            <td>Femi Pharma</td>
+
+            <td>nil</td>
+          </tr>
+        </table>
       </div>
     </section>
   );
