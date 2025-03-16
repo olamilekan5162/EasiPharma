@@ -1,6 +1,6 @@
 import "./supplier.css";
 import { useState, useEffect } from "react";
-import { collection, getDocs, doc } from "firebase/firestore";
+import { collection, getDocs, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../../utils/firebaseConfig.js"
 import {
   FaPlus as Plusicon,
@@ -27,6 +27,16 @@ const getSuppliers = async () => {
       console.error(e)
     }
   
+}
+
+
+const deleteSupplier = async (supplierName) =>{
+  try{
+    await deleteDoc(doc(db, "suppliers", supplierName));
+  }
+  catch(e){
+    console.error(error)
+  }
 }
 
 
@@ -83,7 +93,7 @@ const getSuppliers = async () => {
           { suppliers.map((supplier) =>{
             return (
             
-          <tr>
+          <tr key={supplier.id}>
             <td>
               <Squareicon />
             </td>
@@ -99,7 +109,7 @@ const getSuppliers = async () => {
             <td className="inventory_icon_cell">
               <div>
                 <Editicon className="inventory_icon" />
-                <Delicon className="inventory_icon" />
+                <Delicon className="inventory_icon" onclick={() => deleteSupplier(supplier.name)}/>
               </div>
             </td>
           </tr>

@@ -82,8 +82,8 @@ const Inventory = () => {
                 <td>
                   <select>
                     <option value="available">Available</option>
-                    <option value="out-of-stock">Out of Stock</option>
                   </select>
+                    <option value="out-of-stock">Out of Stock</option>
                 </td>
                 <td className="inventory_icon_cell">
                   <div>
