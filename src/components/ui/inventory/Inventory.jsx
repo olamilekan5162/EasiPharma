@@ -7,8 +7,63 @@ import {
 } from "react-icons/fa";
 import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 import { MdDeleteOutline as Delicon } from "react-icons/md";
+import { collection, getDocs, addDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from "../../../utils/firebaseConfig.js"
+import { useState, useEffect } from 'react'
 
 const Inventory = () => {
+  const [stocks, setStocks] = useState([])
+  
+  useEffect(() =>{
+    getStocks()
+  },[stocks])
+  
+  const AddStock = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "stocks"), {
+        name: supplierName,
+        email: email,
+        address: address
+    });
+    console.log("Document written with ID: ", docRef.id);
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  
+  const getStocks = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "stocks"));
+      const stockData = querySnapshot.docs.map((doc) => doc.data());
+      setStocks(stockData)
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  
+  const updateStock = async () => {
+    try {
+      const washingtonRef = doc(db, "stocks", "paracetamol");
+      await updateDoc(washingtonRef, {
+        quatity: 10
+      });
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  
+  const deleteStock = async () => {
+    try {
+      await deleteDoc(doc(db, "stocks", "paracetamol"));
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  
   return (
     <section className="inventory_page">
       <div className="inventory_topbar">
@@ -55,17 +110,19 @@ const Inventory = () => {
               <div></div>
             </th>
           </tr>
-
+          { stocks.map((stock) =>{
+            return(
+            
           <tr>
             <td>
               <Squareicon />
             </td>
 
-            <td>Paracetamol</td>
+            <td>{stock.stockName}</td>
 
-            <td>400</td>
+            <td>{stock.quantity}</td>
 
-            <td>18/08/2025</td>
+            <td>{stock.expiryDate}</td>
 
             <td>
               <select>
@@ -81,6 +138,9 @@ const Inventory = () => {
               </div>
             </td>
           </tr>
+            )
+          })
+          }
         </table>
       </div>
     </section>
