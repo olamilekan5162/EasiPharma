@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
 import "./ManageStockModal.css"; 
 import { db } from "../../../utils/firebaseConfig.js"
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, getDocs } from "firebase/firestore"; 
 
 
 
@@ -34,7 +34,7 @@ const fetchOrderStock = async () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const docRef = await addDoc(collection(db, "suppliers"), {
+      const docRef = await addDoc(collection(db, "stocks"), {
         StockName: stockName,
         quantity: quantity,
         Supplier: selectedSupplier,

@@ -13,13 +13,16 @@ const AddSupplierModal = ({ isOpen, onClose, addSupplier }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
-const docRef = await addDoc(collection(db, "suppliers"), {
-  name: supplierName,
-  email: email,
-  address: address
-});
-console.log("Document written with ID: ", docRef.id);
+   try{
+      const docRef = await addDoc(collection(db, "suppliers"), {
+        name: supplierName,
+        email: email,
+        address: address
+      });
+      console.log("Document written with ID: ", docRef.id);
+   }catch(e){
+     console.error(e)
+   }
     
     const newSupplier = {
       supplierName,
