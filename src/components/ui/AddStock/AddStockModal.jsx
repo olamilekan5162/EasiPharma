@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
 import "./ManageStockModal.css"; 
 
@@ -10,11 +10,23 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
   const [quantity, setQuantity] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
 const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
-  
+const [stocks, setStocks] = useState([]);
+
+  // Hooks must always execute
+  useEffect(() => {
+    fetch("/api/products")
+      .then((response) => response.json())
+      .then((data) => setStocks(data))
+      .catch((error) => console.error("Error fetching Stocks:", error));
+  }, []);
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+
+    
     const stockData = {
       stockName,
       quantity: parseInt(quantity, 10),
@@ -41,11 +53,12 @@ const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
         <h2>Manage Stock</h2>
         
         <label>Stock Name:</label>
-        <input 
-          type="text" 
-          value={stockName} 
-          onChange={(e) => setStockName(e.target.value)}
-        />
+        <select value={stockName} onChange={(e) => setStockName(e.target.value)} required>
+          <option value="" disabled>Select a Stock</option>
+          {stocks.map((stock) => (
+            <option key={stock.id} value={stock.name}>{stock.name}</option>
+          ))}
+        </select>
 
         <label>Quantity (
           Carton):</label>
