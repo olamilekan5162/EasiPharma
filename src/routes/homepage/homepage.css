@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: minmax(200px, 20%) 1fr;
     min-height: 100vh;
+    overflow-y: hidden;
 }
 
 .sidebar{
@@ -69,6 +70,8 @@
 
 .H_main{
     background-color: #f6f8fa;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .H_navbar{
