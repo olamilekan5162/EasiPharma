@@ -65,7 +65,7 @@ const  handleLogin = (e) => {
                   <input
                     type="text"
                     name="user_id"
-                    placeholder="User ID"
+                    placeholder="Email"
                     required
                     value={userId}
                     onChange={(e) => setUserId(e.target.value)}

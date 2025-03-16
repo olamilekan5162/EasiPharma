@@ -40,12 +40,10 @@
 }
 
 .orderstock_table{
-    margin: 0 auto;
-}
-
-.orderstock_table{
     width: 97%;
     border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .orderstock_table th {
@@ -53,10 +51,21 @@
     padding: 10px;
 }
 
+.orderstock_table th div{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
 .orderstock_table td{
-    padding: 1rem 10px;
-    text-align: center;
+    padding: 5px 10px;
+    font-size: 18px;
     border-bottom: 2px solid #706f6f;
+}
+
+.orderstock_table td select{
+    width: 125px;
+    text-align: center;
 }
 
 .orderstock_table tr:nth-child(even) {
