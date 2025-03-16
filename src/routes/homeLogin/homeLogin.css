@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   font-family: var(--primary-font);
-  background: url("/public/assets/kenrick-green.jpg") center/cover no-repeat;
+  background: url("/assets/kenrick-green.jpg") center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;

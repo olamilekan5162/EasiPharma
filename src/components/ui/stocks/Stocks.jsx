@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Modal from "../Modal/StockModal"; 
-import Button from "../button/Button";
 import "./stocks.css"
 import { MdOutlineNumbers as Hashicon } from "react-icons/md";
 import { BiSolidAnalyse as Analyicon } from "react-icons/bi";
@@ -72,12 +71,11 @@ const Stocks = () => {
           </div>
 
           <div className="stock_lowbar_link">
-            <NavLink to="orderstock">Order Stock</NavLink>
+            <NavLink to="orderstock active">Order Stock</NavLink>
           </div>
         </div>
       </div>
       <Outlet />
-      {/*<Button onClick={() => setIsModalOpen(true)}>Add Stock</Button>*/}
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}></Modal>
     </section>

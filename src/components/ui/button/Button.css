@@ -43,6 +43,25 @@
     color: var(--secondary-color);
 }
 
+
+.btn.alternate {
+   width: 100%;
+    font-size: 1rem;
+    margin: .5rem 0;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: .75rem;
+    padding: .75rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.btn.alternate:hover, .btn.alternate:focus {
+  background-color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
 .btn.disabled {
     background-color: var(--alt-color-2);
     cursor: not-allowed;

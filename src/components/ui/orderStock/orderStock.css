@@ -1,0 +1,36 @@
+.orderstock_topbar{
+    padding: 2rem;
+    display: flex;
+    justify-content: end;
+}
+
+.orderstock_rightbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.filter{
+    display: flex;
+    align-items: center;
+    
+}
+
+.filter h2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    color: rgba(0, 0, 0, .9);
+    font-size: 1rem;
+    padding: .6rem;
+    border-radius: .5rem;
+    border: 2px solid var(--alt-color-2);
+    background-color: var(--alt-color);
+    cursor: pointer;
+}
+
+.orderstock_btn button{
+    display: flex;
+    gap: .5rem;
+}
