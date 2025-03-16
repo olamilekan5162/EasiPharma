@@ -109,11 +109,24 @@
     font-weight: 800;
 }
 
+.H_main_content {
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+.warning_container {
+  position: relative;
+}
+
 .warning_box{
     padding: 1.4rem;
     border: 2px solid var(--secondary-color);
     text-align: center;
     cursor: text;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #f6f8fa;
 }
 
 .warning_box:hover{

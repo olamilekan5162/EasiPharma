@@ -95,12 +95,16 @@ const Homepage = () => {
               <Settingicon className="H_navbar_set" />
             </div>
           </div>
-
+          
+          <div className="warning_container">
           <div className="warning_box">
             <p>warning</p>
           </div>
+          </div>
         </div>
+        <div className="H_main_content">
         <Outlet />
+        </div>
       </div>
     </section>
   );
