@@ -29,6 +29,8 @@ const Homepage = () => {
   const { user, level } = useContext(UserContext)
   
   const navigate = useNavigate();
+  const date = new Date()
+  
   const handleSignOut = () => {
     navigate("/");
   };
@@ -36,6 +38,7 @@ const Homepage = () => {
     console.log(user)
     console.log(level)
   },[])
+  
   return (
     <section className="homepage">
       <div className="sidebar">
@@ -96,7 +99,7 @@ const Homepage = () => {
             <div className="H_navbar_card">
               <Dateicon className="H_navbar_icon" />
               <h1 className="H_navbar_text">
-                <i>Date</i>
+                <i>{date.toLocaleDateString()}</i>
               </h1>
             </div>
             <div>
