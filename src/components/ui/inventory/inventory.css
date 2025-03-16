@@ -1,0 +1,57 @@
+.inventory_page{
+    margin: 1rem 2rem;
+}
+
+.inventory_topbar{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+}
+
+.inventory_btn button{
+    display: flex;
+    gap: .5rem;
+}
+
+.inventory_table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.inventory_table th {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.inventory_table th div{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.inventory_table td{
+    padding: 0 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #706f6f;
+}
+
+.inventory_table td select{
+    width: 125px;
+    text-align: center;
+}
+
+.inventory_icon{
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--alt-color-2);
+}
+
+.inventory_icon + .inventory_icon{
+    margin-left: 10px;
+}
+
+.inventory_table tr:nth-child(even) {
+  background-color: #dddddd;
+}
