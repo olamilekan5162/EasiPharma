@@ -1,4 +1,5 @@
 import "./supplier.css";
+import { useState } from "react";
 import {
   FaPlus as Plusicon,
   FaRegSquare as Squareicon,
@@ -6,12 +7,25 @@ import {
 } from "react-icons/fa";
 import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 import { MdDeleteOutline as Delicon } from "react-icons/md";
-
+import AddSupplierModal from "../SuppliersModal/SupplierModal";
 const Suppliers = () => {
+
+
+
+  const [supplierModalOpen, setSupplierModalOpen] = useState(false);
+
+
+  const handleAddSupplier = (newSupplier) => {
+    // alert("Supplier Added:", newSupplier); // Log supplier data for backend use
+    alert("Supplier has been added successfully!"); 
+    setSupplierModalOpen(false); 
+  };
+
+  const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
   return (
     <section className="supplier_page">
       <div className="supplier_card">
-        <div className="add_supplier">
+        <div className="add_supplier" onClick={() => setSupplierModalOpen(true)}>
           <span>
             <Plusicon className="supplier_icon" />
           </span>
@@ -71,6 +85,12 @@ const Suppliers = () => {
           </tr>
         </table>
       </div>
+       {/* Add Supplier Modal */}
+             <AddSupplierModal
+              isOpen={supplierModalOpen}
+              onClose={() => setSupplierModalOpen(false)}
+              addSupplier={handleAddSupplier}
+            />
     </section>
   );
 };
