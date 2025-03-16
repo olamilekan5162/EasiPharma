@@ -6,30 +6,9 @@ import { BiSolidAnalyse as Analyicon } from "react-icons/bi";
 import { WiMoonFull as Doticon } from "react-icons/wi";
 import { NavLink, Outlet } from 'react-router-dom'
 
-const suppliers = ["Supplier A", "Supplier B", "Supplier C"];
+
 const Stocks = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [stockName, setStockName] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [deliveryDate, setDeliveryDate] = useState("");
-  const [price, setPrice] = useState("");
-  const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
-
-  const handleSubmit = () => {
-    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier} at ${price} on ${deliveryDate}`);
-    setIsModalOpen(false);
-    e.preventDefault();
-
-    // Here, you can handle sending data to the backend 
-    console.log({ stockName, quantity, deliveryDate, price });
-
-    
-    setStockName("");
-    setQuantity("");
-    setDeliveryDate("");
-    setPrice("");
-  };
   return (
     <section>
       <div className="stock">
@@ -76,8 +55,6 @@ const Stocks = () => {
         </div>
       </div>
       <Outlet />
-
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}></Modal>
     </section>
   );
 };

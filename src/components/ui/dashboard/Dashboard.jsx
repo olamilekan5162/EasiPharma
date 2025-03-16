@@ -1,4 +1,6 @@
 import "./dashboard.css";
+import DistributionModal from "../distributionModal/DistributionModal";
+import AddSupplierModal from "../SuppliersModal/SupplierModal";
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
@@ -25,9 +27,20 @@ import { useState } from "react";
   
 import Modal from "../Modal/StockModal";  
 
+
 const Dashboard = () => {
   const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
   const [isStockModalOpen, setIsStockModalOpen] = useState(false);
+  const [supplierModalOpen, setSupplierModalOpen] = useState(false);
+  const [isDistributionModalOpen, setIsDistributionModalOpen] = useState(false);
+  const openModal = () => setIsDistributionModalOpen(true);
+  const closeModal = () => setIsDistributionModalOpen(false);
+  const handleAddSupplier = (newSupplier) => {
+    console.log("Supplier Added:", newSupplier); // Log supplier data for backend use
+    alert("Supplier has been added successfully!"); 
+    setSupplierModalOpen(false); 
+  };
+
 const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
   const updateStock = (data) => {
     console.log("Updated stock:", data);
@@ -80,20 +93,24 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p className="D_mainbar_text">Staff List</p>
       </div>
 
-      <div className="D_mainbar_card">
+      <div className="D_mainbar_card" onClick={() => setSupplierModalOpen(true)}>
         <span>
           <Suppliericon className="D_mainbar_icon" />
         </span>
         <p className="D_mainbar_text">Add Supplier</p>
       </div>
 
-      <div className="D_mainbar_card">
+      <div className="D_mainbar_card" onClick={openModal}>
         <span>
           <Distribeicon className="D_mainbar_icon" />
         </span>
         <p className="D_mainbar_text">Distribution Records</p>
       </div>
 
+      {/* Render modal when isDistributionModalOpen is true */}
+      {isDistributionModalOpen && (
+        <DistributionModal isOpen={isDistributionModalOpen} onClose={closeModal} />
+      )}
       {/* Order Stocks - Opens Stock Modal */}
       <div 
         className="D_mainbar_card" 
@@ -104,6 +121,12 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         </span>
         <p className="D_mainbar_text">Order Stocks</p>
       </div>
+       {/* Add Supplier Modal */}
+       <AddSupplierModal
+        isOpen={supplierModalOpen}
+        onClose={() => setSupplierModalOpen(false)}
+        addSupplier={handleAddSupplier}
+      />
 
       {/* Manage Stock Modal */}
       <ManageStockModal 

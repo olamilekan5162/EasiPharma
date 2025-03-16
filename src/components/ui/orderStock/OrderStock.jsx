@@ -1,10 +1,15 @@
 import Button from "../button/Button";
-import "./orderstock.css";
+import "./orderStock.css";
 import { RiFilter3Fill as Filtericon } from "react-icons/ri";
 import { FaPlus as Plusicon, FaRegSquare as Squareicon } from "react-icons/fa";
 import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
+import {useState} from 'react'
+import Modal from "../Modal/StockModal"; 
 
 const OrderStock = () => {
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   return (
     <section className="orderstock">
       <div className="orderstock_topbar">
@@ -19,7 +24,7 @@ const OrderStock = () => {
           <div className="orderstock_btn">
             <Button onClick={() => setIsModalOpen(true)} variant="alternate">
               <Plusicon className="orderstock_btn_icon" />
-              <p>Add Stock</p>
+              <p>Order Stock</p>
             </Button>
           </div>
         </div>
@@ -32,13 +37,15 @@ const OrderStock = () => {
               <Squareicon />
             </th>
 
-            <th>Order No.</th>
+            <th>Stock Name</th>
 
-            <th>Created</th>
+            <th>Order Date</th>
 
-            <th>From Supplier</th>
+            <th>Quantity</th>
+            
+            <th>Supplier</th>
 
-            <th>nil</th>
+            <th>Status</th>
           </tr>
 
           <tr>
@@ -46,58 +53,21 @@ const OrderStock = () => {
               <Squareicon />
             </td>
 
-            <td>No.001</td>
+            <td>Paracetamol</td>
 
-            <td>date</td>
+            <td>16/03/2025</td>
 
-            <td>Femi Pharma</td>
-
-            <td>nil</td>
-          </tr>
-
-          <tr>
-            <td>
-              <Squareicon />
-            </td>
-
-            <td>No.001</td>
-
-            <td>date</td>
+            <td>10</td>
 
             <td>Femi Pharma</td>
-
-            <td>nil</td>
-          </tr>
-
-          <tr>
-            <td>
-              <Squareicon />
-            </td>
-
-            <td>No.001</td>
-
-            <td>date</td>
-
-            <td>Femi Pharma</td>
-
-            <td>nil</td>
-          </tr>
-
-          <tr>
-            <td>
-              <Squareicon />
-            </td>
-
-            <td>No.001</td>
-
-            <td>date</td>
-
-            <td>Femi Pharma</td>
-
-            <td>nil</td>
+            
+            <td>Pending</td>
+            
           </tr>
         </table>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      </Modal>
     </section>
   );
 };
