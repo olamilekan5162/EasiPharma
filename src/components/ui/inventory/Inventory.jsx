@@ -32,9 +32,9 @@ const Inventory = () => {
   
   const updateStock = async () => {
     try {
-      const washingtonRef = doc(db, "stocks", "paracetamol");
-      await updateDoc(washingtonRef, {
-        quatity: 10
+      const upStock = doc(db, "stocks", "paracetamol");
+      await updateDoc(upStock, {
+        quantity: 10
       });
     }
     catch(e){
@@ -64,40 +64,6 @@ const Inventory = () => {
 
       <div className="inventory_details">
         <table className="inventory_table">
-<<<<<<< HEAD
-          <thead>
-            <tr>
-              <th><Squareicon /></th>
-              <th><div>Stock Name <Updwonicon /></div></th>
-              <th><div>Quantity (In carton) <Updwonicon /></div></th>
-              <th><div>Expiring Date <Updwonicon /></div></th>
-              <th><div>Availability <Updwonicon /></div></th>
-              <th><div>Actions</div></th>
-            </tr>
-          </thead>
-          <tbody>
-            {stocks.map((stock, index) => (
-              <tr key={stock.id || index}>
-                <td><Squareicon /></td>
-                <td>{stock.stockName}</td>
-                <td>{stock.quantity}</td>
-                <td>{stock.expiryDate}</td>
-                <td>
-                  <select>
-                    <option value="available">Available</option>
-                  </select>
-                    <option value="out-of-stock">Out of Stock</option>
-                </td>
-                <td className="inventory_icon_cell">
-                  <div>
-                    <Editicon className="inventory_icon" />
-                    <Delicon className="inventory_icon" onClick={() => deleteStock(stock.id)} />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-=======
           <tr>
             <th>
               <Squareicon />
@@ -133,7 +99,7 @@ const Inventory = () => {
           </tr>
           { stocks.map((stock) =>{
             return(
-          <tr key={stock.id || index}>
+          <tr key={stock.id}>
             <td>
               <Squareicon />
             </td>
@@ -161,7 +127,6 @@ const Inventory = () => {
             )
           })
           }
->>>>>>> 24e45d50581e6c3071285fe917f284e13e5dd7c5
         </table>
       </div>
     </section>
