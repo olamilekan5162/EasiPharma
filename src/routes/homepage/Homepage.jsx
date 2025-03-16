@@ -72,10 +72,6 @@ const handleSignOut = () =>{
             <span className="sidetext">Suppliers</span>
           </NavLink>
 
-          <NavLink to="stafflist" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
-            <Stafficon className="icon" />
-            <span className="sidetext">Staff list</span>
-          </NavLink>
         </div>
 
         <div className="setbox">
@@ -87,10 +83,12 @@ const handleSignOut = () =>{
         
         </div>
 
-        <div className="H_btn">
-          <Button variant="secondary" onClick={handleSignOut}>
-            Sign Out
-          </Button>
+        <div className="H_btn_card">
+          <div className="H_btn">
+            <Button variant="secondary" onClick={handleSignOut}>
+              Sign Out
+            </Button>
+          </div>
         </div>
       </div>
 
