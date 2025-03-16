@@ -35,8 +35,8 @@ const Dashboard = () => {
 
   const handleAddSupplier = (newSupplier) => {
     console.log("Supplier Added:", newSupplier); // Log supplier data for backend use
-    alert("Supplier has been added successfully!"); // Show confirmation alert
-    setSupplierModalOpen(false); // Close modal after adding
+    alert("Supplier has been added successfully!"); 
+    setSupplierModalOpen(false); 
   };
 
 const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
