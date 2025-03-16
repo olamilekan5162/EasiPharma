@@ -1,4 +1,5 @@
 import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
+import { UserProvider } from './utils/UserAuthContext';
 import HomeLogin from "./routes/homeLogin/HomeLogin"
 import Homepage from "./routes/homepage/Homepage"
 import Dashboard from "./components/ui/dashboard/Dashboard"
@@ -63,7 +64,9 @@ function App() {
     ])
     
   return (
+    <UserProvider>
     <RouterProvider router={router}/>
+    </UserProvider>
   )
 }
 

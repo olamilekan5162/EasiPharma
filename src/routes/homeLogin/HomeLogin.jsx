@@ -1,32 +1,36 @@
 import "./homeLogin.css";
 import { FaPrescriptionBottleMedical, FaArrowRightToBracket } from "react-icons/fa6";
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { auth } from "../../utils/firebaseConfig.js"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from 'react-router-dom'
 import  Spinner  from "../../components/spinner/Spinner"
 import Button from "../../components/ui/button/Button.jsx";
+import { UserContext } from "../../utils/UserAuthContext.jsx"
 
 const HomeLogin = () => {
   const [loading, setLoading] = useState(false)
   const [userId, setUserId] = useState("")
   const [password, setPassword] = useState("")
-  const [level, setLevel] = useState("")
+  // const [level, setLevel] = useState("")
   const [sucess, setSuccess] = useState("")
   const [error, setError] = useState("")
+  const { setUser, level, setLevel } = useContext(UserContext)
   
   const isFormValid = userId !== "" && password !== "" && level !== ""
+  
+  const navigate = useNavigate()
   
 const  handleLogin = (e) => {
   setLoading(true)
   signInWithEmailAndPassword(auth, userId, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    console.log(user)
+    setUser(user)
     // setSuccess("Login successful")
     setLoading(false)
     setTimeout(() =>{
-      // return navigate('/homepage')
+      return navigate('/homepage')
     }, 2000)
   })
   .catch((error) => {

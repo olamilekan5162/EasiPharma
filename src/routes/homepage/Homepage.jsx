@@ -1,5 +1,7 @@
 import "./homepage.css";
 import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
+import { useContext, useEffect } from 'react'
+import { UserContext } from "../../utils/UserAuthContext.jsx"
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
@@ -24,10 +26,16 @@ import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
 import Button from "../../components/ui/button/Button";
 
 const Homepage = () => {
+  const { user, level } = useContext(UserContext)
+  
   const navigate = useNavigate();
   const handleSignOut = () => {
     navigate("/");
   };
+  useEffect(() => {
+    console.log(user)
+    console.log(level)
+  },[])
   return (
     <section className="homepage">
       <div className="sidebar">
