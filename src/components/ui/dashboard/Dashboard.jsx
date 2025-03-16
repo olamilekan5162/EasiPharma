@@ -1,4 +1,5 @@
 import "./dashboard.css";
+import AddSupplierModal from "../SuppliersModal/SupplierModal";
 import {
   AiTwotoneDashboard as Dashboardicon,
   AiOutlineStock as Stockicon,
@@ -25,9 +26,19 @@ import { useState } from "react";
   
 import Modal from "../Modal/StockModal";  
 
+
 const Dashboard = () => {
   const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
   const [isStockModalOpen, setIsStockModalOpen] = useState(false);
+
+  const [supplierModalOpen, setSupplierModalOpen] = useState(false);
+
+  const handleAddSupplier = (newSupplier) => {
+    console.log("Supplier Added:", newSupplier); // Log supplier data for backend use
+    alert("Supplier has been added successfully!"); // Show confirmation alert
+    setSupplierModalOpen(false); // Close modal after adding
+  };
+
 const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
   const updateStock = (data) => {
     console.log("Updated stock:", data);
@@ -80,7 +91,7 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p className="D_mainbar_text">Staff List</p>
       </div>
 
-      <div className="D_mainbar_card">
+      <div className="D_mainbar_card" onClick={() => setSupplierModalOpen(true)}>
         <span>
           <Suppliericon className="D_mainbar_icon" />
         </span>
@@ -104,6 +115,12 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         </span>
         <p className="D_mainbar_text">Order Stocks</p>
       </div>
+       {/* Add Supplier Modal */}
+       <AddSupplierModal
+        isOpen={supplierModalOpen}
+        onClose={() => setSupplierModalOpen(false)}
+        addSupplier={handleAddSupplier}
+      />
 
       {/* Manage Stock Modal */}
       <ManageStockModal 
