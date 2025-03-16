@@ -50,7 +50,7 @@ const Modal = ({ isOpen, onClose }) => {
         <label>Stock Name:</label>
         <input type="text" value={stockName} onChange={(e) => setStockName(e.target.value)} />
 
-        <label>Quantity:</label>
+        <label>Quantity (Carton):</label>
         <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
 
         <label>Order Date:</label>

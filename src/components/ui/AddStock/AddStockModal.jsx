@@ -47,7 +47,8 @@ const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
           onChange={(e) => setStockName(e.target.value)}
         />
 
-        <label>Quantity:</label>
+        <label>Quantity (
+          Carton):</label>
         <input 
           type="number" 
           value={quantity} 
