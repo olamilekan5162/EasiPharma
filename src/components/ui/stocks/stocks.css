@@ -71,6 +71,11 @@
     cursor: pointer;
 }
 
+a.stock_lowbar_active{
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
 .stock_lowbar a:hover{
     color: var(--secondary-color);
     font-weight: 700;

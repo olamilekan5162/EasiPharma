@@ -43,13 +43,13 @@ const Stocks = () => {
         </div>
 
         <div className="stock_lowbar">
-          <div className="stock_lowbar_link right_margin">
-            <NavLink to="inventory">
+          <div className="right_margin">
+            <NavLink to="inventory" className="stock_lowbar_active" >
               Inventory
             </NavLink>
           </div>
 
-          <div className="stock_lowbar_link">
+          <div>
             <NavLink to="orderstock">Order Stock</NavLink>
           </div>
         </div>

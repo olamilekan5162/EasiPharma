@@ -37,15 +37,35 @@ const OrderStock = () => {
               <Squareicon />
             </th>
 
-            <th>Stock Name</th>
+            <th>
+              <div>
+                Stock Name <Updwonicon />
+              </div>
+            </th>
 
-            <th>Order Date</th>
+            <th>
+              <div>
+                Order Date <Updwonicon />
+              </div>
+            </th>
 
-            <th>Quantity</th>
-            
-            <th>Supplier</th>
+            <th>
+              <div>
+                Quantity <Updwonicon />
+              </div>
+            </th>
 
-            <th>Status</th>
+            <th>
+              <div>
+                Supplier <Updwonicon />
+              </div>
+            </th>
+
+            <th>
+              <div>
+                Status <Updwonicon />
+              </div>
+            </th>
           </tr>
 
           <tr>
@@ -60,14 +80,17 @@ const OrderStock = () => {
             <td>10</td>
 
             <td>Femi Pharma</td>
-            
-            <td>Pending</td>
-            
+
+            <td>
+              <select>
+                <option value="available">Pending</option>
+                <option value="out-of-stock">Completed</option>
+              </select>
+            </td>
           </tr>
         </table>
       </div>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-      </Modal>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}></Modal>
     </section>
   );
 };
