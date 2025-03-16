@@ -18,19 +18,6 @@ const Inventory = () => {
     getStocks()
   },[stocks])
   
-  const AddStock = async () => {
-    try {
-      const docRef = await addDoc(collection(db, "stocks"), {
-        name: supplierName,
-        email: email,
-        address: address
-    });
-    console.log("Document written with ID: ", docRef.id);
-    }
-    catch(e){
-      console.error(e)
-    }
-  }
   
   const getStocks = async () => {
     try {
@@ -55,9 +42,9 @@ const Inventory = () => {
     }
   }
   
-  const deleteStock = async () => {
+  const deleteStock = async (stockName) => {
     try {
-      await deleteDoc(doc(db, "stocks", "paracetamol"));
+      await deleteDoc(doc(db, "stocks", stockName));
     }
     catch(e){
       console.error(e)
@@ -112,8 +99,7 @@ const Inventory = () => {
           </tr>
           { stocks.map((stock) =>{
             return(
-            
-          <tr>
+          <tr key={stock.id}>
             <td>
               <Squareicon />
             </td>
@@ -134,7 +120,7 @@ const Inventory = () => {
             <td className="inventory_icon_cell">
               <div>
                 <Editicon  className="inventory_icon"/>
-                <Delicon className="inventory_icon" />
+                <Delicon className="inventory_icon" onClick={() => deleteStock(stock.stockName)}/>
               </div>
             </td>
           </tr>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
 import "./ManageStockModal.css"; 
+import { db } from "../../../utils/firebaseConfig.js"
+import { collection, addDoc } from "firebase/firestore"; 
 
 
 
@@ -14,18 +16,35 @@ const [stocks, setStocks] = useState([]);
 
   // Hooks must always execute
   useEffect(() => {
-    fetch("/api/products")
-      .then((response) => response.json())
-      .then((data) => setStocks(data))
-      .catch((error) => console.error("Error fetching Stocks:", error));
-  }, []);
+    fetchOrderStock()
+  }, [stocks]);
 
+const fetchOrderStock = async () => {
+  try {
+      const querySnapshot = await getDocs(collection(db, "orderStock"));
+      const stockData = querySnapshot.docs.map((doc) => doc.data());
+      setStocks(stockData)
+    }
+    catch(e){
+      console.error(e)
+    }
+  
+}
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-
+    try{
+      const docRef = await addDoc(collection(db, "suppliers"), {
+        StockName: stockName,
+        quantity: quantity,
+        Supplier: selectedSupplier,
+        expiryDate: expiryDate
+      });
+      console.log("Document written with ID: ", docRef.id);
+    }
+    catch(e){
+      console.log(e)
+    }
     
     const stockData = {
       stockName,
@@ -56,7 +75,7 @@ const [stocks, setStocks] = useState([]);
         <select value={stockName} onChange={(e) => setStockName(e.target.value)} required>
           <option value="" disabled>Select a Stock</option>
           {stocks.map((stock) => (
-            <option key={stock.id} value={stock.name}>{stock.name}</option>
+            <option key={stock.id} value={stock.stockName}>{stock.stockName}</option>
           ))}
         </select>
 
