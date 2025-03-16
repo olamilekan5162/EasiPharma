@@ -7,7 +7,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
   const [quantity, setQuantity] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [supplier, setSupplier] = useState("");
-  const [action, setAction] = useState("add"); 
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
       quantity: parseInt(quantity, 10),
       expiryDate,
       supplier,
-      action,
+     
     };
 
     updateStock(stockData);
@@ -65,11 +65,11 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
           onChange={(e) => setSupplier(e.target.value)}
         />
 
-        <label>Action:</label>
+        {/* <label>Action:</label>
         <select value={action} onChange={(e) => setAction(e.target.value)}>
           <option value="add">Add Stock</option>
           <option value="remove">Remove Stock</option>
-        </select>
+        </select> */}
 
         <div className="modal-buttons">
           <Button onClick={handleSubmit}>Confirm</Button>

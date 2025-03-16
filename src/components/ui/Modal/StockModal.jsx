@@ -15,16 +15,16 @@ const Modal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier} at ${price} on ${orderDate}`);
+    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier}  on ${orderDate}`);
     
     // You can send this data to the backend here
-    console.log({ stockName, quantity, orderDate, price });
+    console.log({ stockName, quantity, orderDate });
 
     // Clear form fields
     setStockName("");
     setQuantity("");
     setOrderDate("");
-    setPrice("");
+   
 
     // Close modal
     onClose();
