@@ -44,13 +44,13 @@ const Stocks = () => {
 
         <div className="stock_lowbar">
           <div className="right_margin">
-            <NavLink to="inventory" className="stock_lowbar_active" >
+            <NavLink to="inventory" className={({isActive}) => (isActive ? "stock_lowbar_active" : "")} >
               Inventory
             </NavLink>
           </div>
 
           <div>
-            <NavLink to="orderstock">Order Stock</NavLink>
+            <NavLink to="orderstock" className={({isActive}) => (isActive ? "stock_lowbar_active" : "")}>Order Stock</NavLink>
           </div>
         </div>
       </div>

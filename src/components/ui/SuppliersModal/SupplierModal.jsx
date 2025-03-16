@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import Button from "../button/Button";
 import "./SupplierModal.css";
+import { db } from "../../../utils/firebaseConfig.js"
+import { collection, addDoc } from "firebase/firestore"; 
+
+
 
 const AddSupplierModal = ({ isOpen, onClose, addSupplier }) => {
   const [supplierName, setSupplierName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+   
+const docRef = await addDoc(collection(db, "suppliers"), {
+  name: supplierName,
+  email: email,
+  address: address
+});
+console.log("Document written with ID: ", docRef.id);
     
     const newSupplier = {
       supplierName,

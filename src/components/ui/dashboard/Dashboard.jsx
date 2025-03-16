@@ -36,7 +36,7 @@ const Dashboard = () => {
   const openModal = () => setIsDistributionModalOpen(true);
   const closeModal = () => setIsDistributionModalOpen(false);
   const handleAddSupplier = (newSupplier) => {
-    console.log("Supplier Added:", newSupplier); // Log supplier data for backend use
+    // alert("Supplier Added:", newSupplier); // Log supplier data for backend use
     alert("Supplier has been added successfully!"); 
     setSupplierModalOpen(false); 
   };
