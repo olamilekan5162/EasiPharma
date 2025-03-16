@@ -7,8 +7,7 @@ const suppliers = ["Supplier A", "Supplier B", "Supplier C"];
 const Modal = ({ isOpen, onClose }) => {
   const [stockName, setStockName] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [deliveryDate, setDeliveryDate] = useState("");
-  const [price, setPrice] = useState("");
+  const [orderDate, setOrderDate] = useState("");
   const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
 
   if (!isOpen) return null;
@@ -16,15 +15,15 @@ const Modal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier} at ${price} on ${deliveryDate}`);
+    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier} at ${price} on ${orderDate}`);
     
     // You can send this data to the backend here
-    console.log({ stockName, quantity, deliveryDate, price });
+    console.log({ stockName, quantity, orderDate, price });
 
     // Clear form fields
     setStockName("");
     setQuantity("");
-    setDeliveryDate("");
+    setOrderDate("");
     setPrice("");
 
     // Close modal
@@ -55,11 +54,8 @@ const Modal = ({ isOpen, onClose }) => {
         <label>Quantity:</label>
         <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
 
-        <label>Delivery Date:</label>
-        <input type="date" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
-
-        <label>Price:</label>
-        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+        <label>Order Date:</label>
+        <input type="date" value={orderDate} onChange={(e) => setOrderDate(e.target.value)} />
 
         <Button onClick={handleSubmit}>Confirm Order</Button>
       </div>

@@ -37,13 +37,15 @@ const OrderStock = () => {
               <Squareicon />
             </th>
 
-            <th>Order No.</th>
+            <th>Stock Name</th>
 
-            <th>Created</th>
+            <th>Order Date</th>
 
+            <th>Quantity</th>
+            
             <th>Supplier</th>
 
-            <th>nil</th>
+            <th>Status</th>
           </tr>
 
           <tr>
@@ -51,55 +53,16 @@ const OrderStock = () => {
               <Squareicon />
             </td>
 
-            <td>No.001</td>
+            <td>Paracetamol</td>
 
-            <td>date</td>
+            <td>16/03/2025</td>
 
-            <td>Femi Pharma</td>
-
-            <td>nil</td>
-          </tr>
-
-          <tr>
-            <td>
-              <Squareicon />
-            </td>
-
-            <td>No.001</td>
-
-            <td>date</td>
+            <td>10</td>
 
             <td>Femi Pharma</td>
-
-            <td>nil</td>
-          </tr>
-
-          <tr>
-            <td>
-              <Squareicon />
-            </td>
-
-            <td>No.001</td>
-
-            <td>date</td>
-
-            <td>Femi Pharma</td>
-
-            <td>nil</td>
-          </tr>
-
-          <tr>
-            <td>
-              <Squareicon />
-            </td>
-
-            <td>No.001</td>
-
-            <td>date</td>
-
-            <td>Femi Pharma</td>
-
-            <td>nil</td>
+            
+            <td>Pending</td>
+            
           </tr>
         </table>
       </div>

@@ -34,10 +34,6 @@ const Homepage = () => {
   const handleSignOut = () => {
     navigate("/");
   };
-  useEffect(() => {
-    console.log(user)
-    console.log(level)
-  },[])
   
   return (
     <section className="homepage">
@@ -94,7 +90,7 @@ const Homepage = () => {
           <div className="H_navbar">
             <div className="H_navbar_card">
               <Profileicon className="H_navbar_icon" />
-              <h1 className="H_navbar_text">Admin: Manager</h1>
+              <h1 className="H_navbar_text">{level}</h1>
             </div>
             <div className="H_navbar_card">
               <Dateicon className="H_navbar_icon" />

@@ -30,7 +30,7 @@ const  handleLogin = (e) => {
     // setSuccess("Login successful")
     setLoading(false)
     setTimeout(() =>{
-      return navigate('/homepage')
+      return navigate('/homepage/dashboard')
     }, 2000)
   })
   .catch((error) => {
@@ -86,10 +86,10 @@ const  handleLogin = (e) => {
                 <div className="drop_down">
                   <label htmlFor="options"> Level:</label>
                   <select name="level" id="options" value={level} onChange = {(e) => setLevel(e.target.value)}>
-                    <option value="manager">Admin Manager</option>
-                    <option value="keeper">Store Keeper</option>
+                    <option value="Admin Manager">Admin Manager</option>
+                    <option value="Store Keeper">Store Keeper</option>
 
-                    <option value="staff">Staff</option>
+                    <option value="Staff">Staff</option>
                   </select>
                 </div>
 
