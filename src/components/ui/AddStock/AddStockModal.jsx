@@ -50,7 +50,7 @@ const [stocks, setStocks] = useState([]);
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>Manage Stock</h2>
+        <h2>Add Stock</h2>
         
         <label>Stock Name:</label>
         <select value={stockName} onChange={(e) => setStockName(e.target.value)} required>

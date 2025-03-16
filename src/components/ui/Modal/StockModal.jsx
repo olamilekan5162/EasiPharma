@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Modal.css";
 import Button from "../button/Button";
 
@@ -9,31 +9,22 @@ const Modal = ({ isOpen, onClose }) => {
   const [quantity, setQuantity] = useState("");
   const [orderDate, setOrderDate] = useState("");
   const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
-  const [stocks, setStocks] = useState([]);
 
-  // Hooks must always execute
-  useEffect(() => {
-    fetch("/api/products")
-      .then((response) => response.json())
-      .then((data) => setStocks(data))
-      .catch((error) => console.error("Error fetching Stocks:", error));
-  }, []);
-
-  
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier} on ${orderDate}`);
-
+    
+    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier}  on ${orderDate}`);
+    
+    // You can send this data to the backend here
     console.log({ stockName, quantity, orderDate });
 
     // Clear form fields
     setStockName("");
     setQuantity("");
     setOrderDate("");
-
+  
     // Close modal
     onClose();
   };
@@ -57,12 +48,7 @@ const Modal = ({ isOpen, onClose }) => {
         </select>
 
         <label>Stock Name:</label>
-        <select value={stockName} onChange={(e) => setStockName(e.target.value)} required>
-          <option value="" disabled>Select a Stock</option>
-          {stocks.map((stock) => (
-            <option key={stock.id} value={stock.name}>{stock.name}</option>
-          ))}
-        </select>
+        <input type="text" value={stockName} onChange={(e) => setStockName(e.target.value)} />
 
         <label>Quantity (Carton):</label>
         <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
