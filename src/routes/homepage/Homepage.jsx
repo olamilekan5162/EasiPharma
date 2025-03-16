@@ -24,6 +24,8 @@ import { GrUserWorker as Stafficon, GrStatusGoodSmall as Pendingicon } from "rea
 import { GiMedicines as Drugicon } from "react-icons/gi";
 import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
 import Button from "../../components/ui/button/Button";
+import { signOut } from "firebase/auth"
+import { auth } from "../../utils/firebaseConfig.js"
 
 const Homepage = () => {
   const { user, level } = useContext(UserContext)
@@ -31,9 +33,16 @@ const Homepage = () => {
   const navigate = useNavigate();
   const date = new Date()
   
-  const handleSignOut = () => {
-    navigate("/");
-  };
+
+const handleSignOut = () =>{
+  signOut(auth)
+  .then(() => {
+    navigate("/")
+  })
+  .catch((error) => {
+    console.log(error)
+  });
+}
   
   return (
     <section className="homepage">

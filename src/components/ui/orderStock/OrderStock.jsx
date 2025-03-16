@@ -23,7 +23,7 @@ const OrderStock = () => {
 
           <div className="orderstock_btn">
             <Button onClick={() => setIsModalOpen(true)} variant="alternate">
-              <Plusicon className="orderstock_btn_icon" />
+              <Plusicon />
               <p>Order Stock</p>
             </Button>
           </div>
