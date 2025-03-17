@@ -1,5 +1,7 @@
 import "./supplier.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { collection, getDocs, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+import { db } from "../../../utils/firebaseConfig.js"
 import {
   FaPlus as Plusicon,
   FaRegSquare as Squareicon,
@@ -9,7 +11,33 @@ import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 import { MdDeleteOutline as Delicon } from "react-icons/md";
 import AddSupplierModal from "../SuppliersModal/SupplierModal";
 const Suppliers = () => {
+  const [suppliers, setSuppliers] = useState([])
+  
+  useEffect(() => {
+    getSuppliers()
+  }, [suppliers]);
 
+const getSuppliers = async () => {
+  try {
+      const querySnapshot = await getDocs(collection(db, "suppliers"));
+      const suppliersData = querySnapshot.docs.map((doc) => doc.data());
+      setSuppliers(suppliersData)
+    }
+    catch(e){
+      console.error(e)
+    }
+  
+}
+
+
+const deleteSupplier = async (supplierName) =>{
+  try{
+    await deleteDoc(doc(db, "suppliers", supplierName));
+  }
+  catch(e){
+    console.error(error)
+  }
+}
 
 
   const [supplierModalOpen, setSupplierModalOpen] = useState(false);
@@ -62,27 +90,32 @@ const Suppliers = () => {
               <div></div>
             </th>
           </tr>
-
-          <tr>
+          { suppliers.map((supplier) =>{
+            return (
+            
+          <tr key={supplier.id}>
             <td>
               <Squareicon />
             </td>
 
-            <td>Paracetamol</td>
+            <td>{supplier.name}</td>
 
-            <td>abcd@gmail.com</td>
+            <td>{supplier.email}</td>
 
             <td>
-              Shomolu
+              {supplier.address}
             </td>
 
             <td className="inventory_icon_cell">
               <div>
                 <Editicon className="inventory_icon" />
-                <Delicon className="inventory_icon" />
+                <Delicon className="inventory_icon" onclick={() => deleteSupplier(supplier.name)}/>
               </div>
             </td>
           </tr>
+            )
+          })
+          }
         </table>
       </div>
        {/* Add Supplier Modal */}

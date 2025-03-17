@@ -32,7 +32,7 @@ const OrderStock = () => {
 
       <div className="orderstock_details">
         <table className="orderstock_table">
-          <tr>
+          <tr >
             <th>
               <Squareicon />
             </th>

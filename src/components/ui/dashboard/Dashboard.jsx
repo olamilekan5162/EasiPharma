@@ -24,7 +24,7 @@ import { GrUserWorker as Stafficon, GrStatusGoodSmall as Pendingicon } from "rea
 import { GiMedicines as Drugicon } from "react-icons/gi";
 import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
 import { useState } from "react";
-  
+import { useNavigate } from "react-router-dom";
 import Modal from "../Modal/StockModal";  
 
 
@@ -32,9 +32,11 @@ const Dashboard = () => {
   const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
   const [isStockModalOpen, setIsStockModalOpen] = useState(false);
   const [supplierModalOpen, setSupplierModalOpen] = useState(false);
-  const [isDistributionModalOpen, setIsDistributionModalOpen] = useState(false);
-  const openModal = () => setIsDistributionModalOpen(true);
-  const closeModal = () => setIsDistributionModalOpen(false);
+  // const openModal = () => setIsDistributionModalOpen(true);
+  // const closeModal = () => setIsDistributionModalOpen(false);
+
+
+  const navigate = useNavigate();
   const handleAddSupplier = (newSupplier) => {
     // alert("Supplier Added:", newSupplier); // Log supplier data for backend use
     alert("Supplier has been added successfully!"); 
@@ -47,7 +49,8 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
   };
   return (
     <div className="D_mainbar">
-      <div className="D_mainbar_card">
+      <div className="D_mainbar_card" 
+      style={{ cursor: "pointer" }}>
         <span>
           <Storeicon className="D_mainbar_icon" />
         </span>
@@ -55,17 +58,34 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p>100</p>
       </div>
 
-
       <div className="D_mainbar_card">
+        <span>
+          <Checkouticon className="D_mainbar_icon" />
+        </span>
+        <p className="D_mainbar_text">Last Order</p>
+      </div>
+
+      <div className="D_mainbar_card"
+      style={{ cursor: "pointer" }}>
         <span>
           <Pendingicon className="D_mainbar_icon" />
         </span>
         <p className="D_mainbar_text">Pending Order</p>
       </div>
 
+      <div className="D_mainbar_card" 
+       onClick={() => navigate("/homepage/stocks")}  // Navigates to Storage Page
+       style={{ cursor: "pointer" }}  // Ensures it's clickable
+      >
+        <span>
+          <Warehouseicon className="D_mainbar_icon" />
+        </span>
+        <p className="D_mainbar_text">Check Stocks</p>
+      </div>
+
       <div 
         className="D_mainbar_card" 
-        onClick={() => setIsManageStockModalOpen(true)}
+        style={{ cursor: "pointer" }}
       >
         <span>
           <Inventoryicon className="D_mainbar_icon" />
@@ -73,28 +93,41 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p className="D_mainbar_text">Check Inventory</p>
       </div>
 
+      <div className="D_mainbar_card">
+        <span>
+          <Stafficon className="D_mainbar_icon" />
+        </span>
+        <p className="D_mainbar_text">Staff List</p>
+      </div>
 
-      <div className="D_mainbar_card" onClick={() => setSupplierModalOpen(true)}>
+      <div className="D_mainbar_card"
+      style={{ cursor: "pointer" }}
+      onClick={() => setSupplierModalOpen(true)}>
         <span>
           <Suppliericon className="D_mainbar_icon" />
         </span>
         <p className="D_mainbar_text">Supplier</p>
       </div>
 
-      <div className="D_mainbar_card" onClick={openModal}>
+      <div className="D_mainbar_card" 
+      onClick={() => navigate("/homepage/distribution")} 
+      style={{ cursor: "pointer" }}
+      >
         <span>
-          <Distribeicon className="D_mainbar_icon" />
+          <Distribeicon className="D_mainbar_icon"
+           />
         </span>
         <p className="D_mainbar_text">Distribution</p>
       </div>
 
       {/* Render modal when isDistributionModalOpen is true */}
-      {isDistributionModalOpen && (
+      {/* {isDistributionModalOpen && (
         <DistributionModal isOpen={isDistributionModalOpen} onClose={closeModal} />
-      )}
+      )} */}
       {/* Order Stocks - Opens Stock Modal */}
       <div 
         className="D_mainbar_card" 
+        style={{ cursor: "pointer" }}
         onClick={() => setIsStockModalOpen(true)}
       >
         <span>
@@ -109,14 +142,14 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         addSupplier={handleAddSupplier}
       />
 
-      {/* Manage Stock Modal */}
+      {/* Manage Stock Modal
       <ManageStockModal 
        
         isOpen={isManageStockModalOpen} 
         onClose={() => setIsManageStockModalOpen(false)}
         updateStock={updateStock}
       />
-      
+       */}
 
       {/* Stock Modal */}
       <Modal 
