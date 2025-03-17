@@ -62,7 +62,8 @@
     color: var(--secondary-color);
 }
 
-/* .btn.disabled {
+.btn.disabled {
     background-color: var(--alt-color);
     cursor: not-allowed;
-  } */
+    border: 2px solid var(--secondary-col);
+  }
