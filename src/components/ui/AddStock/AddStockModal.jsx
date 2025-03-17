@@ -72,11 +72,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
           onChange={(e) => setExpiryDate(e.target.value)}
         />
 
-        {/* <label>Action:</label>
-        <select value={action} onChange={(e) => setAction(e.target.value)}>
-          <option value="add">Add Stock</option>
-          <option value="remove">Remove Stock</option>
-        </select> */}
+        
 
         <div className="modal-buttons">
           <Button onClick={handleSubmit}>Confirm</Button>

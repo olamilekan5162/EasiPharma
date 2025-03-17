@@ -66,10 +66,7 @@ const fetchData = async () => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>
-          &times;
-        </button>
-
+      
         <h2 className="order_text">Order Stocks</h2>
 
         <label>Supplier:</label>
@@ -95,8 +92,11 @@ const fetchData = async () => {
 
         <label>Order Date:</label>
         <input type="date" value={orderDate} onChange={(e) => setOrderDate(e.target.value)} />
-
-        <Button onClick={handleSubmit}>Place Order</Button>
+      <div>
+      <Button onClick={handleSubmit}>Place Order</Button>
+        <Button onClick={onClose} className="cancel-button">Cancel</Button>
+        </div>
+        
       </div>
     </div>
   );
