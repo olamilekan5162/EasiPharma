@@ -20,6 +20,7 @@ const AddSupplierModal = ({ isOpen, onClose, addSupplier }) => {
         address: address
       });
       console.log("Document written with ID: ", docRef.id);
+      alert(`${supplierName} added successfully`)
    }catch(e){
      console.error(e)
    }

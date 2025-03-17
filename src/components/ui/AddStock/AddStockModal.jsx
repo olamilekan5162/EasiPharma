@@ -21,6 +21,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
         expiryDate: expiryDate
       });
       console.log("Document written with ID: ", docRef.id);
+      alert(`${stockName} added successfully`)
     }
     catch(e){
       console.log(e)
@@ -51,7 +52,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
 
         <label>Stock Name:</label>
         <input 
-          type="number" 
+          type="text" 
           value={stockName} 
           onChange={(e) => setStockName(e.target.value)}
         />

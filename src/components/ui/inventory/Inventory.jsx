@@ -15,6 +15,7 @@ import { useState, useEffect } from 'react'
 const Inventory = () => {
   const [stocks, setStocks] = useState([])
   const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
+  
   useEffect(() =>{
     getStocks()
   },[stocks])
@@ -43,9 +44,9 @@ const Inventory = () => {
     }
   }
   
-  const deleteStock = async (stockid) => {
+  const deleteStock = async (stockName) => {
     try {
-      await deleteDoc(doc(db, "stocks", stockid));
+      await deleteDoc(doc(db, "stocks", stockName));
     }
     catch(e){
       console.error(e)
@@ -121,7 +122,7 @@ const Inventory = () => {
             <td>
               <div>
                 <Editicon  className="inventory_icon"/>
-                <Delicon className="inventory_icon" onClick={() => deleteStock(stock.id)}/>
+                <Delicon className="inventory_icon" onClick={() => deleteStock(stock.stockName)}/>
               </div>
             </td>
           </tr>
