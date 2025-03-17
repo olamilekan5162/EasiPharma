@@ -55,25 +55,12 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p>100</p>
       </div>
 
-      <div className="D_mainbar_card">
-        <span>
-          <Checkouticon className="D_mainbar_icon" />
-        </span>
-        <p className="D_mainbar_text">Last Order</p>
-      </div>
 
       <div className="D_mainbar_card">
         <span>
           <Pendingicon className="D_mainbar_icon" />
         </span>
         <p className="D_mainbar_text">Pending Order</p>
-      </div>
-
-      <div className="D_mainbar_card">
-        <span>
-          <Warehouseicon className="D_mainbar_icon" />
-        </span>
-        <p className="D_mainbar_text">Check Stocks</p>
       </div>
 
       <div 
@@ -86,25 +73,19 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p className="D_mainbar_text">Check Inventory</p>
       </div>
 
-      <div className="D_mainbar_card">
-        <span>
-          <Stafficon className="D_mainbar_icon" />
-        </span>
-        <p className="D_mainbar_text">Staff List</p>
-      </div>
 
       <div className="D_mainbar_card" onClick={() => setSupplierModalOpen(true)}>
         <span>
           <Suppliericon className="D_mainbar_icon" />
         </span>
-        <p className="D_mainbar_text">Add Supplier</p>
+        <p className="D_mainbar_text">Supplier</p>
       </div>
 
       <div className="D_mainbar_card" onClick={openModal}>
         <span>
           <Distribeicon className="D_mainbar_icon" />
         </span>
-        <p className="D_mainbar_text">Distribution Records</p>
+        <p className="D_mainbar_text">Distribution</p>
       </div>
 
       {/* Render modal when isDistributionModalOpen is true */}
