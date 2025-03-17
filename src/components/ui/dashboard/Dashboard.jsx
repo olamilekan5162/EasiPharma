@@ -76,6 +76,8 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         className="D_mainbar_card" 
         onClick={() => navigate("/homepage/stocks/inventory")}
         style={{ cursor: "pointer" }}
+        onClick={() => navigate("/homepage/stocks/inventory")} 
+      
       >
         <span>
           <Inventoryicon className="D_mainbar_icon" />
