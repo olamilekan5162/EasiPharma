@@ -3,6 +3,7 @@ import "./Modal.css";
 import Button from "../button/Button";
 import { db } from "../../../utils/firebaseConfig.js"
 import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import  Spinner  from "../../spinner/Spinner"
 
 
 const Modal = ({ isOpen, onClose }) => {
@@ -12,6 +13,7 @@ const Modal = ({ isOpen, onClose }) => {
   const [stocks, setStocks] = useState([])
   const [stockName, setStockName] = useState(stocks[0]);
   const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetchData()
@@ -39,6 +41,7 @@ const fetchData = async () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     
     try{
       const docRef = await addDoc(collection(db, "orderStock"), {
@@ -48,9 +51,11 @@ const fetchData = async () => {
         quantity: quantity
       });
       console.log("Document written with ID: ", docRef.id);
+      setLoading(false)
       alert(`${stockName} ordered successfully`)
    }catch(e){
      console.error(e)
+     setLoading(false)
      alert(e)
    }
 
@@ -93,7 +98,7 @@ const fetchData = async () => {
         <label>Order Date:</label>
         <input type="date" value={orderDate} onChange={(e) => setOrderDate(e.target.value)} />
       <div>
-      <Button onClick={handleSubmit}>Place Order</Button>
+      <Button onClick={handleSubmit}>{loading ? <Spinner loading={loading}/> : "Place Order"}</Button>
         <Button onClick={onClose} className="cancel-button">Cancel</Button>
         </div>
         

@@ -63,6 +63,6 @@
 }
 
 .btn.disabled {
-    background-color: var(--alt-color-2);
+    background-color: var(--alt-color);
     cursor: not-allowed;
   }

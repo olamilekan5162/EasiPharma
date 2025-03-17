@@ -2,18 +2,23 @@ import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
 import "./ManageStockModal.css"; 
 import { db } from "../../../utils/firebaseConfig.js"
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import  Spinner  from "../../spinner/Spinner"
 
 
 const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
   const [stockName, setStockName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
+  const [loading, setLoading] = useState(false)
+  
+  const isFormValid = stockName !== "" && quantity !== "" && expiryDate !== ""
 
   // Hooks must always execute
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try{
       const docRef = await addDoc(collection(db, "stocks"), {
         stockName: stockName,
@@ -21,9 +26,11 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
         expiryDate: expiryDate
       });
       console.log("Document written with ID: ", docRef.id);
+      setLoading(false)
       alert(`${stockName} added successfully`)
     }
     catch(e){
+      setLoading(false)
       console.log(e)
     }
     
@@ -75,7 +82,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
         
 
         <div className="modal-buttons">
-          <Button onClick={handleSubmit}>Confirm</Button>
+          <Button onClick={handleSubmit} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Confirm"}</Button>
           <Button onClick={onClose} className="cancel-button">Cancel</Button>
         </div>
       </div>

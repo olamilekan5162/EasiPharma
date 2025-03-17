@@ -11,23 +11,27 @@ import { MdDeleteOutline as Delicon } from "react-icons/md";
 import { collection, getDocs, addDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../utils/firebaseConfig.js"
 import { useState, useEffect } from 'react'
+import  Spinner  from "../../spinner/Spinner"
 
 const Inventory = () => {
   const [stocks, setStocks] = useState([])
   const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false)
   
   useEffect(() =>{
     getStocks()
-  },[stocks])
-  
+  },[])
   
   const getStocks = async () => {
+    setLoading(true)
     try {
       const querySnapshot = await getDocs(collection(db, "stocks"));
       const stockData = querySnapshot.docs.map((doc) => doc.data());
       setStocks(stockData)
+      setLoading(false)
     }
     catch(e){
+      setLoading(false)
       console.error(e)
     }
   }
@@ -99,7 +103,11 @@ const Inventory = () => {
               <div></div>
             </th>
           </tr>
-          { stocks.map((stock) =>{
+          {loading 
+          ? 
+          <Spinner loading={loading} size={100} color='#008000' />
+          : 
+           stocks.map((stock) =>{
             return(
           <tr key={stock.id}>
             <td>

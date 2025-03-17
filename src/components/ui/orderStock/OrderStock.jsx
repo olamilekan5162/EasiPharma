@@ -7,24 +7,29 @@ import {useState, useEffect} from 'react'
 import Modal from "../Modal/StockModal"; 
 import { collection, getDocs, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../../utils/firebaseConfig.js"
+import  Spinner  from "../../spinner/Spinner"
 
 const OrderStock = () => {
   
   const [orderStocks, setOrderStocks] = useState([])
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
     getOrderStocks()
-  }, [orderStocks]);
+  }, []);
 
 
 const getOrderStocks = async () => {
+  setLoading(true)
   try {
       const querySnapshot = await getDocs(collection(db, "orderStock"));
       const orderStocksData = querySnapshot.docs.map((doc) => doc.data());
       setOrderStocks(orderStocksData)
+      setLoading(false)
     }
     catch(e){
       console.error(e)
+      setLoading(false)
     }
   
 }
@@ -88,7 +93,11 @@ const getOrderStocks = async () => {
               </div>
             </th>
           </tr>
-          {orderStocks.map((orderStock) =>{
+          {loading 
+          ? 
+          <Spinner loading={loading} size={100} color='#008000' />
+          : 
+          orderStocks.map((orderStock) =>{
             return (
           <tr key={orderStock.id}>
             <td>

@@ -94,7 +94,7 @@ const  handleLogin = (e) => {
                 </div>
 
               <div className="btn">
-                <Button variant="primary" onClick={handleLogin} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Sign In"}
+                <Button variant="primary" onClick={handleLogin} disabled={!isFormValid}>{loading ? <Spinner color='#008000' loading={loading}/> : "Sign In"}
                 </Button>
                 </div>
               </fieldset>
