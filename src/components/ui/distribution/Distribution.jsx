@@ -1,4 +1,6 @@
 import "./distribution.css"
+import { useState } from "react";
+import DistributionModal from "../distributionModal/DistributionModal";
 import {
   FaPlus as Plusicon,
   FaRegSquare as Squareicon,
@@ -8,10 +10,17 @@ import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 
 
 const Distribution = () => {
+  const handleAddSales = (newSales) => {
+    // alert("Supplier Added:", newSupplier); // Log supplier data for backend use
+    alert("Supplier has been added successfully!"); 
+    setSalesModalOpen(false); 
+  };
+
+ const [salesModalOpen, setSalesModalOpen] = useState(false);
   return (
     <section className="distri_page">
       <div className="distri_card">
-        <div className="add_sales">
+      <div className="add_sales" onClick={() => setSalesModalOpen(true)}>
           <span>
             <Plusicon className="sales_icon" />
           </span>
@@ -103,6 +112,12 @@ const Distribution = () => {
           </tr>
         </table>
       </div>
+       {/* Add Sales Modal */}
+                   <DistributionModal
+                    isOpen={salesModalOpen}
+                    onClose={() => setSalesModalOpen(false)}
+                    addSales={handleAddSales}
+                  />
     </section>
   );
 }
