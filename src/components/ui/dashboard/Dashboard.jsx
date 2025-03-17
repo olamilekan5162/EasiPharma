@@ -63,7 +63,7 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
      
 
       <div className="D_mainbar_card" 
-       onClick={() => navigate("/homepage/stocks")}  // Navigates to Storage Page
+       onClick={() => navigate("/homepage/stocks/orderstock")}  // Navigates to Storage Page
        style={{ cursor: "pointer" }}  // Ensures it's clickable
       >
         <span>
@@ -74,6 +74,7 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
 
       <div 
         className="D_mainbar_card" 
+        onClick={() => navigate("/homepage/stocks/inventory")}
         style={{ cursor: "pointer" }}
       >
         <span>

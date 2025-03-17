@@ -57,7 +57,7 @@ const handleSignOut = () =>{
             <span className="sidetext">Dashboard</span>
           </NavLink>
 
-          <NavLink to="stocks" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
+          <NavLink to="stocks/inventory" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Stockicon className="icon" />
             <span className="sidetext">Stocks</span>
           </NavLink>
