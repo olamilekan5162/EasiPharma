@@ -46,11 +46,9 @@ const deleteSupplier = async (supplierName) =>{
 
   const handleAddSupplier = (newSupplier) => {
     // alert("Supplier Added:", newSupplier); // Log supplier data for backend use
-    alert("Supplier has been added successfully!"); 
     setSupplierModalOpen(false); 
   };
 
-  const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
   return (
     <section className="supplier_page">
       <div className="supplier_card">

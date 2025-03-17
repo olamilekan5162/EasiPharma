@@ -1,5 +1,5 @@
 import "./distribution.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DistributionModal from "../distributionModal/DistributionModal";
 import {
   FaPlus as Plusicon,
@@ -8,11 +8,31 @@ import {
 } from "react-icons/fa";
 import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 
+import { db } from "../../../utils/firebaseConfig.js"
+import { collection, addDoc, getDocs } from "firebase/firestore";
+
 
 const Distribution = () => {
+  const [distributions, setDistributions] = useState([])
+  
+useEffect(() => {
+    getDistributions()
+  }, [distributions]);
+
+const getDistributions = async () => {
+  try {
+      const querySnapshot = await getDocs(collection(db, "suppliers"));
+      const distributionData = querySnapshot.docs.map((doc) => doc.data());
+      setDistributions(distributionData)
+    }
+    catch(e){
+      console.error(e)
+    }
+  
+}
+  
   const handleAddSales = (newSales) => {
     // alert("Supplier Added:", newSupplier); // Log supplier data for backend use
-    alert("Supplier has been added successfully!"); 
     setSalesModalOpen(false); 
   };
 
@@ -79,23 +99,25 @@ const Distribution = () => {
 
             <th></th>
           </tr>
-
+          {distributions.map((distribution) =>{
+            return(
+            
           <tr>
             <td>
               <Squareicon />
             </td>
 
-            <td>Mr Tobi</td>
+            <td>{distribution.customerName}</td>
 
-            <td>Aspirin</td>
+            <td>{distribution.stockName}</td>
 
-            <td>abcd@gmail.com</td>
+            <td>{distribution.email}</td>
 
-            <td>challenge</td>
+            <td>{distribution.address}</td>
 
-            <td>500</td>
+            <td>{distribution.quantity}</td>
 
-            <td>11/09/2025</td>
+            <td>{distribution.deliveryDate}</td>
 
             <td>
               <select>
@@ -110,6 +132,9 @@ const Distribution = () => {
                           </div>
                         </td>
           </tr>
+            )
+          })
+          }
         </table>
       </div>
        {/* Add Sales Modal */}

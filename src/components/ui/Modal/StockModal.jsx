@@ -43,15 +43,16 @@ const fetchData = async () => {
     try{
       const docRef = await addDoc(collection(db, "orderStock"), {
         stockName: stockName,
-        quantity: quantity,
+        supplier: selectedSupplier,
         orderDate: orderDate,
-        supplier: selectedSupplier
+        quantity: quantity
       });
       console.log("Document written with ID: ", docRef.id);
-    }
-    catch(e){
-      console.log(e)
-    }
+      alert(`${stockName} ordered successfully`)
+   }catch(e){
+     console.error(e)
+     alert(e)
+   }
 
     // Clear form fields
     setStockName("");
