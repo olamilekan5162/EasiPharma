@@ -21,7 +21,7 @@ useEffect(() => {
 
 const getDistributions = async () => {
   try {
-      const querySnapshot = await getDocs(collection(db, "suppliers"));
+      const querySnapshot = await getDocs(collection(db, "distribution"));
       const distributionData = querySnapshot.docs.map((doc) => doc.data());
       setDistributions(distributionData)
     }
