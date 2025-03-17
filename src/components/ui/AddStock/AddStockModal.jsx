@@ -51,7 +51,7 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
 
         <label>Stock Name:</label>
         <input 
-          type="number" 
+          type="text" 
           value={stockName} 
           onChange={(e) => setStockName(e.target.value)}
         />
