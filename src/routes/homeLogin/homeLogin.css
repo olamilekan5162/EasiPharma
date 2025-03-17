@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   font-family: var(--primary-font);
-  background: url("/assets/kenrick-green.jpg") center/cover no-repeat;
+  background: url("/assets/lawrence.jpg") center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,7 +28,7 @@
   position: absolute;
   top: 10px;
   left: 0;
-  color: var(--alt-color);
+  color: var(--primary-color);
   padding: 0 2rem;
 }
 
@@ -39,7 +39,7 @@
 
 .login_card {
   background-color: #fff;
-  background-image: linear-gradient(to bottom, var(--secondary-color), rgba(0, 128, 0, 0.589), rgb(255, 255, 255));
+  background-image: linear-gradient(to bottom, var(--secondary-color), rgba(0, 128, 0, 0.589), rgba(255, 255, 255, 0.5));
   border-radius: 10px;
   padding: 2rem;
 }
@@ -81,7 +81,7 @@
   font-size: 1rem;
   padding: .75rem;
   color: black;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 1rem;
   cursor: pointer;
 }
