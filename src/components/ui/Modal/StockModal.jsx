@@ -6,12 +6,12 @@ import { collection, addDoc, getDocs } from "firebase/firestore";
 
 
 const Modal = ({ isOpen, onClose }) => {
-  const [stockName, setStockName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [orderDate, setOrderDate] = useState("");
   const [suppliers, setSuppliers] = useState([]);
-  const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
   const [stocks, setStocks] = useState([])
+  const [stockName, setStockName] = useState(stocks[0]);
+  const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
 
   useEffect(() => {
     fetchData()
@@ -37,13 +37,21 @@ const fetchData = async () => {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    alert(`Order placed for ${quantity} of ${stockName} from ${selectedSupplier}  on ${orderDate}`);
-    
-    // You can send this data to the backend here
-    console.log({ stockName, quantity, orderDate });
+    try{
+      const docRef = await addDoc(collection(db, "orderStock"), {
+        stockName: stockName,
+        quantity: quantity,
+        orderDate: orderDate,
+        supplier: selectedSupplier
+      });
+      console.log("Document written with ID: ", docRef.id);
+    }
+    catch(e){
+      console.log(e)
+    }
 
     // Clear form fields
     setStockName("");
@@ -71,9 +79,15 @@ const fetchData = async () => {
             </option>
           ))}
         </select>
-
+        
         <label>Stock Name:</label>
-        <input type="text" value={stockName} onChange={(e) => setStockName(e.target.value)} />
+        <select value={stockName} onChange={(e) => setStockName(e.target.value)}>
+          {stocks.map((stock) => (
+            <option key={stock.id} value={stock.stockName}>
+              {stock.stockName}
+            </option>
+          ))}
+        </select>
 
         <label>Quantity (Carton):</label>
         <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
