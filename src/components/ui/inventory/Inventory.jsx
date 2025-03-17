@@ -58,7 +58,7 @@ const Inventory = () => {
         <div className="inventory_btn" onClick={() => setIsManageStockModalOpen(true)} >
           <Button variant="alternate">
             <Plusicon className="inventory_btn_icon" />
-            <p>Add Product</p>
+            <p>Add Stock</p>
           </Button>
         </div>
       </div>
@@ -118,7 +118,7 @@ const Inventory = () => {
               </select>
             </td>
 
-            <td className="inventory_icon_cell">
+            <td>
               <div>
                 <Editicon  className="inventory_icon"/>
                 <Delicon className="inventory_icon" onClick={() => deleteStock(stock.stockName)}/>
