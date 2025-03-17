@@ -5,39 +5,19 @@ import { db } from "../../../utils/firebaseConfig.js"
 import { collection, addDoc, getDocs } from "firebase/firestore"; 
 
 
-
-const suppliers = ["Supplier A", "Supplier B", "Supplier C"];
 const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
   const [stockName, setStockName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
-const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
-const [stocks, setStocks] = useState([]);
 
   // Hooks must always execute
-  useEffect(() => {
-    fetchOrderStock()
-  }, [stocks]);
-
-const fetchOrderStock = async () => {
-  try {
-      const querySnapshot = await getDocs(collection(db, "orderStock"));
-      const stockData = querySnapshot.docs.map((doc) => doc.data());
-      setStocks(stockData)
-    }
-    catch(e){
-      console.error(e)
-    }
   
-}
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
       const docRef = await addDoc(collection(db, "stocks"), {
-        StockName: stockName,
+        stockName: stockName,
         quantity: quantity,
-        Supplier: selectedSupplier,
         expiryDate: expiryDate
       });
       console.log("Document written with ID: ", docRef.id);
@@ -50,7 +30,6 @@ const fetchOrderStock = async () => {
       stockName,
       quantity: parseInt(quantity, 10),
       expiryDate,
-      selectedSupplier,
      
     };
 
@@ -60,7 +39,6 @@ const fetchOrderStock = async () => {
     setStockName("");
     setQuantity("");
     setExpiryDate("");
-    setSelectedSupplier("");
     onClose(); // Close modal
   };
 
@@ -70,15 +48,14 @@ const fetchOrderStock = async () => {
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>Add Stock</h2>
-        
-        <label>Stock Name:</label>
-        <select value={stockName} onChange={(e) => setStockName(e.target.value)} required>
-          <option value="" disabled>Select a Stock</option>
-          {stocks.map((stock) => (
-            <option key={stock.id} value={stock.stockName}>{stock.stockName}</option>
-          ))}
-        </select>
 
+        <label>Stock Name:</label>
+        <input 
+          type="number" 
+          value={stockName} 
+          onChange={(e) => setStockName(e.target.value)}
+        />
+        
         <label>Quantity (
           Carton):</label>
         <input 
@@ -93,15 +70,6 @@ const fetchOrderStock = async () => {
           value={expiryDate} 
           onChange={(e) => setExpiryDate(e.target.value)}
         />
-
-<label>Supplier Name</label>
-        <select value={selectedSupplier} onChange={(e) => setSelectedSupplier(e.target.value)}>
-          {suppliers.map((supplier, index) => (
-            <option key={index} value={supplier}>
-              {supplier}
-            </option>
-          ))}
-        </select>
 
         {/* <label>Action:</label>
         <select value={action} onChange={(e) => setAction(e.target.value)}>
