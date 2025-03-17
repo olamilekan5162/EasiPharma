@@ -55,7 +55,7 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
           <Storeicon className="D_mainbar_icon" />
         </span>
         <p className="D_mainbar_text">Total Stocks</p>
-        <p>100</p>
+        <p>120</p>
       </div>
 
     
