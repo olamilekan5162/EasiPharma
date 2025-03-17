@@ -42,9 +42,9 @@ const Inventory = () => {
     }
   }
   
-  const deleteStock = async (stockName) => {
+  const deleteStock = async (stockid) => {
     try {
-      await deleteDoc(doc(db, "stocks", stockName));
+      await deleteDoc(doc(db, "stocks", stockid));
     }
     catch(e){
       console.error(e)
@@ -120,7 +120,7 @@ const Inventory = () => {
             <td className="inventory_icon_cell">
               <div>
                 <Editicon  className="inventory_icon"/>
-                <Delicon className="inventory_icon" onClick={() => deleteStock(stock.stockName)}/>
+                <Delicon className="inventory_icon" onClick={() => deleteStock(stock.id)}/>
               </div>
             </td>
           </tr>
