@@ -1,5 +1,5 @@
 .D_mainbar{
-    margin: 4rem;
+    margin: 2rem 4rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
@@ -9,7 +9,7 @@
 .D_mainbar_card{
     background-color: var(--primary-color);
     text-align: center;
-    padding: 3.5rem;
+    padding: 3rem;
     border-radius: .75rem;
     box-shadow: 2px 2px 10px rgb(196, 193, 193);
 }

@@ -3,10 +3,31 @@ import "./orderStock.css";
 import { RiFilter3Fill as Filtericon } from "react-icons/ri";
 import { FaPlus as Plusicon, FaRegSquare as Squareicon } from "react-icons/fa";
 import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Modal from "../Modal/StockModal"; 
+import { collection, getDocs, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+import { db } from "../../../utils/firebaseConfig.js"
 
 const OrderStock = () => {
+  
+  const [orderStocks, setOrderStocks] = useState([])
+  
+  useEffect(() => {
+    getOrderStocks()
+  }, [orderStocks]);
+
+
+const getOrderStocks = async () => {
+  try {
+      const querySnapshot = await getDocs(collection(db, "orderStock"));
+      const orderStocksData = querySnapshot.docs.map((doc) => doc.data());
+      setOrderStocks(orderStocksData)
+    }
+    catch(e){
+      console.error(e)
+    }
+  
+}
   
   const [isModalOpen, setIsModalOpen] = useState(false);
   
@@ -67,19 +88,20 @@ const OrderStock = () => {
               </div>
             </th>
           </tr>
-
-          <tr>
+          {orderStocks.map((orderStock) =>{
+            return (
+          <tr key={orderStock.id}>
             <td>
               <Squareicon />
             </td>
 
-            <td>Paracetamol</td>
+            <td>{orderStock.stockName}</td>
 
-            <td>16/03/2025</td>
+            <td>{orderStock.orderDate}</td>
 
-            <td>10</td>
+            <td>{orderStock.quantity}</td>
 
-            <td>Femi Pharma</td>
+            <td>{orderStock.supplier}</td>
 
             <td>
               <select>
@@ -88,6 +110,9 @@ const OrderStock = () => {
               </select>
             </td>
           </tr>
+            )
+          })
+          }
         </table>
       </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}></Modal>

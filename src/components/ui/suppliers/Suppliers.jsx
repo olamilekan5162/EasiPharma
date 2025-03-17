@@ -17,6 +17,7 @@ const Suppliers = () => {
     getSuppliers()
   }, [suppliers]);
 
+
 const getSuppliers = async () => {
   try {
       const querySnapshot = await getDocs(collection(db, "suppliers"));
