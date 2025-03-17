@@ -10,22 +10,29 @@ import {
 import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 import { MdDeleteOutline as Delicon } from "react-icons/md";
 import AddSupplierModal from "../SuppliersModal/SupplierModal";
+import  Spinner  from "../../spinner/Spinner"
+
+
 const Suppliers = () => {
   const [suppliers, setSuppliers] = useState([])
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
     getSuppliers()
-  }, [suppliers]);
+  }, []);
 
 
 const getSuppliers = async () => {
+  setLoading(true)
   try {
       const querySnapshot = await getDocs(collection(db, "suppliers"));
       const suppliersData = querySnapshot.docs.map((doc) => doc.data());
       setSuppliers(suppliersData)
+      setLoading(false)
     }
     catch(e){
       console.error(e)
+      setLoading(false)
     }
   
 }
@@ -89,7 +96,11 @@ const deleteSupplier = async (supplierName) =>{
               <div></div>
             </th>
           </tr>
-          { suppliers.map((supplier) =>{
+          {loading 
+          ? 
+          <Spinner loading={loading} size={100} color='#008000' />
+          : 
+          suppliers.map((supplier) =>{
             return (
             
           <tr key={supplier.id}>

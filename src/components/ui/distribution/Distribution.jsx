@@ -10,22 +10,27 @@ import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 
 import { db } from "../../../utils/firebaseConfig.js"
 import { collection, addDoc, getDocs } from "firebase/firestore";
+import  Spinner  from "../../spinner/Spinner"
 
 
 const Distribution = () => {
   const [distributions, setDistributions] = useState([])
+  const [loading, setLoading] = useState(false)
   
 useEffect(() => {
     getDistributions()
-  }, [distributions]);
+  }, []);
 
 const getDistributions = async () => {
+  setLoading(true)
   try {
       const querySnapshot = await getDocs(collection(db, "distribution"));
       const distributionData = querySnapshot.docs.map((doc) => doc.data());
       setDistributions(distributionData)
+      setLoading(false)
     }
     catch(e){
+      setLoading(false)
       console.error(e)
     }
   
@@ -99,7 +104,11 @@ const getDistributions = async () => {
 
             <th></th>
           </tr>
-          {distributions.map((distribution) =>{
+          {loading 
+          ? 
+          <Spinner loading={loading} size={100} color='#008000' />
+          : 
+          distributions.map((distribution) =>{
             return(
             
           <tr>

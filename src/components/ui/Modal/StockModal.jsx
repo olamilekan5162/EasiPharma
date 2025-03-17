@@ -14,6 +14,8 @@ const Modal = ({ isOpen, onClose }) => {
   const [stockName, setStockName] = useState(stocks[0]);
   const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
   const [loading, setLoading] = useState(false)
+  
+  const isFormValid = selectedSupplier !== "" && stockName !== "" && orderDate !== "" && quantity !== ""
 
   useEffect(() => {
     fetchData()
@@ -98,7 +100,7 @@ const fetchData = async () => {
         <label>Order Date:</label>
         <input type="date" value={orderDate} onChange={(e) => setOrderDate(e.target.value)} />
       <div>
-      <Button onClick={handleSubmit}>{loading ? <Spinner loading={loading}/> : "Place Order"}</Button>
+      <Button onClick={handleSubmit} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Place Order"}</Button>
         <Button onClick={onClose} className="cancel-button">Cancel</Button>
         </div>
         

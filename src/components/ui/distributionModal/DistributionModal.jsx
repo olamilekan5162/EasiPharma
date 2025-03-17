@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
 import { db } from "../../../utils/firebaseConfig.js"
 import { collection, addDoc, getDocs } from "firebase/firestore";
+import  Spinner  from "../../spinner/Spinner"
 
 
 const DistributionModal = ({ isOpen, onClose }) => {
@@ -12,6 +13,9 @@ const DistributionModal = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
+  const [loading, setLoading] = useState(false)
+  
+  const isFormValid = customerName !== "" && productName !== "" && quantity !== "" && email !== "" && address !== "" && deliveryDate !== ""
 
 
   useEffect(() => {
@@ -27,6 +31,7 @@ const getProducts = async () => {
     }
     catch(e){
       console.error(e)
+  
     }
   
 }
@@ -34,6 +39,7 @@ const getProducts = async () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     
     try{
       const docRef = await addDoc(collection(db, "distribution"), {
@@ -47,10 +53,11 @@ const getProducts = async () => {
       
       console.log("Document written with ID: ", docRef.id);
       alert(`${quantity} quantity of ${productName} had been distributed successfully`)
+      setLoading(false)
       
    }catch(e){
      console.error(e)
-     alert(e)
+     setLoading(false)
    }
     
     const distributionData = {
@@ -127,7 +134,7 @@ const getProducts = async () => {
         />
 
         <div className="modal-buttons">
-          <Button onClick={handleSubmit}> Sell Stock</Button>
+          <Button onClick={handleSubmit} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Sell Stock"}</Button>
           <Button onClick={onClose} className="cancel-button">Cancel</Button>
         </div>
       </div>
