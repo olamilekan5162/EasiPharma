@@ -1,4 +1,5 @@
 import Button from "../button/Button";
+import ManageStockModal from "../AddStock/AddStockModal.jsx";
 import "./inventory.css";
 import {
   FaPlus as Plusicon,
@@ -13,7 +14,7 @@ import { useState, useEffect } from 'react'
 
 const Inventory = () => {
   const [stocks, setStocks] = useState([])
-  
+  const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
   useEffect(() =>{
     getStocks()
   },[stocks])
@@ -54,7 +55,7 @@ const Inventory = () => {
   return (
     <section className="inventory_page">
       <div className="inventory_topbar">
-        <div className="inventory_btn">
+        <div className="inventory_btn" onClick={() => setIsManageStockModalOpen(true)} >
           <Button variant="alternate">
             <Plusicon className="inventory_btn_icon" />
             <p>Add Product</p>
@@ -129,6 +130,13 @@ const Inventory = () => {
           }
         </table>
       </div>
+      {/* Manage Stock Modal */}
+      <ManageStockModal 
+       
+        isOpen={isManageStockModalOpen} 
+        onClose={() => setIsManageStockModalOpen(false)}
+        updateStock={updateStock}
+      />
     </section>
   );
 };
