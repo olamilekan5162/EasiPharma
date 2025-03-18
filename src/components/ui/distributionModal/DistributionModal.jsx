@@ -143,7 +143,7 @@ const getProducts = async () => {
         />
 
         <div className="modal-buttons">
-          <Button onClick={handleSubmit} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Create ORrder"}</Button>
+          <Button onClick={handleSubmit} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Create Order"}</Button>
           <Button onClick={onClose} className="cancel-button">Cancel</Button>
         </div>
       </div>

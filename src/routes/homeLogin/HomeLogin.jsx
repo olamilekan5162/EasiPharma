@@ -51,11 +51,16 @@ const  handleLogin = (e) => {
           <div>
             <div className="icon">
               <span>
-                <FaArrowRightToBracket className="login_card_icon"/>
+                <FaArrowRightToBracket className="login_card_icon" />
               </span>
             </div>
 
-            <p>Sign in with your User ID and password</p>
+            <p>Sign in with the Login details below</p>
+
+            <p className="login_details">
+              {" "}
+              Email: manager@easi.dev and password: easi001
+            </p>
           </div>
 
           <div>
@@ -85,17 +90,30 @@ const  handleLogin = (e) => {
 
                 <div className="drop_down">
                   <label htmlFor="options"> Level:</label>
-                  <select name="level" id="options" value={level} onChange = {(e) => setLevel(e.target.value)}>
-                    <option value="Admin Manager">Admin Manager</option>
-                    <option value="Store Keeper">Store Keeper</option>
-
+                  <select
+                    name="level"
+                    id="options"
+                    value={level}
+                    onChange={(e) => setLevel(e.target.value)}
+                  >
+                    <option value="Admin Manager">Slect role</option>
+                    <option value="Admin Manager">Admin(Manager)</option>
                     <option value="Staff">Staff</option>
                   </select>
                 </div>
 
-              <div className="btn">
-                <Button variant="primary" onClick={handleLogin} disabled={!isFormValid}>{loading ? <Spinner color='#008000' loading={loading}/> : "Sign In"}
-                </Button>
+                <div className="btn">
+                  <Button
+                    variant="primary"
+                    onClick={handleLogin}
+                    disabled={!isFormValid}
+                  >
+                    {loading ? (
+                      <Spinner color="#008000" loading={loading} />
+                    ) : (
+                      "Sign In"
+                    )}
+                  </Button>
                 </div>
               </fieldset>
             </form>

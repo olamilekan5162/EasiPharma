@@ -9,7 +9,7 @@
 
 .btn.primary {
   width: 50%;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
   background-color: var(--secondary-color);
   border: 2px solid var(--primary-color);
@@ -27,7 +27,7 @@
 
 .btn.secondary {
    width: 100%;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: .5rem 0;
     background-color: var(--secondary-color);
     border: 2px solid var(--primary-color);
@@ -63,7 +63,6 @@
 }
 
 .btn.disabled {
-    background-color: var(--alt-color);
+    background-color: rgba(7, 7, 7, 0.74);
     cursor: not-allowed;
-    border: 2px solid var(--secondary-col);
   }

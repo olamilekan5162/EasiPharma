@@ -6,7 +6,7 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
 ## Features
 - **Inventory management:** Admin Can track the orders received, Order stocks, Add stocks to the available stocks and know when a stock is not available.
 - **Supplier tracking:** Admin can add to the suppliers providing the stocks and also select from the existing suppliers to order stocks
-- **Automated stock ordering:**** Stock can be ordered and if stock is delivered within the specified date it will automatically add up to available stock>
+- **Automated stock ordering:**** Stock can be ordered and if stock is delivered within the specified date it will automatically add up to available stock
 - **AI-driven restocking recommendations:** Ai recommends the stock that might be needing by making suggestions from the stocks that are not available
 - ****User authentication:** Users can, log in, and log out using Firebase Authentication.
 
@@ -59,10 +59,14 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
    ```sh
    npm run dev
    ```
+   ## **API Usage**  
+- **Uploading of Stocks and Suppliers** Adds stocks and suppliers to Firebase Firestore. 
+- **Fetching of Stock and Suppliers** Retrieves stocks and suppliers from Firebase Firestore.  
+  
 ## Usage
 1. Log in to the dashboard.
 2. Manage inventory and supplier details.
-3. Receive AI-based restocking alerts.
+3. Receive AI-based warnings on stock.
 4. Place automated orders when stock is low.
 
 ## Directory Structure
@@ -130,7 +134,7 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
 
 
 ## Deployment
-To deploy the project, you can use platforms like **Vercel** or **Netlify**.
+To deploy the project, we use  **Vercel** but  **Netlify** can be used too.
 
 ### Deploying on Vercel
 1. Install Vercel CLI:
@@ -141,6 +145,18 @@ To deploy the project, you can use platforms like **Vercel** or **Netlify**.
    ```sh
    vercel
    ```
+## **Future Improvements**  
 
+- The settings section can be improved on for multilevel User Access by Manager
+-  Ai automation for stocks ordering based on suggestions made 
+- 
+## 📌 Collaborators  
+
+- [Opeyemi Olalekan](https://github.com/olamilekan5162)  
+- [Ayobami AKANDE](https://github.com/adeyemimichael)  
+- [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4)  
+
+## **Live Demo**  
+[EasiPharma Live](https://dummy-theta.vercel.app)  
 ## License
 This project is licensed under the Apache License 2.0. See the [LICENSE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
