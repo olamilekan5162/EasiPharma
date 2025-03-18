@@ -36,9 +36,9 @@ const getOrderStocks = async () => {
 
 const getStatus = (dbDate) => {
     const ordDate = new Date(dbDate)
-    currentDate = new Date()
-    const threeDaysAfter = new Date(currentDate.getTime() + 3 * 24 * 60 * 60 * 1000);
-    if (ordDate <= threeDaysAfter){
+    const currentDate = new Date()
+    const threeDaysAfter = new Date(ordDate.getTime() + 3 * 24 * 60 * 60 * 1000);
+    if (currentDate >= threeDaysAfter){
       return "Completed"
     }
     else{
