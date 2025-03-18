@@ -122,10 +122,11 @@ const Inventory = () => {
             <td>{stock.expiryDate}</td>
 
             <td>
-              <select>
+              {stock.quantity > 0 ? "Available" : "Unavailable"}
+             { /** <select>
                 <option value="available">Available</option>
                 <option value="out-of-stock">Out of Stock</option>
-              </select>
+              </select> **/}
             </td>
 
             <td>
