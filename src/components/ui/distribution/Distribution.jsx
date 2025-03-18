@@ -1,5 +1,7 @@
 import "./distribution.css"
-import { useState, useEffect } from "react";
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from "../../../utils/UserAuthContext.jsx"
+
 import DistributionModal from "../distributionModal/DistributionModal";
 import {
   FaPlus as Plusicon,
@@ -16,6 +18,7 @@ import  Spinner  from "../../spinner/Spinner"
 const Distribution = () => {
   const [distributions, setDistributions] = useState([])
   const [loading, setLoading] = useState(false)
+  const { level } = useContext(UserContext)
   
   
 useEffect(() => {
@@ -57,12 +60,15 @@ const getDistributions = async () => {
   return (
     <section className="distri_page">
       <div className="distri_card">
+        {level === "Staff" ?
       <div className="add_sales" onClick={() => setSalesModalOpen(true)}>
           <span>
             <Plusicon className="sales_icon" />
           </span>
           <h1 className="sales_text">Add Sales Order</h1>
         </div>
+        : ""
+        }
       </div>
 
       <div className="sales_details">

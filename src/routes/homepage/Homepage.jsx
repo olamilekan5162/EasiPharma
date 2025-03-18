@@ -1,6 +1,6 @@
 import "./homepage.css";
 import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { UserContext } from "../../utils/UserAuthContext.jsx"
 import {
   AiTwotoneDashboard as Dashboardicon,
@@ -29,7 +29,6 @@ import { auth } from "../../utils/firebaseConfig.js"
 
 const Homepage = () => {
   const { user, level } = useContext(UserContext)
-  
   const navigate = useNavigate();
   const date = new Date()
   
@@ -56,22 +55,28 @@ const handleSignOut = () =>{
             <Dashboardicon className="icon" />
             <span className="sidetext">Dashboard</span>
           </NavLink>
-
+          
+          {level === "Admin Manager" ?
           <NavLink to="stocks/inventory" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Stockicon className="icon" />
             <span className="sidetext">Stocks</span>
           </NavLink>
-
+          :
+          <div></div>
+          }
+          
           <NavLink to="distribution" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Distribeicon className="icon" />
             <span className="sidetext">Distribution</span>
           </NavLink>
-
+          
+          {level === "Admin Manager" ?
           <NavLink to="suppliers" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Suppliericon className="icon" />
             <span className="sidetext">Suppliers</span>
           </NavLink>
-
+          : ""
+          }
         </div>
 
         <div className="setbox">
