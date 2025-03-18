@@ -23,12 +23,43 @@ import {
 import { GrUserWorker as Stafficon, GrStatusGoodSmall as Pendingicon } from "react-icons/gr";
 import { GiMedicines as Drugicon } from "react-icons/gi";
 import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal/StockModal";  
+import { collection, getDocs, doc } from "firebase/firestore";
+import { db } from "../../../utils/firebaseConfig.js"
+
 
 
 const Dashboard = () => {
+  const [stocks, setStocks] = useState([])
+  const [totalQuantity, setTotalQuantity] = useState(0)
+  
+  useEffect(() =>{
+    getStocks()
+  },[stocks])
+  
+  useEffect(() => {
+    const tQuantity = stocks.reduce((acc, current) => {
+    const quantity = parseFloat(current.quantity);
+    return acc + (isNaN(quantity) ? 0 : quantity);
+    }, 0);
+    setTotalQuantity(tQuantity)
+  },[stocks])
+  
+  
+  const getStocks = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "stocks"));
+      const stockData = querySnapshot.docs.map((doc) => doc.data());
+      setStocks(stockData)
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  
+  
   const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
   const [isStockModalOpen, setIsStockModalOpen] = useState(false);
   const [supplierModalOpen, setSupplierModalOpen] = useState(false);
@@ -55,7 +86,7 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
           <Storeicon className="D_mainbar_icon" />
         </span>
         <p className="D_mainbar_text">Total Stocks</p>
-        <p>120</p>
+        <p>{totalQuantity}</p>
       </div>
 
     

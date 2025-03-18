@@ -78,7 +78,8 @@ const getProducts = async () => {
     onClose();
   };
 
-  if (!isOpen) return null; // Hide modal if not open
+  // Hide modal if not open
+  if (!isOpen) return null; 
 
   return (
     <div className="modal-overlay">
@@ -134,7 +135,7 @@ const getProducts = async () => {
         />
 
         <div className="modal-buttons">
-          <Button onClick={handleSubmit} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Sell Stock"}</Button>
+          <Button onClick={handleSubmit} disabled={!isFormValid}>{loading ? <Spinner loading={loading}/> : "Create ORrder"}</Button>
           <Button onClick={onClose} className="cancel-button">Cancel</Button>
         </div>
       </div>

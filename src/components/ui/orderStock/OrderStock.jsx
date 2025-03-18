@@ -33,6 +33,18 @@ const getOrderStocks = async () => {
     }
   
 }
+
+const getStatus = (dbDate) => {
+    const ordDate = new Date(dbDate)
+    const currentDate = new Date()
+    const threeDaysAfter = new Date(ordDate.getTime() + 3 * 24 * 60 * 60 * 1000);
+    if (currentDate >= threeDaysAfter){
+      return "Completed"
+    }
+    else{
+      return "Pending"
+    }
+  }
   
   const [isModalOpen, setIsModalOpen] = useState(false);
   
@@ -113,10 +125,11 @@ const getOrderStocks = async () => {
             <td>{orderStock.supplier}</td>
 
             <td>
-              <select>
+              {getStatus(orderStock.orderDate)}
+              {/** <select>
                 <option value="available">Pending</option>
                 <option value="out-of-stock">Completed</option>
-              </select>
+              </select> **/}
             </td>
           </tr>
             )
