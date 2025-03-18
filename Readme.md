@@ -1,19 +1,19 @@
 # EasiPharma || A new way to tracking pharmaceutical product 
 
 ## Overview
-EasiPharma is a stock and inventory management system designed for pharmaceutical businesses. It helps track stock levels, manage suppliers, and automate order placements when stock runs low. The system integrates AI to provide recommendations for restocking and suggest nearby suppliers.
+EasiPharma is a stock and inventory management system designed for pharmaceutical businesses. It helps track stock levels, manage suppliers, and automate order placements when stock runs low. The system integrates AI to provide recommendations for restocking.
 
 ## Features
-- Inventory management
-- Supplier tracking
-- Automated stock ordering
-- AI-driven restocking recommendations
-- User authentication
+- Inventory management: Admin Can track the orders received, Order stocks, Add stocks to the available stocks and know when a stock is not available.
+- Supplier tracking: Admin can add to the suppliers providing the stocks and also select from the existing suppliers to order stocks
+- Automated stock ordering: Stock can be ordered and if stock is delivered within the specified date it will automatically add up to available stock>
+- AI-driven restocking recommendations: Ai recommends the stock that might be needing by making suggestions from the stocks that are not available
+- User authentication: Users can, log in, and log out using Firebase Authentication.
 
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/olamilekan5162/easipharma.git
+   git clone https://github.com/olamilekan5162/EasiPharma.git
    ```
 2. Navigate to the project directory:
    ```sh
