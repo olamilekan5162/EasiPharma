@@ -4,11 +4,22 @@
 EasiPharma is a stock and inventory management system designed for pharmaceutical businesses. It helps track stock levels, manage suppliers, and automate order placements when stock runs low. The system integrates AI to provide recommendations for restocking.
 
 ## Features
-- Inventory management: Admin Can track the orders received, Order stocks, Add stocks to the available stocks and know when a stock is not available.
-- Supplier tracking: Admin can add to the suppliers providing the stocks and also select from the existing suppliers to order stocks
-- Automated stock ordering: Stock can be ordered and if stock is delivered within the specified date it will automatically add up to available stock>
-- AI-driven restocking recommendations: Ai recommends the stock that might be needing by making suggestions from the stocks that are not available
-- User authentication: Users can, log in, and log out using Firebase Authentication.
+- **Inventory management:** Admin Can track the orders received, Order stocks, Add stocks to the available stocks and know when a stock is not available.
+- **Supplier tracking:** Admin can add to the suppliers providing the stocks and also select from the existing suppliers to order stocks
+- **Automated stock ordering:**** Stock can be ordered and if stock is delivered within the specified date it will automatically add up to available stock>
+- **AI-driven restocking recommendations:** Ai recommends the stock that might be needing by making suggestions from the stocks that are not available
+- ****User authentication:** Users can, log in, and log out using Firebase Authentication.
+
+## **Technologies Used**  
+- **React.js** Frontend framework  
+- **OpenAI GPT-4o-mini** AI-powered restocking suggestion and warning.
+- **Firebase Firestore** Database for storing orders, stocks, and suppliers   
+- **Firebase Authentication** User login & Logout  authentication
+
+## **Prerequisites**  
+- Node.js must be installed on your machine  
+- Firebase account with a configured Firestore database  
+- OpenAI API key  
 
 ## Installation
 1. Clone the repository:
@@ -17,7 +28,7 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
    ```
 2. Navigate to the project directory:
    ```sh
-   cd easipharma
+   cd EasiPharma
    ```
 3. **Set up Firebase:**  
    - Create a Firebase project.  
@@ -31,7 +42,6 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
 
    ```ini
    VITE_OPENAI_API_KEY=your-openai-api-key
-
    VITE_FIREBASE_API_KEY=your-firebase-api-key
    VITE_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
    VITE_FIREBASE_PROJECT_ID=your-firebase-project-id
@@ -49,40 +59,15 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
    ```sh
    npm run dev
    ```
-
 ## Usage
 1. Log in to the dashboard.
 2. Manage inventory and supplier details.
 3. Receive AI-based restocking alerts.
 4. Place automated orders when stock is low.
 
-## API Documentation
-EasiPharma provides a RESTful API to interact with inventory, suppliers, and order management.
-
-### Authentication
-- **POST** `/api/auth/login` - Logs in a user
-- **POST** `/api/auth/register` - Registers a new user
-
-### Inventory Management
-- **GET** `/api/inventory` - Fetch all inventory items
-- **POST** `/api/inventory` - Add a new inventory item
-- **PUT** `/api/inventory/:id` - Update inventory details
-- **DELETE** `/api/inventory/:id` - Delete an inventory item
-
-### Suppliers
-- **GET** `/api/suppliers` - Fetch all suppliers
-- **POST** `/api/suppliers` - Add a new supplier
-- **PUT** `/api/suppliers/:id` - Update supplier details
-- **DELETE** `/api/suppliers/:id` - Remove a supplier
-
-### Orders
-- **POST** `/api/orders` - Create a new stock order
-- **GET** `/api/orders` - View all stock orders
-- **PUT** `/api/orders/:id` - Update an order status
-
 ## Directory Structure
 ```
-└── olamilekan5162-easipharma/
+└── EasiPharma/
     ├── Readme.md
     ├── eslint.config.js
     ├── index.html
@@ -142,12 +127,7 @@ EasiPharma provides a RESTful API to interact with inventory, suppliers, and ord
             └── firebaseConfig.js
 ```
 
-## Contribution Guidelines
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-branch`
-3. Commit your changes: `git commit -m "Added new feature"`
-4. Push the changes: `git push origin feature-branch`
-5. Create a pull request.
+
 
 ## Deployment
 To deploy the project, you can use platforms like **Vercel** or **Netlify**.
