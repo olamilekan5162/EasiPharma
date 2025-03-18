@@ -69,6 +69,11 @@
   margin-bottom: 1rem;
 }
 
+.login_card .login_details{
+  font-size: .8rem;
+  font-style: italic;
+}
+
 .login_card fieldset{
   border: none;
 }
