@@ -26,9 +26,9 @@ const Inventory = () => {
     setLoading(true)
     try {
       const querySnapshot = await getDocs(collection(db, "stocks"));
-      const stockData = querySnapshot.docs.map((doc) => doc.data());
-      setStocks(stockData)
+      const stockData = querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
       setLoading(false)
+      setStocks(stockData)
     }
     catch(e){
       setLoading(false)
@@ -48,9 +48,10 @@ const Inventory = () => {
     }
   }
   
-  const deleteStock = async (stockName) => {
+  const deleteStock = async (stockId, stockName) => {
     try {
-      await deleteDoc(doc(db, "stocks", stockName));
+      await deleteDoc(doc(db, "stocks", stockId));
+      alert(`${stockName} deleted successfully`)
     }
     catch(e){
       console.error(e)
@@ -130,7 +131,7 @@ const Inventory = () => {
             <td>
               <div>
                 <Editicon  className="inventory_icon"/>
-                <Delicon className="inventory_icon" onClick={() => deleteStock(stock.stockName)}/>
+                <Delicon className="inventory_icon" onClick={() => deleteStock(stock.id, stock.stockName)}/>
               </div>
             </td>
           </tr>

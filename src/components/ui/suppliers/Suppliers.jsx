@@ -26,7 +26,7 @@ const getSuppliers = async () => {
   setLoading(true)
   try {
       const querySnapshot = await getDocs(collection(db, "suppliers"));
-      const suppliersData = querySnapshot.docs.map((doc) => doc.data());
+      const suppliersData = querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
       setSuppliers(suppliersData)
       setLoading(false)
     }
@@ -38,9 +38,10 @@ const getSuppliers = async () => {
 }
 
 
-const deleteSupplier = async (supplierName) =>{
+const deleteSupplier = async (supplierId, supplierName) =>{
   try{
-    await deleteDoc(doc(db, "suppliers", supplierName));
+    await deleteDoc(doc(db, "suppliers", supplierId));
+    alert(`${supplierName} deleted successfully`)
   }
   catch(e){
     console.error(error)
@@ -119,7 +120,7 @@ const deleteSupplier = async (supplierName) =>{
             <td className="inventory_icon_cell">
               <div>
                 <Editicon className="inventory_icon" />
-                <Delicon className="inventory_icon" onclick={() => deleteSupplier(supplier.name)}/>
+                <Delicon className="inventory_icon" onClick={() => deleteSupplier(supplier.id, supplier.name)}/>
               </div>
             </td>
           </tr>
