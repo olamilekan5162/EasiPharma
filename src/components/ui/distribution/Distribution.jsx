@@ -17,6 +17,7 @@ const Distribution = () => {
   const [distributions, setDistributions] = useState([])
   const [loading, setLoading] = useState(false)
   
+  
 useEffect(() => {
     getDistributions()
   }, []);
@@ -40,6 +41,17 @@ const getDistributions = async () => {
     // alert("Supplier Added:", newSupplier); // Log supplier data for backend use
     setSalesModalOpen(false); 
   };
+  
+  const getStatus = (dbDate) => {
+    const currentDate = new Date()
+    const newDate = new Date(dbDate)
+    if (currentDate > newDate){
+      return "Completed"
+    }
+    else{
+      return "Pending"
+    }
+  }
 
  const [salesModalOpen, setSalesModalOpen] = useState(false);
   return (
@@ -129,10 +141,11 @@ const getDistributions = async () => {
             <td>{distribution.deliveryDate}</td>
 
             <td>
-              <select>
+              {getStatus(distribution.deliveryDate)}
+             {/** <select>
                 <option value="available">Pending</option>
                 <option value="out-of-stock">Delivered</option>
-              </select>
+              </select> **/}
             </td>
 
              <td>
