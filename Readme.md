@@ -89,20 +89,81 @@ Follow these steps to set up and run EasiPharma on your local machine:
 - **Upload Stocks & Suppliers** - Adds data to Firestore.
 - **Fetch Stocks & Suppliers** - Retrieves data from Firestore.
 
-## Usage
-1. Log in to the dashboard.
-2. Manage inventory and supplier details.
-3. Get AI-based stock warnings.
-4. Automate stock orders when needed.
+## 🎯  How to Use
+
+- **Log in to the Dashboard** – Authenticate using Firebase Authentication.
+
+- **Manage Inventory** – Add new stocks, update details, and monitor availability.
+
+-**Manage Suppliers** – Add and track supplier information.
+
+-**Get AI-Based Stock Warnings** – Receive alerts when stock is running low.
+
+-**Stock Orders** – Generate orders automatically when required.
 
 ## Directory Structure
 ```
 └── EasiPharma/
-    ├── src/
-    │   ├── components/
-    │   ├── routes/
-    │   ├── utils/
-    │   └── App.jsx
+    ├── Readme.md
+    ├── LICENSE.txt
+    ├── eslint.config.js
+    ├── index.html
+    ├── package.json
+    ├── vercel.json
+    ├── vite.config.js
+    ├── public/
+    │   └── assets/
+    └── src/
+        ├── App.jsx
+        ├── index.css
+        ├── main.jsx
+        ├── components/
+        │   ├── spinner/
+        │   │   └── Spinner.jsx
+        │   └── ui/
+        │       ├── AddStock/
+        │       │   ├── AddStockModal.jsx
+        │       │   └── ManageStockModal.css
+        │       ├── Modal/
+        │       │   ├── Modal.css
+        │       │   └── StockModal.jsx
+        │       ├── SuppliersModal/
+        │       │   ├── SupplierModal.css
+        │       │   └── SupplierModal.jsx
+        │       ├── button/
+        │       │   ├── Button.css
+        │       │   └── Button.jsx
+        │       ├── dashboard/
+        │       │   ├── Dashboard.jsx
+        │       │   └── dashboard.css
+        │       ├── distribution/
+        │       │   ├── Distribution.jsx
+        │       │   └── distribution.css
+        │       ├── distributionModal/
+        │       │   └── DistributionModal.jsx
+        │       ├── inventory/
+        │       │   ├── Inventory.jsx
+        │       │   └── inventory.css
+        │       ├── orderStock/
+        │       │   ├── OrderStock.jsx
+        │       │   └── orderStock.css
+        │       ├── stocks/
+        │       │   ├── Stocks.jsx
+        │       │   └── stocks.css
+        │       └── suppliers/
+        │           ├── Suppliers.jsx
+        │           └── supplier.css
+        ├── routes/
+        │   ├── homeLogin/
+        │   │   ├── HomeLogin.jsx
+        │   │   └── homeLogin.css
+        │   └── homepage/
+        │       ├── Homepage.jsx
+        │       └── homepage.css
+        └── utils/
+            ├── UserAuthContext.jsx
+            └── firebaseConfig.js
+
 ```
 
 ## Deployment
@@ -119,6 +180,8 @@ To deploy:
 ## Future Improvements
 - Multi-level user access for managers.
 - AI-driven automated stock ordering.
+- Data Analytics Dashboard – Provide insights into stock trends and supplier efficiency.
+- Mobile App Integration – Create a mobile version for pharmacy managers on the go.
 
 ## 📌 Collaborators
 - [Opeyemi Olalekan](https://github.com/olamilekan5162)  
