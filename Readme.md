@@ -90,4 +90,4 @@ To deploy:
 [EasiPharma Live](https://easi-pharma.vercel.app)
 
 ## License
-This project is licensed under the Apache License 2.0. See the [LICENSE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
+This project is licensed under MIT. See the [LICENSE](https://choosealicense.com/licenses/mit/) file for details.
