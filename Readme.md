@@ -59,8 +59,7 @@ Before running EasiPharma, ensure you have the following:
 Follow these steps to set up and run EasiPharma on your local machine:  
 
 ### 1️⃣ Clone the Repository  
-```sh
-git clone https://github.com/olamilekan5162/EasiPharma.git
+
 ## Installation
 1. Clone the repository:
    ```sh
