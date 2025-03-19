@@ -1,26 +1,66 @@
 # EasiPharma || A new way to track pharmaceutical products
 
-## Overview
-EasiPharma is a stock and inventory management system for pharmaceutical businesses. It tracks stock levels, manages suppliers, and automates order placements when stock runs low. AI provides restocking recommendations.
+##  Overview  
+EasiPharma is an advanced stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and automated order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
 
-## Features
-- **Inventory management:** Track orders, add stocks, and monitor stock availability.
-- **Supplier tracking:** Add and manage suppliers for stock orders.
-- **Automated stock ordering:** Orders add to available stock upon timely delivery.
-- **AI-driven restocking recommendations:** Suggests restocking needs based on availability.
-- **User authentication:** Users log in and out via Firebase Authentication.
+With EasiPharma, pharmacy owners and managers can:  
+- Monitor stock levels in real-time  
+- Manage suppliers and track deliveries  
+- Automate restocking processes  
+- Receive AI-based recommendations for stock replenishment  
+- Securely log in and manage operations via Firebase Authentication 
 
+
+## 🔥 Features  
+
+###  **Inventory Management**  
+- Track existing stock levels and availability  
+- Add new stock items with relevant details  
+- Monitor real-time inventory changes  
+
+###  **Supplier Tracking**  
+- Add, update, and manage suppliers  
+- Track supplier performance and order history  
+
+###  **Automated Stock Ordering**  
+- Generate and track stock orders  
+- Automatically update inventory when stock is delivered  
+
+### 🧠 **AI-Driven Restocking Recommendations**  
+- Uses Gemini AI to analyze stock levels  
+- Predicts when to reorder items based on usage trends  
+
+###  **User Authentication**  
+- Secure login and logout functionality  
+- Uses Firebase Authentication for account management  
 ## Technologies Used
 - **React.js** - Frontend framework  
 - **Gemini Ai** - AI-powered restocking suggestions
 - **Firebase Firestore** - Database for orders, stocks, and suppliers   
 - **Firebase Authentication** - User authentication
 
-## Prerequisites
-- Node.js installed
-- Firebase account with Firestore configured
-- GeminiAI API key
+##  Technologies Used  
 
+| Technology | Purpose |  
+|------------|---------|  
+| **React.js** | Frontend development |  
+| **Gemini AI** | AI-powered stock recommendations |  
+| **Firebase Firestore** | Database for storing stocks, suppliers, and orders |  
+| **Firebase Authentication** | Secure user authentication |  
+
+## ⚙️ Prerequisites  
+Before running EasiPharma, ensure you have the following:  
+- Node.js installed on your system  
+- A Firebase account with Firestore and Authentication enabled  
+- A Gemini AI API key for AI-driven recommendations  
+
+## 🛠 Installation Guide  
+
+Follow these steps to set up and run EasiPharma on your local machine:  
+
+### 1️⃣ Clone the Repository  
+```sh
+git clone https://github.com/olamilekan5162/EasiPharma.git
 ## Installation
 1. Clone the repository:
    ```sh
@@ -91,3 +131,7 @@ To deploy:
 
 ## License
 This project is licensed under MIT. See the [LICENSE](https://choosealicense.com/licenses/mit/) file for details.
+
+
+
+
