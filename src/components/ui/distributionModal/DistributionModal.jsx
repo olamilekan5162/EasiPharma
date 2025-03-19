@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../button/Button";
 import { db } from "../../../utils/firebaseConfig.js"
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, updateDoc, doc } from "firebase/firestore";
 import  Spinner  from "../../spinner/Spinner"
 
 
@@ -54,9 +54,23 @@ const getProducts = async () => {
       
       const selectedProduct = products.find((product) => product.stockName === productName)
       
+      if (!selectedProduct) {
+        alert("Selected product not found!");
+        setLoading(false);
+        return;
+      }
+      
+      const newQuantity = parseInt(selectedProduct.quantity, 10) - parseInt(quantity, 10);
+
+      if (newQuantity < 0) {
+        alert("Not enough stock available!");
+        setLoading(false);
+        return;
+      }
+      
       const upStock = doc(db, "stocks", selectedProduct.id);
       await updateDoc(upStock, {
-        quantity: parseInt(selectedProduct.quantity, 10) - parseInt(quantity, 10)
+        quantity: newQuantity
       });
       
       alert(`${quantity} quantity of ${productName} had been distributed successfully`)
