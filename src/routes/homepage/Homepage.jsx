@@ -23,7 +23,7 @@ import {
 import { GrUserWorker as Stafficon, GrStatusGoodSmall as Pendingicon } from "react-icons/gr";
 import { GiMedicines as Drugicon } from "react-icons/gi";
 import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
-import Button from "../../components/UI/button/Button.jsx";
+import Button from "../../components/ui/button/Button.jsx";
 import { signOut } from "firebase/auth"
 import { collection, getDocs, doc,  } from "firebase/firestore";
 import { auth, db } from "../../utils/firebaseConfig.js"
@@ -66,7 +66,7 @@ useEffect(() => {
         const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY
         const genAI = new GoogleGenerativeAI(GEMINI_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        const prompt = `Analyze the stock data and predict stocks that are expired or almost expired and the stocks that needs to be restocked just go straight to the point with your answer with not more than 20 words stating , for example, restock paracetamol, aspirin is about to expire, blood tonic has expired etc. starting each prediction with ||: ${JSON.stringify(formattedData)}`
+        const prompt = `Analyze the stock data and predict stocks that are expired or almost expired using 4 month as a judging base and the stocks that needs to be restocked i.e stocks less than 40 just go straight to the point with your answer with not more than 20 words stating , for example, restock paracetamol, aspirin will expire in 2 months, blood tonic has expired etc. starting each sentence with ||: ${JSON.stringify(formattedData)}`
         const result = await model.generateContent(prompt);
         const prediction = result.response.text()
         setPredictions({prediction})
