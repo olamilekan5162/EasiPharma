@@ -58,7 +58,7 @@ useEffect(() => {
     if(stocks.length > 0){
       try{
         const formattedData = stocks.map((stock) => ({
-        name: stock.name,
+        name: stock.stockName,
         quantity: stock.quantity,
         expiryDate: stock.expiryDate,
       }));
@@ -66,7 +66,7 @@ useEffect(() => {
         const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY
         const genAI = new GoogleGenerativeAI(GEMINI_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        const prompt = `Analyze the stock data and predict stocks that are expired or almost expired and the stocks that needs to be restocked: ${JSON.stringify(formattedData)}`
+        const prompt = `Analyze the stock data and predict stocks that are expired or almost expired and the stocks that needs to be restocked just go straight to the point with your answer with not more than 20 words stating , for example, restock paracetamol, aspirin is about to expire etc.: ${JSON.stringify(formattedData)}`
         const result = await model.generateContent(prompt);
         const prediction = result.response.text()
         setPredictions({prediction})
