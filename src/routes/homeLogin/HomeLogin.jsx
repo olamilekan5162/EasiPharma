@@ -12,7 +12,6 @@ const HomeLogin = () => {
   const [loading, setLoading] = useState(false)
   const [userId, setUserId] = useState("")
   const [password, setPassword] = useState("")
-  // const [level, setLevel] = useState("")
   const [sucess, setSuccess] = useState("")
   const [error, setError] = useState("")
   const { setUser, level, setLevel } = useContext(UserContext)
@@ -96,7 +95,7 @@ const  handleLogin = (e) => {
                     value={level}
                     onChange={(e) => setLevel(e.target.value)}
                   >
-                    <option value="Admin Manager">Slect role</option>
+                    <option value="" selected>Slect role</option>
                     <option value="Admin Manager">Admin(Manager)</option>
                     <option value="Staff">Staff</option>
                   </select>
