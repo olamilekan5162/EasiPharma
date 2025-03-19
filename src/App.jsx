@@ -2,12 +2,12 @@ import {Route, createBrowserRouter, createRoutesFromElements, RouterProvider} fr
 import { UserProvider } from './utils/UserAuthContext';
 import HomeLogin from "./routes/homeLogin/HomeLogin"
 import Homepage from "./routes/homepage/Homepage"
-import Dashboard from './components/UI/dashboard/Dashboard';
+import Dashboard from './components/ui/dashboard/Dashboard';
 import Distribution from "./components/ui/distribution/Distribution"
-import Stocks from './components/UI/stocks/Stocks';
-import Suppliers from './components/UI/suppliers/Suppliers';
+import Stocks from './components/ui/stocks/Stocks';
+import Suppliers from './components/ui/suppliers/Suppliers';
 import Inventory from "./components/ui/inventory/Inventory";
-import OrderStock from './components/UI/orderStock/OrderStock';
+import OrderStock from './components/ui/orderStock/OrderStock';
 
 function App() {
   
