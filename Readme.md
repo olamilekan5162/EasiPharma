@@ -87,7 +87,7 @@ To deploy:
 - [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4)  
 
 ## Live Demo
-[EasiPharma Live](https://dummy-theta.vercel.app)
+[EasiPharma Live](https://easi-pharma.vercel.app)
 
 ## License
 This project is licensed under the Apache License 2.0. See the [LICENSE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
