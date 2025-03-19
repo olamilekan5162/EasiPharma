@@ -6,7 +6,7 @@ EasiPharma is an advanced stock and inventory management system tailored for pha
 With EasiPharma, pharmacy owners and managers can:  
 - Monitor stock levels in real-time  
 - Manage suppliers and track deliveries  
-- Automate restocking processes  
+-  Carry out restocking processes
 - Receive AI-based recommendations for stock replenishment  
 - Securely log in and manage operations via Firebase Authentication 
 
