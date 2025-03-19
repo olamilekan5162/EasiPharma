@@ -12,14 +12,14 @@ EasiPharma is a stock and inventory management system for pharmaceutical busines
 
 ## Technologies Used
 - **React.js** - Frontend framework  
-- **OpenAI GPT-4o-mini** - AI-powered restocking suggestions
+- **Gemini Ai** - AI-powered restocking suggestions
 - **Firebase Firestore** - Database for orders, stocks, and suppliers   
 - **Firebase Authentication** - User authentication
 
 ## Prerequisites
 - Node.js installed
 - Firebase account with Firestore configured
-- OpenAI API key
+- GeminiAI API key
 
 ## Installation
 1. Clone the repository:
@@ -31,10 +31,10 @@ EasiPharma is a stock and inventory management system for pharmaceutical busines
    cd EasiPharma
    ```
 3. **Set up Firebase:** Enable Firestore Database and Authentication.
-4. **Set up OpenAI:** Get an API key from [OpenAI](https://openai.com/).
+4. **Set up GeminiAI:** Get an API key from [Gemini](https://gemini.google.com/).
 5. **Create an `.env.local` file** with environment variables:
    ```ini
-   VITE_OPENAI_API_KEY=your-openai-api-key
+   VITE_GEMINI_API_KEY=your-gemini-api-key
    VITE_FIREBASE_API_KEY=your-firebase-api-key
    ```
 6. Install dependencies:
@@ -87,7 +87,7 @@ To deploy:
 - [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4)  
 
 ## Live Demo
-[EasiPharma Live](https://dummy-theta.vercel.app)
+[EasiPharma Live](https://easi-pharma.vercel.app)
 
 ## License
 This project is licensed under the Apache License 2.0. See the [LICENSE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
