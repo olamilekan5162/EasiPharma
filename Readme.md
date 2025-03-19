@@ -1,18 +1,22 @@
 # EasiPharma || A new way to track pharmaceutical products
 
 ##  Overview  
-EasiPharma is an advanced stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and automated order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
+EasiPharma is an advanced stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
 
 With EasiPharma, pharmacy owners and managers can:  
 - Monitor stock levels in real-time  
 - Manage suppliers and track deliveries  
-- Automate restocking processes  
+-  Carry out restocking processes
 - Receive AI-based recommendations for stock replenishment  
 - Securely log in and manage operations via Firebase Authentication 
 
 
 ## 🔥 Features  
 
+### **MultiLevel Admin roles**
+- There are Two roles which are Admin or Staff MEMBER 
+- Admin can add stock, track  inventory, Add supplier, Order Stock as well as delete stock and supplier. 
+- Staff member can track the inventory of the distributed stocks, also staff can distribute or sell stocks 
 ###  **Inventory Management**  
 - Track existing stock levels and availability  
 - Add new stock items with relevant details  
@@ -22,17 +26,21 @@ With EasiPharma, pharmacy owners and managers can:
 - Add, update, and manage suppliers  
 - Track supplier performance and order history  
 
-###  **Automated Stock Ordering**  
+###  ** Stock Ordering**  
 - Generate and track stock orders  
 - Automatically update inventory when stock is delivered  
 
-### 🧠 **AI-Driven Restocking Recommendations**  
+### 🧠 **AI-Driven Restocking Recommendations and Warning**  
 - Uses Gemini AI to analyze stock levels  
-- Predicts when to reorder items based on usage trends  
+- Predicts the reordering of items based on usage trends  
+- Predicts and warn against the expiry dates of stocks based on Inventory details
 
 ###  **User Authentication**  
 - Secure login and logout functionality  
 - Uses Firebase Authentication for account management  
+### **Distribution of Stocks**
+- Stocks can be distributed from the staff's Dashboard 
+- Distributed stocks are marked as completed when the stock is delivered
 ## Technologies Used
 - **React.js** - Frontend framework  
 - **Gemini Ai** - AI-powered restocking suggestions
