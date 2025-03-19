@@ -23,7 +23,7 @@ import {
 import { GrUserWorker as Stafficon, GrStatusGoodSmall as Pendingicon } from "react-icons/gr";
 import { GiMedicines as Drugicon } from "react-icons/gi";
 import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
-import Button from "../../components/ui/button/Button";
+import Button from "../../components/UI/button/Button.jsx";
 import { signOut } from "firebase/auth"
 import { collection, getDocs, doc,  } from "firebase/firestore";
 import { auth, db } from "../../utils/firebaseConfig.js"
