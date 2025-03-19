@@ -8,7 +8,7 @@ import  Spinner  from "../../spinner/Spinner"
 const DistributionModal = ({ isOpen, onClose }) => {
   const [customerName, setCustomerName] = useState("");
   const [products, setProducts] = useState([]);
-  const [productName, setProductName] = useState(products[0]);
+  const [productName, setProductName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -20,13 +20,13 @@ const DistributionModal = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     getProducts()
-  }, [products]);
+  }, []);
 
 
 const getProducts = async () => {
   try {
       const querySnapshot = await getDocs(collection(db, "stocks"));
-      const stockData = querySnapshot.docs.map((doc) => doc.data());
+      const stockData = querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
       setProducts(stockData)
     }
     catch(e){
@@ -50,9 +50,17 @@ const getProducts = async () => {
         deliveryDate: deliveryDate,
         quantity: quantity
       });
-      
       console.log("Document written with ID: ", docRef.id);
+      
+      const selectedProduct = products.find((product) => product.stockName === productName)
+      
+      const upStock = doc(db, "stocks", selectedProduct.id);
+      await updateDoc(upStock, {
+        quantity: parseInt(selectedProduct.quantity, 10) - parseInt(quantity, 10)
+      });
+      
       alert(`${quantity} quantity of ${productName} had been distributed successfully`)
+      
       setLoading(false)
       
    }catch(e){

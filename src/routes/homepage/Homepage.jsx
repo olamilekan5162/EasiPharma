@@ -1,6 +1,6 @@
 import "./homepage.css";
 import { Outlet, NavLink, Link, useNavigate } from 'react-router-dom'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { UserContext } from "../../utils/UserAuthContext.jsx"
 import {
   AiTwotoneDashboard as Dashboardicon,
@@ -25,14 +25,61 @@ import { GiMedicines as Drugicon } from "react-icons/gi";
 import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
 import Button from "../../components/ui/button/Button";
 import { signOut } from "firebase/auth"
-import { auth } from "../../utils/firebaseConfig.js"
+import { collection, getDocs, doc,  } from "firebase/firestore";
+import { auth, db } from "../../utils/firebaseConfig.js"
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const Homepage = () => {
   const { user, level } = useContext(UserContext)
-  
+  const [predictions, setPredictions] = useState({})
+  const [stocks, setStocks] = useState([])
   const navigate = useNavigate();
   const date = new Date()
   
+  useEffect(() =>{
+    getStocks()
+  },[])
+  
+  const getStocks = async () => {
+
+    try {
+      const querySnapshot = await getDocs(collection(db, "stocks"));
+      const stockData = querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
+      setStocks(stockData)
+    }
+    catch(e){
+      console.error(e)
+    }
+  }
+  
+  
+useEffect(() => {
+  const predict = async () => {
+    if(stocks.length > 0){
+      try{
+        const formattedData = stocks.map((stock) => ({
+        name: stock.name,
+        quantity: stock.quantity,
+        expiryDate: stock.expiryDate,
+      }));
+      
+        const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY
+        const genAI = new GoogleGenerativeAI(GEMINI_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const prompt = `Analyze the stock data and predict stocks that are expired or almost expired and the stocks that needs to be restocked: ${JSON.stringify(formattedData)}`
+        const result = await model.generateContent(prompt);
+        const prediction = result.response.text()
+        setPredictions({prediction})
+        console.log(result.response.text());
+      }
+      catch(e){
+        console.error(e)
+      }
+  }
+  }
+  predict()
+},[stocks])
+
 
 const handleSignOut = () =>{
   signOut(auth)
@@ -56,22 +103,28 @@ const handleSignOut = () =>{
             <Dashboardicon className="icon" />
             <span className="sidetext">Dashboard</span>
           </NavLink>
-
+          
+          {level === "Admin Manager" ?
           <NavLink to="stocks/inventory" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Stockicon className="icon" />
             <span className="sidetext">Stocks</span>
           </NavLink>
-
+          :
+          <div></div>
+          }
+          
           <NavLink to="distribution" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Distribeicon className="icon" />
             <span className="sidetext">Distribution</span>
           </NavLink>
-
+          
+          {level === "Admin Manager" ?
           <NavLink to="suppliers" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Suppliericon className="icon" />
             <span className="sidetext">Suppliers</span>
           </NavLink>
-
+          : ""
+          }
         </div>
 
         <div className="setbox">
@@ -112,7 +165,7 @@ const handleSignOut = () =>{
           
 
           <div className="warning_box">
-            <p>warning</p>
+            {predictions.prediction && (<p className="warning_text">{predictions.prediction}</p>)}
           </div>
 
 

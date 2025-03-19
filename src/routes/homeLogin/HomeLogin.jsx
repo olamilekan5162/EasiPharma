@@ -59,7 +59,7 @@ const  handleLogin = (e) => {
 
             <p className="login_details">
               {" "}
-              Email: manager@easi.dev and password: easi001
+              Email: testing@easi.dev and password: easi001
             </p>
           </div>
 

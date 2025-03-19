@@ -134,3 +134,20 @@
 .warning_box:hover{
     border: 2px solid var(--alt-color);
 }
+
+.warning_text {
+  position: relative;
+  animation: moveText 20s infinite linear;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
