@@ -61,12 +61,12 @@ const fetchData = async () => {
      alert(e)
    }
 
-    // Clear form fields
+    
     setStockName("");
     setQuantity("");
     setOrderDate("");
   
-    // Close modal
+  
     onClose();
   };
 

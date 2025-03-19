@@ -96,8 +96,8 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
      {level === "Admin Manager" ?
      <>
       <div className="D_mainbar_card" 
-       onClick={() => navigate("/homepage/stocks/orderstock")}  // Navigates to Storage Page
-       style={{ cursor: "pointer" }}  // Ensures it's clickable
+       onClick={() => navigate("/homepage/stocks/orderstock")}  
+       style={{ cursor: "pointer" }}  
       >
         <span>
           <Warehouseicon className="D_mainbar_icon" />
@@ -153,11 +153,6 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p className="D_mainbar_text">Distribution</p>
       </div>
 
-      {/* Render modal when isDistributionModalOpen is true */}
-      {/* {isDistributionModalOpen && (
-        <DistributionModal isOpen={isDistributionModalOpen} onClose={closeModal} />
-      )} */}
-      {/* Order Stocks - Opens Stock Modal */}
       
     
        {/* Add Supplier Modal */}
@@ -167,14 +162,7 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         addSupplier={handleAddSupplier}
       />
 
-      {/* Manage Stock Modal
-      <ManageStockModal 
-       
-        isOpen={isManageStockModalOpen} 
-        onClose={() => setIsManageStockModalOpen(false)}
-        updateStock={updateStock}
-      />
-       */}
+      
 
       {/* Stock Modal */}
       <Modal 
