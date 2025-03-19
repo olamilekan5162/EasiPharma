@@ -73,8 +73,13 @@ Follow these steps to set up and run EasiPharma on your local machine:
 4. **Set up GeminiAI:** Get an API key from [Gemini](https://gemini.google.com/).
 5. **Create an `.env.local` file** with environment variables:
    ```ini
-   VITE_GEMINI_API_KEY=your-gemini-api-key
+   VITE_GEMINI_KEY=your-gemini-api-key
    VITE_FIREBASE_API_KEY=your-firebase-api-key
+   VITE_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+   VITE_FIREBASE_PROJECT_ID=your-firebase-project-id
+   VITE_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+   VITE_FIREBASE_APP_ID=your-firebase-app-id
    ```
 6. Install dependencies:
    ```sh
