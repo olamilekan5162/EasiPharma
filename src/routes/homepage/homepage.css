@@ -130,6 +130,7 @@ border-bottom: 2px solid var(--secondary-color);
     font-weight: 700;
     cursor: text;
     position: sticky;
+    overflow-x: hidden;
     top: 0;
     z-index: 1000;
     background-color: #f6f8fa;
@@ -144,7 +145,7 @@ border-bottom: 2px solid var(--secondary-color);
   position: relative;
   animation: moveText 25s infinite linear forwards;
   white-space: nowrap;
-  overflow: scroll;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -159,16 +160,16 @@ border-bottom: 2px solid var(--secondary-color);
 
 @keyframes changeColor {
   0% {
-    border-top: 2px solid rgba(255, 0, 0, 0.25);
-    border-bottom: 2px solid rgba(255, 0, 0, 0.25);
+    border-top: 2px solid rgba(0, 128, 0, 1);
+    border-bottom: 2px solid rgba(0, 128, 0, 1);
   }
   50% {
     border-top: 2px solid rgba(255, 0, 0, 0.50);
     border-bottom: 2px solid rgba(255, 0, 0, 0.50);
   }
    75% {
-    border-top: 2px solid rgba(255, 0, 0, 0.75);
-    border-bottom: 2px solid rgba(255, 0, 0, 0.75);
+    border-top: 2px solid rgba(0, 128, 0, 0.5);
+    border-bottom: 2px solid rgba(0, 128, 0, 0.5);
   }
    100% {
     border-top: 2px solid rgba(255, 0, 0, 1);
