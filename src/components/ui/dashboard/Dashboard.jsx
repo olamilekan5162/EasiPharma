@@ -91,6 +91,17 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p>{totalQuantity}</p>
       </div>
 
+      <div 
+        className="D_mainbar_card" 
+        onClick={() => navigate("/homepage/stocks/inventory")}
+        style={{ cursor: "pointer" }}
+      
+      >
+        <span>
+          <Inventoryicon className="D_mainbar_icon" />
+        </span>
+        <p className="D_mainbar_text">Check Inventory</p>
+      </div>
     
 
      {level === "Admin Manager" ?
@@ -105,18 +116,6 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p className="D_mainbar_text">Check Stocks</p>
       </div>
 
-      <div 
-        className="D_mainbar_card" 
-        onClick={() => navigate("/homepage/stocks/inventory")}
-        style={{ cursor: "pointer" }}
-        
-      
-      >
-        <span>
-          <Inventoryicon className="D_mainbar_icon" />
-        </span>
-        <p className="D_mainbar_text">Check Inventory</p>
-      </div>
 
 
       <div className="D_mainbar_card"

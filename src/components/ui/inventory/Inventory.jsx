@@ -10,13 +10,15 @@ import { HiChevronUpDown as Updwonicon } from "react-icons/hi2";
 import { MdDeleteOutline as Delicon } from "react-icons/md";
 import { collection, getDocs, addDoc, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../utils/firebaseConfig.js"
-import { useState, useEffect } from 'react'
 import  Spinner  from "../../spinner/Spinner"
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from "../../../utils/UserAuthContext.jsx"
 
 const Inventory = () => {
   const [stocks, setStocks] = useState([])
   const [isManageStockModalOpen, setIsManageStockModalOpen] = useState(false);
   const [loading, setLoading] = useState(false)
+  const { level } = useContext(UserContext)
   
   useEffect(() =>{
     getStocks()
@@ -61,12 +63,15 @@ const Inventory = () => {
   return (
     <section className="inventory_page">
       <div className="inventory_topbar">
+        {level === "Admin Manager" ?
         <div className="inventory_btn" onClick={() => setIsManageStockModalOpen(true)} >
           <Button variant="alternate">
             <Plusicon className="inventory_btn_icon" />
             <p>Add Stock</p>
           </Button>
         </div>
+        : ""
+        }
       </div>
 
       <div className="inventory_details">

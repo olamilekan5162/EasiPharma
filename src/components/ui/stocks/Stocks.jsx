@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import Modal from "../Modal/StockModal"; 
 import "./stocks.css"
 import { MdOutlineNumbers as Hashicon } from "react-icons/md";
@@ -7,13 +6,15 @@ import { WiMoonFull as Doticon } from "react-icons/wi";
 import { NavLink, Outlet } from 'react-router-dom'
 import { collection, getDocs, doc } from "firebase/firestore";
 import { db } from "../../../utils/firebaseConfig.js"
-
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from "../../../utils/UserAuthContext.jsx"
 
 const Stocks = () => {
   const [stocks, setStocks] = useState([])
   const [totalQuantity, setTotalQuantity] = useState(0)
   const [inStock, setInStock] = useState(0)
   const [outStock, setOutStock] = useState(0)
+  const { level } = useContext(UserContext)
  
    useEffect(() =>{
     getStocks()
@@ -83,10 +84,12 @@ const Stocks = () => {
               Inventory
             </NavLink>
           </div>
-
+          {level === "Admin Manager" ?
           <div>
             <NavLink to="orderstock" className={({isActive}) => (isActive ? "stock_lowbar_active" : "")}>Order Stock</NavLink>
           </div>
+          : ""
+          }
         </div>
       </div>
       <Outlet />

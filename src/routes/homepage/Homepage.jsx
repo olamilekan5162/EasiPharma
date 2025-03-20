@@ -104,14 +104,10 @@ const handleSignOut = () =>{
             <span className="sidetext">Dashboard</span>
           </NavLink>
           
-          {level === "Admin Manager" ?
           <NavLink to="stocks/inventory" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Stockicon className="icon" />
             <span className="sidetext">Stocks</span>
           </NavLink>
-          :
-          <div></div>
-          }
           
           <NavLink to="distribution" className={({isActive}) => (isActive ? 'sidelink active' : 'sidelink')}>
             <Distribeicon className="icon" />
