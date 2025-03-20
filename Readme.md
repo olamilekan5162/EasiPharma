@@ -1,7 +1,7 @@
 # EasiPharma || A new way to track pharmaceutical products
 
 ##  Overview  
-EasiPharma is an stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
+EasiPharma is a stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
 
 With EasiPharma, pharmacy owners and managers can:  
 - Monitor stock levels in real-time  
