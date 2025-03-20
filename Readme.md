@@ -193,7 +193,7 @@ To deploy:
 - Mobile App Integration – Create a mobile version for pharmacy managers on the go.
 
 ## 📌 Collaborators
-- [Opeyemi Olalekan](https://github.com/olamilekan5162)  
+- [Opeyemi Olalekan](https://github.com/olamilekan5162) (Oracle5163)
 - [Ayobami Akande](https://github.com/adeyemimichael)  
 - [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4)  
 
