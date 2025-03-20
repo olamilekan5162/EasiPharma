@@ -14,7 +14,6 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
   
   const isFormValid = stockName !== "" && quantity !== "" && expiryDate !== ""
 
-  // Hooks must always execute
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,14 +42,14 @@ const ManageStockModal = ({ isOpen, onClose, updateStock }) => {
 
     updateStock(stockData);
     
-    // Clear input fields after submission
+    
     setStockName("");
     setQuantity("");
     setExpiryDate("");
-    onClose(); // Close modal
+    onClose(); 
   };
 
-  if (!isOpen) return null; // Hide modal when isOpen is false
+  if (!isOpen) return null; 
 
   return (
     <div className="modal-overlay">

@@ -40,14 +40,14 @@ const AddSupplierModal = ({ isOpen, onClose, addSupplier }) => {
 
     addSupplier(newSupplier);
     
-    // Clear fields after submission
+    
     setSupplierName("");
     setEmail("");
     setAddress("");
     onClose();
   };
 
-  if (!isOpen) return null; // Hide modal if not open
+  if (!isOpen) return null;
 
   return (
     <div className="modal-overlay">

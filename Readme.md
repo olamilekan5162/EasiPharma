@@ -1,25 +1,72 @@
-# EasiPharma || A new way to tracking pharmaceutical product 
+# EasiPharma || A new way to track pharmaceutical products
 
-## Overview
-EasiPharma is a stock and inventory management system designed for pharmaceutical businesses. It helps track stock levels, manage suppliers, and automate order placements when stock runs low. The system integrates AI to provide recommendations for restocking.
+##  Overview  
+EasiPharma is an advanced stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
 
-## Features
-- **Inventory management:** Admin Can track the orders received, Order stocks, Add stocks to the available stocks and know when a stock is not available.
-- **Supplier tracking:** Admin can add to the suppliers providing the stocks and also select from the existing suppliers to order stocks
-- **Automated stock ordering:**** Stock can be ordered and if stock is delivered within the specified date it will automatically add up to available stock>
-- **AI-driven restocking recommendations:** Ai recommends the stock that might be needing by making suggestions from the stocks that are not available
-- ****User authentication:** Users can, log in, and log out using Firebase Authentication.
+With EasiPharma, pharmacy owners and managers can:  
+- Monitor stock levels in real-time  
+- Manage suppliers and track deliveries  
+-  Carry out restocking processes
+- Receive AI-based recommendations for stock replenishment  
+- Securely log in and manage operations via Firebase Authentication 
 
-## **Technologies Used**  
-- **React.js** Frontend framework  
-- **OpenAI GPT-4o-mini** AI-powered restocking suggestion and warning.
-- **Firebase Firestore** Database for storing orders, stocks, and suppliers   
-- **Firebase Authentication** User login & Logout  authentication
 
-## **Prerequisites**  
-- Node.js must be installed on your machine  
-- Firebase account with a configured Firestore database  
-- OpenAI API key  
+## 🔥 Features  
+
+### **MultiLevel Admin roles**
+- There are Two roles which are Admin or Staff MEMBER 
+- Admin can add stock, track  inventory, Add supplier, Order Stock as well as delete stock and supplier. 
+- Staff member can track the inventory of the distributed stocks, also staff can distribute or sell stocks 
+###  **Inventory Management**  
+- Track existing stock levels and availability  
+- Add new stock items with relevant details  
+- Monitor real-time inventory changes  
+
+###  **Supplier Tracking**  
+- Add, update, and manage suppliers  
+- Track supplier performance and order history  
+
+### **Stock Ordering**  
+- Generate and track stock orders  
+- Automatically update inventory when stock is delivered  
+
+### 🧠 **AI-Driven Restocking Recommendations and Warning**  
+- Uses Gemini AI to analyze stock levels  
+- Predicts the reordering of items based on usage trends  
+- Predicts and warn against the expiry dates of stocks based on Inventory details
+
+###  **User Authentication**  
+- Secure login and logout functionality  
+- Uses Firebase Authentication for account management  
+### **Distribution of Stocks**
+- Stocks can be distributed from the staff's Dashboard 
+- Distributed stocks are marked as completed when the stock is delivered
+## Technologies Used
+- **React.js** - Frontend framework  
+- **Gemini Ai** - AI-powered restocking suggestions
+- **Firebase Firestore** - Database for orders, stocks, and suppliers   
+- **Firebase Authentication** - User authentication
+
+##  Technologies Used  
+
+| Technology | Purpose |  
+|------------|---------|  
+| **React.js** | Frontend development |  
+| **Gemini AI** | AI-powered stock recommendations |  
+| **Firebase Firestore** | Database for storing stocks, suppliers, and orders |  
+| **Firebase Authentication** | Secure user authentication |  
+
+## ⚙️ Prerequisites  
+Before running EasiPharma, ensure you have the following:  
+- Node.js installed on your system  
+- A Firebase account with Firestore and Authentication enabled  
+- A Gemini AI API key for AI-driven recommendations  
+
+## 🛠 Installation Guide  
+
+Follow these steps to set up and run EasiPharma on your local machine:  
+
+### 1️⃣ Clone the Repository  
 
 ## Installation
 1. Clone the repository:
@@ -30,27 +77,18 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
    ```sh
    cd EasiPharma
    ```
-3. **Set up Firebase:**  
-   - Create a Firebase project.  
-   - Enable Firestore Database.  
-   - Enable Firebase Authentication.  
-
-4. **Set up OpenAI:**  
-   - Get an OpenAI API key from [OpenAI](https://openai.com/).  
-
-5. **Create an `.env.local` file** in the root directory and add the following environment variables:  
-
+3. **Set up Firebase:** Enable Firestore Database and Authentication.
+4. **Set up GeminiAI:** Get an API key from [Gemini](https://gemini.google.com/).
+5. **Create an `.env.local` file** with environment variables:
    ```ini
-   VITE_OPENAI_API_KEY=your-openai-api-key
+   VITE_GEMINI_KEY=your-gemini-api-key
    VITE_FIREBASE_API_KEY=your-firebase-api-key
    VITE_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
    VITE_FIREBASE_PROJECT_ID=your-firebase-project-id
    VITE_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
    VITE_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
    VITE_FIREBASE_APP_ID=your-firebase-app-id
-   ```  
-
-   Replace `your-...` values with your actual Firebase and OpenAI credentials.  
+   ```
 6. Install dependencies:
    ```sh
    npm install
@@ -59,19 +97,32 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
    ```sh
    npm run dev
    ```
-## Usage
-1. Log in to the dashboard.
-2. Manage inventory and supplier details.
-3. Receive AI-based restocking alerts.
-4. Place automated orders when stock is low.
+
+## API Usage
+- **Upload Stocks & Suppliers** - Adds data to Firestore.
+- **Fetch Stocks & Suppliers** - Retrieves data from Firestore.
+
+## 🎯  How to Use
+
+- **Log in to the Dashboard** – Authenticate using Firebase Authentication.
+
+- **Manage Inventory** – Add new stocks, update details, and monitor availability.
+
+-**Manage Suppliers** – Add and track supplier information.
+
+-**Get AI-Based Stock Warnings** – Receive alerts when stock is running low.
+
+-**Stock Orders** – Generate orders automatically when required.
 
 ## Directory Structure
 ```
 └── EasiPharma/
     ├── Readme.md
+    ├── LICENSE.txt
     ├── eslint.config.js
     ├── index.html
     ├── package.json
+    ├── vercel.json
     ├── vite.config.js
     ├── public/
     │   └── assets/
@@ -125,22 +176,37 @@ EasiPharma is a stock and inventory management system designed for pharmaceutica
         └── utils/
             ├── UserAuthContext.jsx
             └── firebaseConfig.js
+
 ```
 
-
-
 ## Deployment
-To deploy the project, you can use platforms like **Vercel** or **Netlify**.
-
-### Deploying on Vercel
+To deploy:
 1. Install Vercel CLI:
    ```sh
    npm install -g vercel
    ```
-2. Deploy the project:
+2. Deploy:
    ```sh
    vercel
    ```
 
+## Future Improvements
+- Multi-level user access for managers.
+- AI-driven automated stock ordering.
+- Data Analytics Dashboard – Provide insights into stock trends and supplier efficiency.
+- Mobile App Integration – Create a mobile version for pharmacy managers on the go.
+
+## 📌 Collaborators
+- [Opeyemi Olalekan](https://github.com/olamilekan5162)  
+- [Ayobami Akande](https://github.com/adeyemimichael)  
+- [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4)  
+
+## Live Demo
+[EasiPharma Live](https://easi-pharma.vercel.app)
+
 ## License
-This project is licensed under the Apache License 2.0. See the [LICENSE](https://www.apache.org/licenses/LICENSE-2.0.txt) file for details.
+This project is licensed under MIT. See the [LICENSE](https://choosealicense.com/licenses/mit/) file for details.
+
+
+
+

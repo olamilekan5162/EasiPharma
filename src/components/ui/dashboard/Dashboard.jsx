@@ -23,7 +23,8 @@ import {
 import { GrUserWorker as Stafficon, GrStatusGoodSmall as Pendingicon } from "react-icons/gr";
 import { GiMedicines as Drugicon } from "react-icons/gi";
 import { TbBuildingWarehouse as Warehouseicon } from "react-icons/tb";
-import { useState, useEffect } from "react";
+import { useContext, useEffect, useState } from 'react'
+import { UserContext } from "../../../utils/UserAuthContext.jsx"
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal/StockModal";  
 import { collection, getDocs, doc } from "firebase/firestore";
@@ -34,6 +35,7 @@ import { db } from "../../../utils/firebaseConfig.js"
 const Dashboard = () => {
   const [stocks, setStocks] = useState([])
   const [totalQuantity, setTotalQuantity] = useState(0)
+  const { level } = useContext(UserContext)
   
   useEffect(() =>{
     getStocks()
@@ -91,11 +93,11 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
 
     
 
-     
-
+     {level === "Admin Manager" ?
+     <>
       <div className="D_mainbar_card" 
-       onClick={() => navigate("/homepage/stocks/orderstock")}  // Navigates to Storage Page
-       style={{ cursor: "pointer" }}  // Ensures it's clickable
+       onClick={() => navigate("/homepage/stocks/orderstock")}  
+       style={{ cursor: "pointer" }}  
       >
         <span>
           <Warehouseicon className="D_mainbar_icon" />
@@ -125,7 +127,21 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         </span>
         <p className="D_mainbar_text">Add Supplier</p>
       </div>
-
+      
+      <div 
+        className="D_mainbar_card" 
+        style={{ cursor: "pointer" }}
+        onClick={() => setIsStockModalOpen(true)}
+      >
+        <span>
+          <Drugicon className="D_mainbar_icon" />
+        </span>
+        <p className="D_mainbar_text">Order Stocks</p>
+      </div>
+      </>
+      : ""
+      }
+      
       <div className="D_mainbar_card" 
       onClick={() => navigate("/homepage/distribution")} 
       style={{ cursor: "pointer" }}
@@ -137,21 +153,8 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         <p className="D_mainbar_text">Distribution</p>
       </div>
 
-      {/* Render modal when isDistributionModalOpen is true */}
-      {/* {isDistributionModalOpen && (
-        <DistributionModal isOpen={isDistributionModalOpen} onClose={closeModal} />
-      )} */}
-      {/* Order Stocks - Opens Stock Modal */}
-      <div 
-        className="D_mainbar_card" 
-        style={{ cursor: "pointer" }}
-        onClick={() => setIsStockModalOpen(true)}
-      >
-        <span>
-          <Drugicon className="D_mainbar_icon" />
-        </span>
-        <p className="D_mainbar_text">Order Stocks</p>
-      </div>
+      
+    
        {/* Add Supplier Modal */}
        <AddSupplierModal
         isOpen={supplierModalOpen}
@@ -159,14 +162,7 @@ const supplierList = ["Supplier A", "Supplier B", "Supplier C"];
         addSupplier={handleAddSupplier}
       />
 
-      {/* Manage Stock Modal
-      <ManageStockModal 
-       
-        isOpen={isManageStockModalOpen} 
-        onClose={() => setIsManageStockModalOpen(false)}
-        updateStock={updateStock}
-      />
-       */}
+      
 
       {/* Stock Modal */}
       <Modal 

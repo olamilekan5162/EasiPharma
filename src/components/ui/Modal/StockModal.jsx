@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Modal.css";
 import Button from "../button/Button";
 import { db } from "../../../utils/firebaseConfig.js"
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { collection, addDoc, getDocs, updateDoc, doc } from "firebase/firestore"; 
 import  Spinner  from "../../spinner/Spinner"
 
 
@@ -11,23 +11,23 @@ const Modal = ({ isOpen, onClose }) => {
   const [orderDate, setOrderDate] = useState("");
   const [suppliers, setSuppliers] = useState([]);
   const [stocks, setStocks] = useState([])
-  const [stockName, setStockName] = useState(stocks[0]);
-  const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
+  const [stockName, setStockName] = useState("");
+  const [selectedSupplier, setSelectedSupplier] = useState("");
   const [loading, setLoading] = useState(false)
   
   const isFormValid = selectedSupplier !== "" && stockName !== "" && orderDate !== "" && quantity !== ""
 
   useEffect(() => {
     fetchData()
-  }, [stocks, suppliers]);
+  }, []);
 
 const fetchData = async () => {
   try {
       const stockQuerySnapshot = await getDocs(collection(db, "stocks"));
-      const stockData = stockQuerySnapshot.docs.map((doc) => doc.data());
+      const stockData = stockQuerySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
       
       const supplierQuerySnapshot = await getDocs(collection(db, "suppliers"));
-      const suppliersData = supplierQuerySnapshot.docs.map((doc) => doc.data());
+      const suppliersData = supplierQuerySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
       
       setSuppliers(suppliersData)
       setStocks(stockData)
@@ -53,20 +53,37 @@ const fetchData = async () => {
         quantity: quantity
       });
       console.log("Document written with ID: ", docRef.id);
+      
+      const selectedStock = stocks.find((stock) => stock.stockName === stockName)
+      
+      if (!selectedStock) {
+        alert("Selected Stock not found!");
+        setLoading(false);
+        return;
+      }
+      
+      const newQuantity = parseInt(selectedStock.quantity, 10) + parseInt(quantity, 10);
+      
+      const upStock = doc(db, "stocks", selectedStock.id);
+      await updateDoc(upStock, {
+        quantity: newQuantity
+      });
+      
+      alert(`${quantity} quantity of ${stockName} ordered successfully`)
       setLoading(false)
-      alert(`${stockName} ordered successfully`)
+      
    }catch(e){
      console.error(e)
      setLoading(false)
      alert(e)
    }
 
-    // Clear form fields
+    
     setStockName("");
     setQuantity("");
     setOrderDate("");
   
-    // Close modal
+  
     onClose();
   };
 
@@ -78,6 +95,7 @@ const fetchData = async () => {
 
         <label>Supplier:</label>
         <select value={selectedSupplier} onChange={(e) => setSelectedSupplier(e.target.value)}>
+          <option value="" disabled>Select a Supplier</option>
           {suppliers.map((supplier) => (
             <option key={supplier.id} value={supplier.name}>
               {supplier.name}
@@ -87,6 +105,7 @@ const fetchData = async () => {
         
         <label>Stock Name:</label>
         <select value={stockName} onChange={(e) => setStockName(e.target.value)}>
+          <option value="" disabled>Select a product</option>
           {stocks.map((stock) => (
             <option key={stock.id} value={stock.stockName}>
               {stock.stockName}
