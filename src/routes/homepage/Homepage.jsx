@@ -65,8 +65,8 @@ useEffect(() => {
       
         const GEMINI_KEY = import.meta.env.VITE_GEMINI_KEY
         const genAI = new GoogleGenerativeAI(GEMINI_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-        const prompt = `Analyze the stock data and predict stocks that are expired or almost expired using 4 month as a judging base for expiration and the stocks that needs to be restocked i.e stocks less than 40. just go straight to the point with your answer with not more than 20 words stating it like this for example, restock paracetamol, aspirin will expire in 2 months, blood tonic has expired etc. starting each sentence with ||: ${JSON.stringify(formattedData)}`
+        const model = genAI.getGenerativeModel({ model: "gemini-2.0-pro-exp-02-05" });
+        const prompt = `Analyze stock data and tell the expirations date and the need to restock. Consider few days or 2 months for expiration bench mark and <40 for restocking. Provide concise answers, one per line, starting with '||'. For example: '|| Restock Paracetamol', '|| Aspirin expires in 2 months', '|| Blood Tonic has expired'. Use: ${JSON.stringify(formattedData)}`;
         const result = await model.generateContent(prompt);
         const prediction = result.response.text()
         setPredictions({prediction})
