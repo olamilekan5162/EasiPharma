@@ -1,8 +1,8 @@
 # EasiPharma || A new way to track pharmaceutical products
 
 ##  Overview  
-EasiPharma is a pharmaceutical inventory management system that tracks stock levels, manages suppliers, and facilitates restocking. With AI predicting stock shortages and expiration.
-<!-- EasiPharma is a stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.   -->
+<!-- EasiPharma is a pharmaceutical inventory management system that tracks stock levels, manages suppliers, and facilitates restocking. With AI predicting stock shortages and expiration. -->
+EasiPharma is a stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
 
 With EasiPharma, pharmacy owners and managers can:  
 - Monitor stock levels in real-time  
@@ -16,7 +16,7 @@ With EasiPharma, pharmacy owners and managers can:
 
 ### **MultiLevel Admin roles**
 - EasiPharma has two roles: Admin and Staff Member.  
-- Admins manage inventory, suppliers, and stock orders, and track distribution.  
+- Admins manage inventory, suppliers, stock orders, and track distributions.  
 - Staff members track and distribute or sell stock.
 ###  **Inventory Management**  
 - Track existing stock levels and availability  
@@ -42,11 +42,6 @@ With EasiPharma, pharmacy owners and managers can:
 ### **Distribution of Stocks**
 - Stocks can be distributed from the staff's Dashboard 
 - Distributed stocks are marked as completed when the stock is delivered
-## Technologies Used
-- **React.js** - Frontend framework  
-- **Gemini Ai** - AI-powered restocking suggestions
-- **Firebase Firestore** - Database for orders, stocks, and suppliers   
-- **Firebase Authentication** - User authentication
 
 ##  Technologies Used  
 
