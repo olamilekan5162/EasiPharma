@@ -1,7 +1,7 @@
 # EasiPharma || A new way to track pharmaceutical products
 
 ##  Overview  
-EasiPharma is a pharmaceutical inventory management system that tracks stock levels, manages suppliers, and provide restocking of stocks also AI predicts shortages of stocks and expirations of stocks.
+EasiPharma is a pharmaceutical inventory management system that tracks stock levels, manages suppliers, and facilitates restocking. With AI predicting stock shortages and expiration.
 <!-- EasiPharma is a stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.   -->
 
 With EasiPharma, pharmacy owners and managers can:  
@@ -15,9 +15,9 @@ With EasiPharma, pharmacy owners and managers can:
 ## 🔥 Features  
 
 ### **MultiLevel Admin roles**
-- There are Two roles which are Admin or Staff MEMBER 
-- Admin can add stock, track  inventory, Add supplier, Order Stock as well as delete stock and supplier. 
-- Staff member can track the inventory of the distributed stocks, also staff can distribute or sell stocks 
+- EasiPharma has two roles: Admin and Staff Member.  
+- Admins manage inventory, suppliers, and stock orders, and track distribution.  
+- Staff members track and distribute or sell stock.
 ###  **Inventory Management**  
 - Track existing stock levels and availability  
 - Add new stock items with relevant details  
