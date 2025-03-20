@@ -121,14 +121,18 @@
 }
 
 .warning_box{
-    padding: 1.4rem;
-    border: 2px solid var(--secondary-color);
-    text-align: center;
+    padding: 10px;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    font-weight: 700;
     cursor: text;
     position: sticky;
     top: 0;
     z-index: 1000;
     background-color: #f6f8fa;
+    animation: changeColor 4s infinite linear alternate-reverse;
 }
 
 .warning_box:hover{
@@ -137,7 +141,7 @@
 
 .warning_text {
   position: relative;
-  animation: moveText 20s infinite linear;
+  animation: moveText 25s infinite linear forwards;
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
@@ -149,5 +153,24 @@
   }
   100% {
     transform: translateX(-100vw);
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    border-top: 2px solid rgba(255, 0, 0, 0.25);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.25);
+  }
+  50% {
+    border-top: 2px solid rgba(255, 0, 0, 0.50);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.50);
+  }
+   75% {
+    border-top: 2px solid rgba(255, 0, 0, 0.75);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.75);
+  }
+   100% {
+    border-top: 2px solid rgba(255, 0, 0, 1);
+    border-bottom: 2px solid rgba(255, 0, 0, 1);
   }
 }
