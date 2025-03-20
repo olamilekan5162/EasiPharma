@@ -145,7 +145,7 @@ border-bottom: 2px solid var(--secondary-color);
   position: relative;
   animation: moveText 25s infinite linear forwards;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: scroll;
   width: 100%;
 }
 
