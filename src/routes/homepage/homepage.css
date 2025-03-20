@@ -130,7 +130,7 @@ border-bottom: 2px solid var(--secondary-color);
     font-weight: 700;
     cursor: text;
     position: sticky;
-    overflow-x: hidden;
+    overflow-x: scroll;
     top: 0;
     z-index: 1000;
     background-color: #f6f8fa;
