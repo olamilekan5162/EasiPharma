@@ -26,7 +26,7 @@ With EasiPharma, pharmacy owners and managers can:
 - Add, update, and manage suppliers  
 - Track supplier performance and order history  
 
-###  ** Stock Ordering**  
+### **Stock Ordering**  
 - Generate and track stock orders  
 - Automatically update inventory when stock is delivered  
 
