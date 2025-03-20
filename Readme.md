@@ -194,8 +194,8 @@ To deploy:
 
 ## 📌 Collaborators
 - [Opeyemi Olalekan](https://github.com/olamilekan5162) (Discord - Oracle5163)
-- [Ayobami Akande](https://github.com/adeyemimichael)  (Discord - Adeyemi12345)
-- [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4) (Discord - IFEDOYIN) 
+- [Ayobami Akande](https://github.com/adeyemimichael)  (Discord - Adeyemi123)
+- [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4) (Discord - loverboi9788) 
 
 
 ## Live Demo
