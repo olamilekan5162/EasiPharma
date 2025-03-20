@@ -164,15 +164,15 @@ border-bottom: 2px solid var(--secondary-color);
     border-bottom: 2px solid rgba(0, 128, 0, 1);
   }
   50% {
-    border-top: 2px solid rgba(255, 0, 0, 0.50);
-    border-bottom: 2px solid rgba(255, 0, 0, 0.50);
+    border-top: 2px solid rgba(0, 128, 0, 0.5);
+    border-bottom: 2px solid rgba(0, 128, 0, 0.5);
   }
    75% {
     border-top: 2px solid rgba(0, 128, 0, 0.5);
     border-bottom: 2px solid rgba(0, 128, 0, 0.5);
   }
    100% {
-    border-top: 2px solid rgba(255, 0, 0, 1);
-    border-bottom: 2px solid rgba(255, 0, 0, 1);
+    border-top: 2px solid rgba(0, 128, 0, 0.5);
+    border-bottom: 2px solid rgba(0, 128, 0, 0.5);
   }
 }
