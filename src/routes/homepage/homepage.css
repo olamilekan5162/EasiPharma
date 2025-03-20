@@ -122,9 +122,10 @@
 
 .warning_box{
     padding: 10px;
-    border-top: 2px solid red;
-    border-bottom: 2px solid red;
-    color: var(--secondary-color);
+    border-top: 2px solid var(--secondary-color);
+border-bottom: 2px solid var(--secondary-color);
+
+    color: rgb(223, 72, 72);
     font-size: 1.25rem;
     font-weight: 700;
     cursor: text;
@@ -143,7 +144,7 @@
   position: relative;
   animation: moveText 25s infinite linear forwards;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: scroll;
   width: 100%;
 }
 
