@@ -119,7 +119,6 @@ const deleteSupplier = async (supplierId, supplierName) =>{
 
             <td className="inventory_icon_cell">
               <div>
-                <Editicon className="inventory_icon" />
                 <Delicon className="inventory_icon" onClick={() => deleteSupplier(supplier.id, supplier.name)}/>
               </div>
             </td>

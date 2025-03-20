@@ -131,7 +131,6 @@ const Inventory = () => {
 
             <td>
               <div>
-                <Editicon  className="inventory_icon"/>
                 <Delicon className="inventory_icon" onClick={() => deleteStock(stock.id, stock.stockName)}/>
               </div>
             </td>

@@ -155,9 +155,6 @@ const getDistributions = async () => {
             </td>
 
              <td>
-                          <div>
-                            <Editicon className="sales_icon" />
-                          </div>
                         </td>
           </tr>
             )
