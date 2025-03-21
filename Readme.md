@@ -1,7 +1,6 @@
 # EasiPharma || A new way to track pharmaceutical products
 
 ##  Overview  
-<!-- EasiPharma is a pharmaceutical inventory management system that tracks stock levels, manages suppliers, and facilitates restocking. With AI predicting stock shortages and expiration. -->
 EasiPharma is a stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, order placements when inventory runs low and distribution of stocks. Additionally, AI-powered stock expiration alerts and restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
 
 With EasiPharma, pharmacy owners and managers can:  
@@ -109,11 +108,14 @@ Follow these steps to set up and run EasiPharma on your local machine:
 
 - **Manage Inventory** – Add new stocks, update details, and monitor availability.
 
--**Manage Suppliers** – Add and track supplier information.
+- **Stock Orders** – Generate orders automatically when required.
 
--**Get AI-Based Stock Warnings** – Receive alerts when stock is running low and or about to expire.
+- **Stock Distribution** – Distribute stocks to customers and track the status of the distributed stocks.
+- 
+- **Manage Suppliers** – Add and track supplier information.
 
--**Stock Orders** – Generate orders automatically when required.
+- **Get AI-Based Stock Warnings** – Receive alerts when stock is running low and or about to expire.
+
 
 ## Directory Structure
 ```
@@ -202,13 +204,12 @@ To deploy:
 - [Ayobami Akande](https://github.com/adeyemimichael)  (Discord - Adeyemi123)
 - [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4) (Discord - loverboi9788) 
 
+## 📽️ Demo Video  
+Watch a walkthrough of EasiPharma in action
+[![Watch the Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)
 
 ## Live Demo
 [EasiPharma Live](https://easi-pharma.vercel.app)
 
 ## License
 This project is licensed under MIT. See the [LICENSE](https://choosealicense.com/licenses/mit/) file for details.
-
-
-
-
