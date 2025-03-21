@@ -204,6 +204,9 @@ To deploy:
 - [Ayobami Akande](https://github.com/adeyemimichael)  (Discord - Adeyemi123)
 - [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4) (Discord - loverboi9788) 
 
+## **GitHub Repository**  
+[GitHub Repo](https://github.com/olamilekan5162/EasiPharma)
+
 ## 📽️ Demo Video  
 Watch a walkthrough of EasiPharma in action
 [![Watch the Demo](https://drive.google.com/file/d/16A09unEHSdKAfUic0RXTXSbdL7Ei6zUA/view?usp=drivesdk)
