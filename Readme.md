@@ -209,7 +209,7 @@ To deploy:
 
 ## 📽️ Demo Video  
 Watch a walkthrough of EasiPharma in action
-[![Watch the Demo](https://drive.google.com/file/d/16A09unEHSdKAfUic0RXTXSbdL7Ei6zUA/view?usp=drivesdk)
+[Watch the Demo](https://drive.google.com/file/d/16A09unEHSdKAfUic0RXTXSbdL7Ei6zUA/view?usp=drivesdk)
 
 ## Live Url
 [EasiPharma Live](https://easi-pharma.vercel.app)
