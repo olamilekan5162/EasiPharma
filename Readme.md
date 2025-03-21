@@ -17,6 +17,7 @@ With EasiPharma, pharmacy owners and managers can:
 - EasiPharma has two roles: Admin and Staff Member.  
 - Admins manage inventory, suppliers, stock orders, and track distributions.  
 - Staff members track and distribute or sell stock.
+
 ###  **Inventory Management**  
 - Track existing stock levels and availability  
 - Add new stock items with relevant details  
@@ -29,6 +30,10 @@ With EasiPharma, pharmacy owners and managers can:
 ### **Stock Ordering**  
 - Generate and track stock orders  
 - Automatically update inventory when stock is delivered  
+
+### **Distribution of Stocks**
+- Stocks can be distributed from the staff's Dashboard 
+- Distributed stocks are marked as completed when the stock is delivered
 
 ### 🧠 **AI-Driven Restocking Recommendations and Warning**  
 - Uses Gemini AI API to analyze stock levels
@@ -43,9 +48,6 @@ The prompt is formatted as a string, with the stock data from the Firebase Fires
 - Secure login and logout functionality  
 - Uses Firebase Authentication for account management  
 
-### **Distribution of Stocks**
-- Stocks can be distributed from the staff's Dashboard 
-- Distributed stocks are marked as completed when the stock is delivered
 
 ##  Technologies Used  
 
@@ -195,12 +197,13 @@ To deploy:
 - Multi-level user access for managers.
 - AI-driven automated stock ordering.
 - Data Analytics Dashboard – Provide insights into stock trends and supplier efficiency.
+- Integration with Suppliers APIs
 - Mobile App Integration – Create a mobile version for pharmacy managers on the go.
 
 ## 📌 Collaborators
-- [Opeyemi Olalekan](https://github.com/olamilekan5162) (Discord - Oracle5163)
-- [Ayobami Akande](https://github.com/adeyemimichael)  (Discord - Adeyemi123)
-- [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4) (Discord - loverboi9788) 
+- [Opeyemi Olalekan](https://github.com/olamilekan5162) (Discord - @Oracle5163)
+- [Ayobami Akande](https://github.com/adeyemimichael)  (Discord - @Adeyemi123)
+- [Oluwasanmi Oluwafemi](https://github.com/Oluwasanmij2r4) (Discord - @loverboi9788) 
 
 ## **GitHub Repository**  
 [GitHub Repo](https://github.com/olamilekan5162/EasiPharma)
