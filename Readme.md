@@ -8,7 +8,7 @@ With EasiPharma, pharmacy owners and managers can:
 - Monitor stock levels in real-time  
 - Manage suppliers and track deliveries  
 -  Carry out restocking processes
-- Receive AI-based recommendations for stock replenishment  
+- Receive AI-based recommendations for stock replenishment and stock expiration 
 - Securely log in and manage operations via Firebase Authentication 
 
 
@@ -32,7 +32,7 @@ With EasiPharma, pharmacy owners and managers can:
 - Automatically update inventory when stock is delivered  
 
 ### 🧠 **AI-Driven Restocking Recommendations and Warning**  
-- Uses Gemini AI to analyze stock levels  
+- Uses Gemini AI to analyze stock levels
 - Predicts the reordering of items based on usage trends  
 - Predicts and warn against the expiry dates of stocks based on Inventory details
 
@@ -106,7 +106,7 @@ Follow these steps to set up and run EasiPharma on your local machine:
 
 -**Manage Suppliers** – Add and track supplier information.
 
--**Get AI-Based Stock Warnings** – Receive alerts when stock is running low.
+-**Get AI-Based Stock Warnings** – Receive alerts when stock is running low and or about to expire.
 
 -**Stock Orders** – Generate orders automatically when required.
 
