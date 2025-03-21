@@ -56,8 +56,7 @@ The prompt is formatted as a string, with the stock data from the Firebase Fires
 | **Firebase Firestore** | Database for storing stocks, suppliers, and orders |  
 | **Firebase Authentication** | Secure user authentication |  
 
-
-### 🛠 Installation Guide  
+## 🛠 Installation Guide  
 
 Follow these steps to set up and run EasiPharma on your local machine:  
 
@@ -208,7 +207,7 @@ To deploy:
 
 ## 📽️ Demo Video  
 Watch a walkthrough of EasiPharma in action
-[Watch the Demo](https://drive.google.com/file/d/16A09unEHSdKAfUic0RXTXSbdL7Ei6zUA/view?usp=drivesdk)
+[Watch the Demo](https://drive.google.com/file/d/16A09unEHSdKAfUic0RXTXSbdL7Ei6zUA/view?usp=sharing)
 
 ## Live Url
 [EasiPharma Live](https://easi-pharma.vercel.app)
