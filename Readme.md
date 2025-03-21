@@ -111,9 +111,9 @@ Follow these steps to set up and run EasiPharma on your local machine:
 - **Stock Orders** – Generate orders automatically when required.
 
 - **Stock Distribution** – Distribute stocks to customers and track the status of the distributed stocks.
-- 
-- **Manage Suppliers** – Add and track supplier information.
 
+- **Manage Suppliers** – Add and track supplier information.
+- 
 - **Get AI-Based Stock Warnings** – Receive alerts when stock is running low and or about to expire.
 
 
@@ -206,9 +206,9 @@ To deploy:
 
 ## 📽️ Demo Video  
 Watch a walkthrough of EasiPharma in action
-[![Watch the Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)
+[![Watch the Demo](https://drive.google.com/file/d/16A09unEHSdKAfUic0RXTXSbdL7Ei6zUA/view?usp=drivesdk)
 
-## Live Demo
+## Live Url
 [EasiPharma Live](https://easi-pharma.vercel.app)
 
 ## License
