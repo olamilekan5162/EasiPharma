@@ -113,7 +113,7 @@ Before running EasiPharma, ensure you have the following:
 - **Stock Distribution** – Distribute stocks to customers and track the status of the distributed stocks.
 
 - **Manage Suppliers** – Add and track supplier information.
-- 
+
 - **Get AI-Based Stock Warnings** – Receive alerts when stock is running low and or about to expire.
 
 
