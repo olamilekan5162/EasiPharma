@@ -56,17 +56,16 @@ The prompt is formatted as a string, with the stock data from the Firebase Fires
 | **Firebase Firestore** | Database for storing stocks, suppliers, and orders |  
 | **Firebase Authentication** | Secure user authentication |  
 
+
+### 🛠 Installation Guide  
+
+Follow these steps to set up and run EasiPharma on your local machine:  
+
 ## ⚙️ Prerequisites  
 Before running EasiPharma, ensure you have the following:  
 - Node.js installed on your system  
 - A Firebase account with Firestore and Authentication enabled  
 - A Gemini AI API key for AI-driven recommendations  
-
-## 🛠 Installation Guide  
-
-Follow these steps to set up and run EasiPharma on your local machine:  
-
-### 1️⃣ Clone the Repository  
 
 ## Installation
 1. Clone the repository:
@@ -78,7 +77,7 @@ Follow these steps to set up and run EasiPharma on your local machine:
    cd EasiPharma
    ```
 3. **Set up Firebase:** Enable Firestore Database and Authentication.
-4. **Set up GeminiAI:** Get an API key from [Gemini](https://gemini.google.com/).
+4. **Set up GeminiAI:** Get an API key from [Gemini](https://ai.google.dev).
 5. **Create an `.env.local` file** with environment variables:
    ```ini
    VITE_GEMINI_KEY=your-gemini-api-key
