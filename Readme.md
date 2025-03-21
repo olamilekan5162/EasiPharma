@@ -2,7 +2,7 @@
 
 ##  Overview  
 <!-- EasiPharma is a pharmaceutical inventory management system that tracks stock levels, manages suppliers, and facilitates restocking. With AI predicting stock shortages and expiration. -->
-EasiPharma is a stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, and order placements when inventory runs low. Additionally, AI-powered restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
+EasiPharma is a stock and inventory management system tailored for pharmaceutical businesses. The platform enables efficient tracking of stock levels, supplier management, order placements when inventory runs low and distribution of stocks. Additionally, AI-powered stock expiration alerts and restocking recommendations ensure optimal stock availability, helping businesses prevent shortages and overstocking.  
 
 With EasiPharma, pharmacy owners and managers can:  
 - Monitor stock levels in real-time  
@@ -32,13 +32,18 @@ With EasiPharma, pharmacy owners and managers can:
 - Automatically update inventory when stock is delivered  
 
 ### 🧠 **AI-Driven Restocking Recommendations and Warning**  
-- Uses Gemini AI to analyze stock levels
+- Uses Gemini AI API to analyze stock levels
 - Predicts the reordering of items based on usage trends  
 - Predicts and warn against the expiry dates of stocks based on Inventory details
+
+### **How the AI is Prompted:**
+The system sends a prompt to Gemini AI model (gemini-2.0-pro-exp-02-0) instructing it to analyze the provided stock data and generate concise answers regarding expiration dates and restocking needs.
+The prompt is formatted as a string, with the stock data from the Firebase Firestore database encoded in JSON format
 
 ###  **User Authentication**  
 - Secure login and logout functionality  
 - Uses Firebase Authentication for account management  
+
 ### **Distribution of Stocks**
 - Stocks can be distributed from the staff's Dashboard 
 - Distributed stocks are marked as completed when the stock is delivered
